@@ -47,7 +47,7 @@ You can now run [LXDE Desktop Environment](https://lxde.org/), currently only [U
 
 4. Currently supported distro:
 
-   [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/), [CentOS](https://www.centos.org/), [openSUSE Leap](https://www.opensuse.org/), [openSUSE Tumberweed](https://www.opensuse.org/)
+   [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/), [CentOS](https://www.centos.org/), [openSUSE Leap](https://www.opensuse.org/), [openSUSE Tumbleweed](https://www.opensuse.org/)
 
 5. For any suggestion or issue, please open an issue on Github.
 
