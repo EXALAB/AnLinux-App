@@ -23,7 +23,13 @@ Script located it Scripts/Bootstrap are used to bootstrap the system, to bootstr
    
 For example: 
 
-> ./bootstrap.sh armhf /home/user/debian/armhf   
+> ./bootstrap.sh armhf /home/user/debian/armhf 
+
+
+
+## Desktop Environment and GUI
+
+You can now run LXDE Desktop Environment, currently only Ubuntu, Debian, Kali, Fedora are supported, and only LXDE will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
 
 
 
@@ -55,9 +61,7 @@ The author of application icon is [Alpár-Etele Méder](https://www.iconfinder.c
 
 ## Todo
 
-1. GUI: XSDL works, but could not perform any clicking action(Maybe because the application is too old), XRDP does not work, VNC not test yet.
-
-2. Arch Linux support
+1. Arch Linux, FreeBSD, Slackware Support
 
 
 
