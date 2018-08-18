@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">AnLinux</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="about">About</string>
+    <string name="others">Others</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="desktop_environment">Desktop Environment</string>
+    <string name="desktop_title">Setup Desktop</string>
+    <string name="step1">Step 1 : Choose the distro you want to install, you can install multiple disto without conflict.</string>
+    <string name="gui_step1">WARNING: Only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nStep 1 : Please choose a distro to setup the GUI</string>
+    <string name="press_again_to_exit">Please press again to exit application</string>
+    <string name="about_content">LinuxOnAndroid is a project intent to bring the access of Linux to Android platform.\n\nThe icon of this application is taken from https://www.iconfinder.com , which is created by user : "Alpár-Etele Méder", you can reach the icon author by clicking "ICON AUTHOR" button below.\n\nThanks for using this apps.\n\n\nRegards, EXA Lab</string>
+</resources>
