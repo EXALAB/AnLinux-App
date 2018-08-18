@@ -2,6 +2,7 @@ package exa.lnx.a;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -331,6 +332,11 @@ public class DesktopEnvironment extends Fragment {
         });
         alertDialog.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
+                Fragment fragment = new DashBoard();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
                 dialog.dismiss();
             }
         });
