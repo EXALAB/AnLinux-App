@@ -15,7 +15,7 @@ The bash script download image over internet, then decompress the image and then
 
 ## Bootstraping System
 
-Note: Only Ubuntu, Debian, Kali are bootstrap using the script, others are docker image without modification.
+Note: Only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/) are bootstrap using the script, others are docker image without modification.
 
 Script located it Scripts/Bootstrap are used to bootstrap the system, to bootstrap a system, simply run:
 
@@ -29,7 +29,7 @@ For example:
 
 ## Desktop Environment and GUI
 
-You can now run LXDE Desktop Environment, currently only Ubuntu, Debian, Kali, Fedora are supported, and only LXDE will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
+You can now run [LXDE Desktop Environment](https://lxde.org/), currently only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/) are supported, and only [LXDE Desktop Environment](https://lxde.org/) will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
 
 
 
@@ -47,7 +47,7 @@ You can now run LXDE Desktop Environment, currently only Ubuntu, Debian, Kali, F
 
 4. Currently supported distro:
 
-   Ubuntu, Debian, Kali, Fedora, CentOS, openSUSE Leap, openSUSE Tumberweed
+   [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/), [CentOS](https://www.centos.org/), [openSUSE Leap](https://www.opensuse.org/), [openSUSE Tumberweed](https://www.opensuse.org/)
 
 5. For any suggestion or issue, please open an issue on Github.
 
@@ -61,7 +61,7 @@ The author of application icon is [Alpár-Etele Méder](https://www.iconfinder.c
 
 ## Todo
 
-1. Arch Linux, FreeBSD, Slackware Support
+1. [Arch Linux](https://www.archlinux.org/), [Black Arch](https://blackarch.org/), [FreeBSD](https://www.freebsd.org/), [Slackware](http://www.slackware.com/) support
 
 
 
