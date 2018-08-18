@@ -214,7 +214,7 @@ public class DesktopEnvironment extends Fragment {
             checkBox5.setEnabled(false);
             checkBox6.setEnabled(false);
             checkBox7.setEnabled(false);
-            checkBox6.setText("CentOS (Not yet supported)");
+            checkBox5.setText("CentOS (Not yet supported)");
             checkBox6.setText("openSUSE Leap (Not yet supported)");
             checkBox7.setText("openSUSE Tumbleweed (Not yet supported)");
         }
