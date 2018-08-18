@@ -1,6 +1,6 @@
-This is repo for the main application. If you are looking for the images and scripts used in this app, please visit [here](https://github.com/EXALAB/LinuxOnAndroid-Resources)
+This is repo for the main application. If you are looking for the images and scripts used in this app, please visit [here](https://github.com/EXALAB/AnLinux-Resources)
 
-# LinuxOnAndroid
+# AnLinux
 Run Linux On Android Without Root Access, thanks for the Awesome [Termux](https://github.com/termux/termux-app) and [PRoot](https://github.com/proot-me/PRoot), which make this project possible.
 
 You can find the application on Play Store [Here](https://play.google.com/store/apps/details?id=exa.lnx.a) , or download it on Github if you dont have access to Play Store.
