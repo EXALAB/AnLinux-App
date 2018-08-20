@@ -27,7 +27,7 @@ For example:
 
 
 
-## Desktop Environment and GUI
+## Desktop Environment, Window Manager and GUI
 
 You can now run [LXDE Desktop Environment](https://lxde.org/), currently only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/) are supported, and only [LXDE Desktop Environment](https://lxde.org/) will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
 
@@ -38,6 +38,9 @@ We are currently planning to support more lightweight desktop environment, curre
 1. [LXDE](https://lxde.org): success
 2. [Xfce4](https://xfce.org): failed
 3. [LXQt](https://lxqt.org): failed
+4. [Enlightment](https://www.enlightenment.org): not yet tested
+5. [fluxbox](http://www.fluxbox.org): not yet tested
+6. [JWM (Joe's Window Manager)](https://joewing.net/projects/jwm/): not yet tested
 
 If you have any tweak, suggestion, recommendation, please open an issue on Github.
 
