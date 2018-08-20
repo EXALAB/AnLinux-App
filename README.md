@@ -13,20 +13,6 @@ The bash script download image over internet, then decompress the image and then
 
 
 
-## Bootstraping System
-
-Note: Only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/) are bootstrap using the script, others are docker image without modification.
-
-Script located it Scripts/Bootstrap are used to bootstrap the system, to bootstrap a system, simply run:
-
-> ./bootstrap.sh architecture /path/to/bootstrap
-   
-For example: 
-
-> ./bootstrap.sh armhf /home/user/debian/armhf 
-
-
-
 ## Desktop Environment, Window Manager and GUI
 
 You can now run [LXDE Desktop Environment](https://lxde.org/), currently only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/) are supported, and only [LXDE Desktop Environment](https://lxde.org/) will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
