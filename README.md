@@ -31,6 +31,16 @@ For example:
 
 You can now run [LXDE Desktop Environment](https://lxde.org/), currently only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/) are supported, and only [LXDE Desktop Environment](https://lxde.org/) will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
 
+About future development in desktop environment:
+
+We are currently planning to support more lightweight desktop environment, current status:
+
+1. [LXDE](https://lxde.org): success
+2. [Xfce4](https://xfce.org): failed
+3. [LXQt](https://lxqt.org): failed
+
+If you have any tweak, suggestion, recommendation, please open an issue on Github.
+
 
 
 ## Note
@@ -43,9 +53,7 @@ You can now run [LXDE Desktop Environment](https://lxde.org/), currently only [U
 
    Architeture : armv7, arm64, x86, x86_64
 
-3. Currently only work for command line, GUI are still in progress, please do not blame developers for this.
-
-4. Currently supported distro:
+3. Currently supported distro:
 
    [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/), [CentOS](https://www.centos.org/), [openSUSE Leap](https://www.opensuse.org/), [openSUSE Tumbleweed](https://www.opensuse.org/)
 
