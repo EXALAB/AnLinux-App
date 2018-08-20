@@ -19,7 +19,7 @@ Note: Only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/),
 
 Script located it Scripts/Bootstrap are used to bootstrap the system, to bootstrap a system, simply run:
 
-> ./bootstrap.sh <architecture> /path/to/bootstrap
+> ./bootstrap.sh architecture /path/to/bootstrap
    
 For example: 
 
