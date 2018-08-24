@@ -10,7 +10,11 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="desktop_environment">Desktop Environment</string>
+    <string name="support">Support</string>
     <string name="desktop_title">Setup Desktop</string>
+    <string name="watch_ads">Watch Ads</string>
+    <string name="donation">Donation</string>
+    <string name="_continue">Continue</string>
     <string name="step1">Step 1 : Choose the distro you want to install, you can install multiple disto without conflict.</string>
     <string name="gui_step1">WARNING: Only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nStep 1 : Please choose a distro to setup the GUI</string>
     <string name="press_again_to_exit">Please press again to exit application</string>

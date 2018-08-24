@@ -17,6 +17,10 @@
                 android:icon="@drawable/ic_desktop"
                 android:title="@string/desktop_environment" />
             <item
+                android:id="@+id/support"
+                android:icon="@drawable/ic_support"
+                android:title="@string/support" />
+            <item
                 android:id="@+id/about"
                 android:icon="@drawable/ic_about"
                 android:title="@string/about" />

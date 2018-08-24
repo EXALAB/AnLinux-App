@@ -341,7 +341,7 @@ public class DesktopEnvironment extends Fragment {
             }
         });
         alertDialog.show();
-        textView.setText("Installing Desktop Environment will take around 1500 MB space, 2 GB space is recommended, do you still want to install the desktop environment ?");
+        textView.setText("Installing Desktop Environment will take around 1 GB space, 1.5 GB space is recommended, do you still want to install the desktop environment ?");
     }
     private boolean isPackageInstalled(String packageName, PackageManager packageManager) {
         try {

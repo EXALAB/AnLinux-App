@@ -1,8 +1,16 @@
 package exa.lnx.a;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.KeyEvent;
@@ -12,14 +20,34 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class MainUI extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Context context;
     private long lastPressedTime;
     private static final int PERIOD = 3000;
+    private RewardedVideoAd mRewardedVideoAd;
+    AdView mAdView;
+    RelativeLayout relativeLayout;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +66,86 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        relativeLayout = findViewById(R.id.fragmentHolder);
+
+        sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
+        editor = sharedPreferences.edit();
+
+        mAdView = findViewById(R.id.adView);
+
+        if(!donationInstalled() && !isVideoAdsWatched()){
+            mAdView.loadAd(new AdRequest.Builder().build());
+        }
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        mRewardedVideoAd.loadAd("ca-app-pub-5748356089815497/5381178563", new AdRequest.Builder().build());
+
+        mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
+            @Override
+            public void onRewardedVideoAdLoaded() {
+            }
+
+            @Override
+            public void onRewardedVideoAdOpened() {
+
+            }
+
+            @Override
+            public void onRewardedVideoStarted() {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdClosed() {
+
+            }
+
+            @Override
+            public void onRewarded(RewardItem rewardItem) {
+                if(donationInstalled()){
+                    Calendar cal = Calendar.getInstance();
+                    Date date = cal.getTime();
+                    cal.setTime(date);
+                    int a =  cal.get(Calendar.DAY_OF_MONTH);
+                    int b = sharedPreferences.getInt("VideoAds", 0);
+                    if(a != b){
+                        editor.putInt("VideoAds", a);
+                        editor.apply();
+                    }
+                    Toast.makeText(context, "Thanks for your support!!!", Toast.LENGTH_LONG).show();
+                }else{
+                    Calendar cal = Calendar.getInstance();
+                    Date date = cal.getTime();
+                    cal.setTime(date);
+                    int a =  cal.get(Calendar.DAY_OF_MONTH);
+                    int b = sharedPreferences.getInt("VideoAds", 0);
+                    if(a != b){
+                        editor.putInt("VideoAds", a);
+                        editor.apply();
+                        relativeLayout.removeView(mAdView);
+                        Toast.makeText(context, "The ads are removed for today.", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onRewardedVideoAdLeftApplication() {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdFailedToLoad(int i) {
+
+            }
+
+            @Override
+            public void onRewardedVideoCompleted() {
+                mRewardedVideoAd.loadAd("ca-app-pub-5748356089815497/5381178563", new AdRequest.Builder().build());
+            }
+        });
 
         if(savedInstanceState == null){
             newFragment(0);
@@ -92,6 +198,12 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             newFragment(0);
         }else if(id == R.id.about){
             newFragment(1);
+        }else if(id == R.id.support){
+            if(donationInstalled()){
+                notifyUserForSupportAfterDonation();
+            }else{
+                notifyUserForSupport();
+            }
         }else if(id == R.id.gui){
             newFragment(2);
         }
@@ -128,5 +240,86 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 fragmentTransaction.commit();
                 break;
         }
+    }
+    public void notifyUserForSupport(){
+        final ViewGroup nullParent = null;
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.notify1, nullParent);
+        TextView textView = view.findViewById(R.id.textView);
+
+        alertDialog.setView(view);
+        alertDialog.setCancelable(false);
+        alertDialog.setPositiveButton(R.string.donation, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                Uri uri = Uri.parse("market://details?id=exa.lnx.d");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                if(Build.VERSION.SDK_INT >= 21){
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                }
+                try{
+                    startActivity(intent);
+                }catch(ActivityNotFoundException e){
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=exa.lnx.d")));
+                }
+                dialog.dismiss();
+            }
+        });
+        alertDialog.setNeutralButton(R.string.watch_ads, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                if (mRewardedVideoAd.isLoaded()) {
+                    mRewardedVideoAd.show();
+                }else{
+                    Toast.makeText(context, "Currently no video ads available", Toast.LENGTH_SHORT).show();
+                }
+                dialog.dismiss();
+            }
+        });
+        alertDialog.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialog.show();
+        textView.setText("Thanks for using this app, do you want to support the developers?\n\n You can choose to watch an ad video, which will remove advertisement for a day, or purchase a Donation Package on Play Store which remove the ads forever.");
+    }
+    public void notifyUserForSupportAfterDonation(){
+        final ViewGroup nullParent = null;
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.notify1, nullParent);
+        TextView textView = view.findViewById(R.id.textView);
+
+        alertDialog.setView(view);
+        alertDialog.setCancelable(false);
+        alertDialog.setPositiveButton(R.string.watch_ads, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                if (mRewardedVideoAd.isLoaded()) {
+                    mRewardedVideoAd.show();
+                }else{
+                    Toast.makeText(context, "Currently no video ads available", Toast.LENGTH_SHORT).show();
+                }
+                dialog.dismiss();
+            }
+        });
+        alertDialog.setNegativeButton(R.string._continue, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialog.show();
+        textView.setText("Thanks for purchasing Donation Package, you can still watch video ads to support the developers, or continue to enjoy this app.");
+    }
+    private boolean donationInstalled() {
+        PackageManager packageManager = context.getPackageManager();
+        return packageManager.checkSignatures(context.getPackageName(), "exa.lnx.d") == PackageManager.SIGNATURE_MATCH;
+    }
+    private boolean isVideoAdsWatched(){
+        Calendar cal = Calendar.getInstance();
+        Date date = cal.getTime();
+        cal.setTime(date);
+        int a =  cal.get(Calendar.DAY_OF_MONTH);
+        int b = sharedPreferences.getInt("VideoAds", 0);
+        return a == b;
     }
 }

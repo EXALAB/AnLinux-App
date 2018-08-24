@@ -8,6 +8,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -22,8 +23,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class DashBoard extends Fragment {
 
@@ -36,8 +39,8 @@ public class DashBoard extends Fragment {
     String distro;
     String s;
     boolean shouldShowAds;
+    SharedPreferences sharedPreferences;
     InterstitialAd mInterstitialAd;
-    AdView mAdView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
@@ -46,6 +49,7 @@ public class DashBoard extends Fragment {
         View view = inflater.inflate(R.layout.dashboard, container, false);
 
         context = getActivity().getApplicationContext();
+        sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
 
         distro = "Nothing";
 
@@ -61,11 +65,8 @@ public class DashBoard extends Fragment {
         mInterstitialAd = new InterstitialAd(context);
         mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
 
-        mAdView = view.findViewById(R.id.adView);
-
-        if(!donationInstalled()){
+        if(!donationInstalled() && !isVideoAdsWatched()){
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            mAdView.loadAd(new AdRequest.Builder().build());
         }
 
         button = view.findViewById(R.id.button);
@@ -113,7 +114,7 @@ public class DashBoard extends Fragment {
                     clipboard.setPrimaryClip(clip);
                 }
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
-                    if(!donationInstalled()){
+                    if(!donationInstalled() && !isVideoAdsWatched()){
                         mInterstitialAd.show();
                     }
                     shouldShowAds = false;
@@ -379,5 +380,13 @@ public class DashBoard extends Fragment {
     private boolean donationInstalled() {
         PackageManager packageManager = context.getPackageManager();
         return packageManager.checkSignatures(context.getPackageName(), "exa.lnx.d") == PackageManager.SIGNATURE_MATCH;
+    }
+    private boolean isVideoAdsWatched(){
+        Calendar cal = Calendar.getInstance();
+        Date date = cal.getTime();
+        cal.setTime(date);
+        int a =  cal.get(Calendar.DAY_OF_MONTH);
+        int b = sharedPreferences.getInt("VideoAds", 0);
+        return a == b;
     }
 }
