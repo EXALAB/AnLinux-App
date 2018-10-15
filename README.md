@@ -26,7 +26,6 @@ We are currently planning to support more lightweight desktop environment, curre
 3. [LXQt](https://lxqt.org): failed
 4. [Enlightment](https://www.enlightenment.org): not yet tested
 5. [fluxbox](http://www.fluxbox.org): not yet tested
-6. [JWM (Joe's Window Manager)](https://joewing.net/projects/jwm/): not yet tested
 
 If you have any tweak, suggestion, recommendation, please open an issue on Github.
 
