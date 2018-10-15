@@ -58,7 +58,7 @@ The author of application icon is [Alpár-Etele Méder](https://www.iconfinder.c
 
 ## Todo
 
-1. [Arch Linux](https://www.archlinux.org/), [Black Arch](https://blackarch.org/), [FreeBSD](https://www.freebsd.org/), [Slackware](http://www.slackware.com/) support
+1. [FreeBSD](https://www.freebsd.org/), [Slackware](http://www.slackware.com/), [Manjaro](https://manjaro.org/) support
 
 
 
