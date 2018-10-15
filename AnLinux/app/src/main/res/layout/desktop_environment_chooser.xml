@@ -45,39 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox4"
-            android:text="CentOS"/>
-
-        <CheckBox
-            android:id="@+id/checkBox6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_below="@id/checkBox5"
-            android:text="openSUSE Leap"/>
-
-        <CheckBox
-            android:id="@+id/checkBox7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_below="@id/checkBox6"
-            android:text="openSUSE Tumbleweed"/>
-
-        <CheckBox
-            android:id="@+id/checkBox8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_below="@id/checkBox7"
             android:text="Arch Linux"/>
-
-        <CheckBox
-            android:id="@+id/checkBox9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_below="@id/checkBox8"
-            android:text="Black Arch"/>
 
     </RelativeLayout>
 

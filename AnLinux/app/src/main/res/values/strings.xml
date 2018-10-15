@@ -5,11 +5,13 @@
     <string name="dashboard">Dashboard</string>
     <string name="about">About</string>
     <string name="others">Others</string>
+    <string name="features">Features</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="desktop_environment">Desktop Environment</string>
+    <string name="uninstall">Uninstall</string>
     <string name="support">Support</string>
     <string name="desktop_title">Setup Desktop</string>
     <string name="watch_ads">Watch Ads</string>

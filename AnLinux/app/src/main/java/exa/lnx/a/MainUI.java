@@ -87,22 +87,15 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             @Override
             public void onRewardedVideoAdLoaded() {
             }
-
             @Override
             public void onRewardedVideoAdOpened() {
-
             }
-
             @Override
             public void onRewardedVideoStarted() {
-
             }
-
             @Override
             public void onRewardedVideoAdClosed() {
-
             }
-
             @Override
             public void onRewarded(RewardItem rewardItem) {
                 if(donationInstalled()){
@@ -130,17 +123,12 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                     }
                 }
             }
-
             @Override
             public void onRewardedVideoAdLeftApplication() {
-
             }
-
             @Override
             public void onRewardedVideoAdFailedToLoad(int i) {
-
             }
-
             @Override
             public void onRewardedVideoCompleted() {
                 mRewardedVideoAd.loadAd("ca-app-pub-5748356089815497/5381178563", new AdRequest.Builder().build());
@@ -206,6 +194,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             }
         }else if(id == R.id.gui){
             newFragment(2);
+        }else if(id == R.id.uninstall){
+            newFragment(3);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -235,6 +225,13 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
             case 2:
                 fragment = new DesktopEnvironment();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+            case 3:
+                fragment = new Uninstaller();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();

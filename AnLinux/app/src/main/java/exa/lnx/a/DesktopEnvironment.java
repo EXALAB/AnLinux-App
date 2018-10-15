@@ -91,17 +91,25 @@ public class DesktopEnvironment extends Fragment {
             public void onClick(View view) {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
                 if(distro.equals("Ubuntu")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de.sh && bash de.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Debian")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de.sh && bash de.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Kali")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de.sh && bash de.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Fedora")){
-                    ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/de.sh && bash de.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/de-yum.sh && bash de-yum.sh");
                     clipboard.setPrimaryClip(clip);
+                }else if(distro.equals("Arch")){
+                    if(s.contains("arm")){
+                        ClipData clip = ClipData.newPlainText("Command", "pacman-key init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }else{
+                        ClipData clip = ClipData.newPlainText("Command", "pacman-key init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }
                 }
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
                     if(!donationInstalled()){
@@ -139,15 +147,12 @@ public class DesktopEnvironment extends Fragment {
         final ViewGroup nullParent = null;
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-        View view = layoutInflater.inflate(R.layout.distro_chooser, nullParent);
+        View view = layoutInflater.inflate(R.layout.desktop_environment_chooser, nullParent);
         final CheckBox checkBox = view.findViewById(R.id.checkBox);
         final CheckBox checkBox2 = view.findViewById(R.id.checkBox2);
         final CheckBox checkBox3 = view.findViewById(R.id.checkBox3);
         final CheckBox checkBox4 = view.findViewById(R.id.checkBox4);
         final CheckBox checkBox5 = view.findViewById(R.id.checkBox5);
-        final CheckBox checkBox6 = view.findViewById(R.id.checkBox6);
-        final CheckBox checkBox7 = view.findViewById(R.id.checkBox7);
-
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
@@ -160,6 +165,8 @@ public class DesktopEnvironment extends Fragment {
             checkBox3.setChecked(true);
         }else if(distro.equals("Fedora")){
             checkBox4.setChecked(true);
+        }else if(distro.equals("Arch")){
+            checkBox5.setChecked(true);
         }
 
         checkBox.setOnClickListener(new View.OnClickListener() {
@@ -198,25 +205,20 @@ public class DesktopEnvironment extends Fragment {
                 checkBox5.setChecked(false);
             }
         });
+        checkBox5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+            }
+        });
         if(s.equals("i386")){
             checkBox4.setEnabled(false);
-            checkBox6.setEnabled(false);
-            checkBox7.setEnabled(false);
             checkBox4.setText("Not supported");
-            checkBox6.setText("Not supported");
-            checkBox7.setText("Not supported");
-        }else if (s.equals("armeabi") | s.equals("armeabi-v7a")){
-            checkBox6.setEnabled(false);
-            checkBox7.setEnabled(false);
-            checkBox6.setText("Not supported");
-            checkBox7.setText("Not supported");
-        }else{
             checkBox5.setEnabled(false);
-            checkBox6.setEnabled(false);
-            checkBox7.setEnabled(false);
-            checkBox5.setText("CentOS (Not yet supported)");
-            checkBox6.setText("openSUSE Leap (Not yet supported)");
-            checkBox7.setText("openSUSE Tumbleweed (Not yet supported)");
+            checkBox5.setText("Not supported");
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -241,19 +243,9 @@ public class DesktopEnvironment extends Fragment {
                         distro = "Fedora";
                     }
                 }else if(checkBox5.isChecked()){
-                    if(!distro.equals("CentOS")){
+                    if(!distro.equals("Arch")){
                         shouldShowAds = true;
-                        distro = "CentOS";
-                    }
-                }else if(checkBox6.isChecked()){
-                    if(!distro.equals("Leap")){
-                        shouldShowAds = true;
-                        distro = "Leap";
-                    }
-                }else if(checkBox7.isChecked()){
-                    if(!distro.equals("Tumbleweed")){
-                        shouldShowAds = true;
-                        distro = "Tumbleweed";
+                        distro = "Arch";
                     }
                 }
                 if(distro.equals("Ubuntu")){
@@ -268,6 +260,14 @@ public class DesktopEnvironment extends Fragment {
                 }else if(distro.equals("Fedora")){
                     textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/de.sh && bash de.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                }else if(distro.equals("Arch")){
+                    if(s.contains("arm")){
+                        textView2.setText("pacman-key init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                    }else{
+                        textView2.setText("pacman-key init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                    }
                 }
                 button2.setEnabled(true);
                 button3.setEnabled(true);

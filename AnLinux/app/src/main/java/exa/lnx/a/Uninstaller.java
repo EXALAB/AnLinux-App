@@ -19,7 +19,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -29,7 +28,7 @@ import com.google.android.gms.ads.InterstitialAd;
 import java.util.Calendar;
 import java.util.Date;
 
-public class DashBoard extends Fragment {
+public class Uninstaller extends Fragment{
 
     Context context;
     Button button;
@@ -39,8 +38,8 @@ public class DashBoard extends Fragment {
     TextView textView3;
     String distro;
     String s;
-    boolean shouldShowAds;
     SharedPreferences sharedPreferences;
+    boolean shouldShowAds;
     InterstitialAd mInterstitialAd;
     AdView mAdView;
 
@@ -48,28 +47,21 @@ public class DashBoard extends Fragment {
 
         getActivity().setTitle(R.string.dashboard);
 
-        View view = inflater.inflate(R.layout.dashboard, container, false);
-
         context = getActivity().getApplicationContext();
-        sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
+        View view = inflater.inflate(R.layout.uninstaller, container, false);
 
         distro = "Nothing";
 
         s = Build.SUPPORTED_ABIS[0];
 
-        shouldShowAds = false;
-
-        if(s.equals("mips") | s.equals("mips64")){
-            Toast.makeText(context, "Your device is not supported", Toast.LENGTH_LONG).show();
-            getActivity().finish();
-        }
+        sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
 
         mInterstitialAd = new InterstitialAd(context);
         mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
 
         mAdView = view.findViewById(R.id.adView);
 
-        if(!donationInstalled() && !isVideoAdsWatched()){
+        if(!donationInstalled()){
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
             mAdView.loadAd(new AdRequest.Builder().build());
         }
@@ -101,40 +93,37 @@ public class DashBoard extends Fragment {
             public void onClick(View view) {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
                 if(distro.equals("Ubuntu")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Ubuntu/UNI-ubuntu.sh && bash UNI-ubuntu.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Debian")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Debian/UNI-debian.sh && bash UNI-debian.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Kali")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Kali/UNI-kali.sh && bash UNI-kali.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Fedora")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Fedora/UNI-fedora.sh && bash UNI-fedora.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("CentOS")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/CentOS/UNI-centos.sh && bash UNI-centos.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Leap")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/Leap/UNI-opensuse-leap.sh && bash UNI-opensuse-leap.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Tumbleweed")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/Tumbleweed/UNI-opensuse-tumbleweed.sh && bash UNI-opensuse-tumbleweed.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("openSUSE")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/armhf/opensuse.sh && bash opensuse.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/armhf/UNI-opensuse.sh && bash UNI-opensuse.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Arch")){
                     if(s.equals("x86_64")){
-                        ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/arch.sh && bash arch.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Arch/UNI-arch.sh && bash UNI-arch.sh");
                         clipboard.setPrimaryClip(clip);
                     }else{
-                        ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Arch/UNI-arch.sh && bash UNI-arch.sh");
                         clipboard.setPrimaryClip(clip);
                     }
-                }else if(distro.equals("BlackArch")){
-                    ClipData clip = ClipData.newPlainText("Command", "pacman-key init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
-                    clipboard.setPrimaryClip(clip);
                 }
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
                     if(!donationInstalled() && !isVideoAdsWatched()){
@@ -144,7 +133,6 @@ public class DashBoard extends Fragment {
                 }
             }
         });
-
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,6 +150,7 @@ public class DashBoard extends Fragment {
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
+
         return view;
     }
     public void notifyUserToChooseDistro(){
@@ -177,7 +166,6 @@ public class DashBoard extends Fragment {
         final CheckBox checkBox6 = view.findViewById(R.id.checkBox6);
         final CheckBox checkBox7 = view.findViewById(R.id.checkBox7);
         final CheckBox checkBox8 = view.findViewById(R.id.checkBox8);
-        final CheckBox checkBox9 = view.findViewById(R.id.checkBox9);
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
@@ -198,8 +186,6 @@ public class DashBoard extends Fragment {
             checkBox7.setChecked(true);
         }else if(distro.equals("Arch")){
             checkBox8.setChecked(true);
-        }else if(distro.equals("BlackArch")){
-            checkBox9.setChecked(true);
         }
 
         checkBox.setOnClickListener(new View.OnClickListener() {
@@ -212,7 +198,6 @@ public class DashBoard extends Fragment {
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
                 checkBox8.setChecked(false);
-                checkBox9.setChecked(false);
             }
         });
         checkBox2.setOnClickListener(new View.OnClickListener() {
@@ -225,7 +210,6 @@ public class DashBoard extends Fragment {
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
                 checkBox8.setChecked(false);
-                checkBox9.setChecked(false);
             }
         });
         checkBox3.setOnClickListener(new View.OnClickListener() {
@@ -238,7 +222,6 @@ public class DashBoard extends Fragment {
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
                 checkBox8.setChecked(false);
-                checkBox9.setChecked(false);
             }
         });
         checkBox4.setOnClickListener(new View.OnClickListener() {
@@ -251,7 +234,6 @@ public class DashBoard extends Fragment {
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
                 checkBox8.setChecked(false);
-                checkBox9.setChecked(false);
             }
         });
         checkBox5.setOnClickListener(new View.OnClickListener() {
@@ -264,7 +246,6 @@ public class DashBoard extends Fragment {
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
                 checkBox8.setChecked(false);
-                checkBox9.setChecked(false);
             }
         });
         checkBox6.setOnClickListener(new View.OnClickListener() {
@@ -277,7 +258,6 @@ public class DashBoard extends Fragment {
                 checkBox5.setChecked(false);
                 checkBox7.setChecked(false);
                 checkBox8.setChecked(false);
-                checkBox9.setChecked(false);
             }
         });
         checkBox7.setOnClickListener(new View.OnClickListener() {
@@ -290,7 +270,6 @@ public class DashBoard extends Fragment {
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox8.setChecked(false);
-                checkBox9.setChecked(false);
             }
         });
         checkBox8.setOnClickListener(new View.OnClickListener() {
@@ -303,20 +282,6 @@ public class DashBoard extends Fragment {
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
-                checkBox9.setChecked(false);
-            }
-        });
-        checkBox9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox.setChecked(false);
-                checkBox2.setChecked(false);
-                checkBox3.setChecked(false);
-                checkBox4.setChecked(false);
-                checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
             }
         });
         if(s.equals("i386")){
@@ -324,12 +289,10 @@ public class DashBoard extends Fragment {
             checkBox6.setEnabled(false);
             checkBox7.setEnabled(false);
             checkBox8.setEnabled(false);
-            checkBox9.setEnabled(false);
             checkBox4.setText("Not supported");
             checkBox6.setText("Not supported");
             checkBox7.setText("Not supported");
             checkBox8.setText("Not supported");
-            checkBox9.setText("Not supported");
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -373,45 +336,36 @@ public class DashBoard extends Fragment {
                         shouldShowAds = true;
                         distro = "Arch";
                     }
-                }else if(checkBox9.isChecked()){
-                    if(!distro.equals("BlackArch")){
-                        shouldShowAds = true;
-                        distro = "BlackArch";
-                    }
                 }
                 if(distro.equals("Ubuntu")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh \n\n This should install Ubuntu on your system, you can then run ./start-ubuntu.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-ubuntu.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Ubuntu/UNI-ubuntu.sh && bash UNI-ubuntu.sh \n\n This should fully remove Ubuntu from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("Debian")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh \n\n This should install Debian on your system, you can then run ./start-debian.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-debian.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Debian/UNI-debian.sh && bash UNI-debian.sh \n\n This should fully remove Debian from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("Kali")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh \n\n This should install Kali on your system, you can then run ./start-kali.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-kali.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Kali/UNI-kali.sh && bash UNI-kali.sh \n\n This should fully remove Kali from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("Fedora")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh \n\n This should install Fedora on your system, you can then run ./start-fedora.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Fedora/UNI-fedora.sh && bash UNI-fedora.sh \n\n This should fully remove Fedora from your system.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the command line.");
                 }else if(distro.equals("CentOS")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh \n\n This should install CentOS on your system, you can then run ./start-centos.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-centos.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/CentOS/UNI-centos.sh && bash UNI-centos.sh \n\n This should fully remove CentOS from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("Leap")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh \n\n This should install openSUSE Leap on your system, you can then run ./start-leap.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-leap.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/Leap/UNI-opensuse-leap.sh && bash UNI-opensuse-leap.sh \n\n This should fully remove openSUSE Leap from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("Tumbleweed")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh \n\n This should install openSUSE Tumbleweed on your system, you can then run ./start-tumbleweed.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-tumbleweed.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/Tumbleweed/UNI-opensuse-tumbleweed.sh && bash UNI-opensuse-tumbleweed.sh \n\n This should fully remove openSUSE Tumbleweed from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("Arch")){
                     if(s.equals("x86_64")){
-                        textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/arch.sh && bash arch.sh && bash start-arch.sh && wget \n\n This should install Arch Linux on your system, you can then run ./start-arch.sh to run the command line.\n\nAfter that, you will need to run: chmod 755 additional.sh & ./additional.sh to setup resolv.conf, otherwise network connection wont work!!! (First time only)");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the command line, after that, you will also need to run ./additional.sh to setup resolv.conf, otherwise network connection wont work!!!");
+                        textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Arch/UNI-arch.sh && bash UNI-arch.sh \n\n This should fully remove Arch Linux from your system.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                     }else{
-                        textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh \n\n This should install Arch Linux on your system, you can then run ./start-arch.sh to run the command line.\n\nAfter that, you will need to run: chmod 755 additional.sh & ./additional.sh to setup resolv.conf, otherwise network connection wont work!!! (First time only)");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the command line, after that, you will also need to run ./additional.sh to setup resolv.conf, otherwise network connection wont work!!!");
+                        textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Arch/UNI-arch.sh && bash UNI-arch.sh \n\n This should fully remove Arch Linux from your system.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                     }
-                    notifyUserForDeviceSpace();
-                }else if(distro.equals("BlackArch")){
-                    textView2.setText("Note: Please run this command inside Arch Linux shell to enable BlackArch Repository (Arch Linux need to be installed first).\n\nStep 2 : Copy the command to clipboard : pacman-key init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
-                    textView3.setText("Step 3 : Start Termux, enter Arch Linux shell by running ./start-arch.sh, then paste and enter the command to install BlackArch Repo. Remember: you will need to run ./start-arch.sh to enter Arch Linux shell first before using the command above.");
                 }
                 button2.setEnabled(true);
                 button3.setEnabled(true);
@@ -438,7 +392,6 @@ public class DashBoard extends Fragment {
         final CheckBox checkBox5 = view.findViewById(R.id.checkBox5);
         final CheckBox checkBox6 = view.findViewById(R.id.checkBox6);
         final CheckBox checkBox7 = view.findViewById(R.id.checkBox7);
-        final CheckBox checkBox8 = view.findViewById(R.id.checkBox8);
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
@@ -457,8 +410,6 @@ public class DashBoard extends Fragment {
             checkBox6.setChecked(true);
         }else if(distro.equals("Arch")){
             checkBox7.setChecked(true);
-        }else if(distro.equals("BlackArch")){
-            checkBox8.setChecked(true);
         }
 
         checkBox.setOnClickListener(new View.OnClickListener() {
@@ -470,7 +421,6 @@ public class DashBoard extends Fragment {
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
             }
         });
         checkBox2.setOnClickListener(new View.OnClickListener() {
@@ -482,7 +432,6 @@ public class DashBoard extends Fragment {
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
             }
         });
         checkBox3.setOnClickListener(new View.OnClickListener() {
@@ -494,7 +443,6 @@ public class DashBoard extends Fragment {
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
             }
         });
         checkBox4.setOnClickListener(new View.OnClickListener() {
@@ -506,7 +454,6 @@ public class DashBoard extends Fragment {
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
             }
         });
         checkBox5.setOnClickListener(new View.OnClickListener() {
@@ -518,7 +465,6 @@ public class DashBoard extends Fragment {
                 checkBox4.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
             }
         });
         checkBox6.setOnClickListener(new View.OnClickListener() {
@@ -530,7 +476,6 @@ public class DashBoard extends Fragment {
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
                 checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
             }
         });
         checkBox7.setOnClickListener(new View.OnClickListener() {
@@ -542,30 +487,15 @@ public class DashBoard extends Fragment {
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
-                checkBox8.setChecked(false);
-            }
-        });
-        checkBox8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox.setChecked(false);
-                checkBox2.setChecked(false);
-                checkBox3.setChecked(false);
-                checkBox4.setChecked(false);
-                checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
             }
         });
         if(s.equals("i386")){
             checkBox4.setEnabled(false);
             checkBox6.setEnabled(false);
             checkBox7.setEnabled(false);
-            checkBox8.setEnabled(false);
             checkBox4.setText("Not supported");
             checkBox6.setText("Not supported");
             checkBox7.setText("Not supported");
-            checkBox8.setText("Not supported");
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -604,36 +534,28 @@ public class DashBoard extends Fragment {
                         shouldShowAds = true;
                         distro = "Arch";
                     }
-                }else if(checkBox8.isChecked()){
-                    if(!distro.equals("BlackArch")){
-                        shouldShowAds = true;
-                        distro = "BlackArch";
-                    }
                 }
                 if(distro.equals("Ubuntu")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh \n\n This should install Ubuntu on your system, you can then run ./start-ubuntu.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-ubuntu.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Ubuntu/UNI-ubuntu.sh && bash UNI-ubuntu.sh \n\n This should fully remove Ubuntu from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("Debian")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh \n\n This should install Debian on your system, you can then run ./start-debian.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-debian.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Debian/UNI-debian.sh && bash UNI-debian.sh \n\n This should fully remove Debian from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("Kali")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh \n\n This should install Kali on your system, you can then run ./start-kali.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-kali.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Kali/UNI-kali.sh && bash UNI-kali.sh \n\n This should fully remove Kali from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("Fedora")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh \n\n This should install Fedora on your system, you can then run ./start-fedora.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Fedora/UNI-fedora.sh && bash UNI-fedora.sh \n\n This should fully remove Fedora from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("CentOS")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh \n\n This should install CentOS on your system, you can then run ./start-centos.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-centos.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/CentOS/UNI-centos.sh && bash UNI-centos.sh \n\n This should fully remove CentOS from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("openSUSE")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/armhf/opensuse.sh && bash opensuse.sh \n\n This should install openSUSE on your system, you can then run ./start-opensuse.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-opensuse.sh to run the command line.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/armhf/UNI-opensuse.sh && bash UNI-opensuse.sh \n\n This should fully remove openSUSE from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("Arch")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh \n\n This should install Arch Linux on your system, you can then run ./start-arch.sh to run the command line.\n\nAfter that, you will need to run ./additional.sh to setup resolv.conf, otherwise network connection wont work!!! (First time only)");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the command line, after that, you will also need to run: chmod 755 additional.sh & ./additional.sh to setup resolv.conf, otherwise network connection wont work!!! (First time only)");
-                }else if(distro.equals("BlackArch")){
-                    textView2.setText("Note: Please run this command inside Arch Linux shell to enable BlackArch Repository. (Arch Linux need to be installed first)\n\nStep 2 : Copy the command to clipboard : pacman-key init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
-                    textView3.setText("Step 3 : Start Termux, enter Arch Linux shell by running ./start-arch.sh, then paste and enter the command to install BlackArch Repo. Remember: you will need to run ./start-arch.sh to enter Arch Linux shell first before using the command above.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Arch/UNI-arch.sh && bash UNI-arch.sh \n\n This should fully remove Arch Linux from your system.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }
                 button2.setEnabled(true);
                 button3.setEnabled(true);
@@ -646,6 +568,14 @@ public class DashBoard extends Fragment {
             }
         });
         alertDialog.show();
+    }
+    private boolean isPackageInstalled(String packageName, PackageManager packageManager) {
+        try {
+            packageManager.getPackageInfo(packageName, 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
     public void notifyUserForInstallTerminal(){
         final ViewGroup nullParent = null;
@@ -678,31 +608,6 @@ public class DashBoard extends Fragment {
         });
         alertDialog.show();
         textView.setText("Termux is not installed, do you want to install it now ?");
-    }
-    public void notifyUserForDeviceSpace(){
-        final ViewGroup nullParent = null;
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-        View view = layoutInflater.inflate(R.layout.notify1, nullParent);
-        TextView textView = view.findViewById(R.id.textView);
-
-        alertDialog.setView(view);
-        alertDialog.setCancelable(false);
-        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        alertDialog.show();
-        textView.setText("Arch Linux image is bigger than other distro (Around 300 MB), and may cost a lot of device space after decompressing. Having spare space over 1.5GB is highly recommended before installing.\n\n\nNote:\n\n1. Tar may produce error while extracting the image such as: tar: Ignoring unknown extended header keyword 'SCHILY.fflags', it is not an error, simply igrone it.\n\n2. Arch Linux image is hosted on external server, the link maybe broken is some special case, Please email the developers at exalabdevelopers@gmail.com if encountered this issue.");
-    }
-    private boolean isPackageInstalled(String packageName, PackageManager packageManager) {
-        try {
-            packageManager.getPackageInfo(packageName, 0);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
     }
     private boolean donationInstalled() {
         PackageManager packageManager = context.getPackageManager();

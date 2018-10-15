@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox5"
-            android:text="openSUSE Leap"/>
+            android:text="openSUSE"/>
 
         <CheckBox
             android:id="@+id/checkBox7"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox6"
-            android:text="openSUSE Tumbleweed"/>
+            android:text="Arch Linux"/>
 
         <CheckBox
             android:id="@+id/checkBox8"
@@ -69,14 +69,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox7"
-            android:text="Arch Linux"/>
-
-        <CheckBox
-            android:id="@+id/checkBox9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_below="@id/checkBox8"
             android:text="Black Arch"/>
 
     </RelativeLayout>
