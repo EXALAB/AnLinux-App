@@ -39,7 +39,7 @@ public class SSH extends Fragment {
     AdView mAdView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        getActivity().setTitle(R.string.desktop_title);
+        getActivity().setTitle(R.string.ssh_title);
 
         View view = inflater.inflate(R.layout.desktop_environment, container, false);
 

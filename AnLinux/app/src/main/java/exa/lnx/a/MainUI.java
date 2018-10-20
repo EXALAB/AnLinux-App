@@ -41,6 +41,8 @@ import java.util.Date;
 public class MainUI extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Context context;
+    NavigationView navigationView;
+    DrawerLayout drawer;
     private long lastPressedTime;
     private static final int PERIOD = 3000;
     private RewardedVideoAd mRewardedVideoAd;
@@ -60,7 +62,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -77,7 +79,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             mAdView.loadAd(new AdRequest.Builder().build());
         }
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
@@ -183,8 +185,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         int id = item.getItemId();
 
         if (id == R.id.dashboard) {
+            MenuItem selected = navigationView.getMenu().findItem(R.id.dashboard);
+            selected.setCheckable(true);
+            selected.setChecked(true);
             newFragment(0);
         }else if(id == R.id.about){
+            MenuItem selected = navigationView.getMenu().findItem(R.id.about);
+            selected.setCheckable(true);
+            selected.setChecked(true);
             newFragment(1);
         }else if(id == R.id.support){
             if(donationInstalled()){
@@ -195,10 +203,19 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         }else if(id == R.id.report){
             notifyUserToReportError();
         }else if(id == R.id.ssh){
+            MenuItem selected = navigationView.getMenu().findItem(R.id.ssh);
+            selected.setCheckable(true);
+            selected.setChecked(true);
             newFragment(4);
         }else if(id == R.id.gui){
+            MenuItem selected = navigationView.getMenu().findItem(R.id.gui);
+            selected.setCheckable(true);
+            selected.setChecked(true);
             newFragment(2);
         }else if(id == R.id.uninstall){
+            MenuItem selected = navigationView.getMenu().findItem(R.id.uninstall);
+            selected.setCheckable(true);
+            selected.setChecked(true);
             newFragment(3);
         }
 
@@ -273,7 +290,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 dialog.dismiss();
             }
         });
-        alertDialog.setNeutralButton(R.string.watch_ads, new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton(R.string.watch_ads, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 if (mRewardedVideoAd.isLoaded()) {
                     mRewardedVideoAd.show();
@@ -283,7 +300,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 dialog.dismiss();
             }
         });
-        alertDialog.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+        alertDialog.setNeutralButton(R.string.no, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
