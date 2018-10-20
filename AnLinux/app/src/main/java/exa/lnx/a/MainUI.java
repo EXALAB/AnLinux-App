@@ -192,6 +192,10 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             }else{
                 notifyUserForSupport();
             }
+        }else if(id == R.id.report){
+            notifyUserToReportError();
+        }else if(id == R.id.ssh){
+            newFragment(4);
         }else if(id == R.id.gui){
             newFragment(2);
         }else if(id == R.id.uninstall){
@@ -232,6 +236,13 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
             case 3:
                 fragment = new Uninstaller();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+            case 4:
+                fragment = new SSH();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
@@ -306,6 +317,42 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         });
         alertDialog.show();
         textView.setText("Thanks for purchasing Donation Package, you can still watch video ads to support the developers, or continue to enjoy this app.");
+    }
+    public void notifyUserToReportError(){
+        final ViewGroup nullParent = null;
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.notify1, nullParent);
+        TextView textView = view.findViewById(R.id.textView);
+
+        alertDialog.setView(view);
+        alertDialog.setCancelable(false);
+        alertDialog.setPositiveButton("Email", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+
+                emailIntent.setType("plain/text");
+                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"exalabdevelopers@gmail.com"});
+                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Bug Report");
+
+                context.startActivity(Intent.createChooser(emailIntent, "Please choose an app"));
+            }
+        });
+        alertDialog.setNegativeButton("Github", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/EXALAB/AnLinux-App/issues"));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+        alertDialog.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialog.show();
+        textView.setText("If you encountered a bug, you can choose to open an issue on Github, or email us.");
     }
     private boolean donationInstalled() {
         PackageManager packageManager = context.getPackageManager();

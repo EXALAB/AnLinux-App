@@ -13,6 +13,10 @@
     <item android:title="@string/features">
         <menu>
             <item
+                android:id="@+id/ssh"
+                android:icon="@drawable/ic_ssh"
+                android:title="@string/ssh" />
+            <item
                 android:id="@+id/gui"
                 android:icon="@drawable/ic_desktop"
                 android:title="@string/desktop_environment" />
@@ -29,6 +33,10 @@
                 android:id="@+id/support"
                 android:icon="@drawable/ic_support"
                 android:title="@string/support" />
+            <item
+                android:id="@+id/report"
+                android:icon="@drawable/ic_report"
+                android:title="@string/report" />
             <item
                 android:id="@+id/about"
                 android:icon="@drawable/ic_about"

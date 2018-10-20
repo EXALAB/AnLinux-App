@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -64,15 +68,17 @@
             android:layout_marginTop="25dp"
             android:text="Launch" />
 
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/adView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            ads:adSize="SMART_BANNER"
-            ads:adUnitId="ca-app-pub-5748356089815497/7765835183"
-            android:layout_alignParentBottom="true" />
-
     </RelativeLayout>
 
-</ScrollView>
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-5748356089815497/7765835183"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

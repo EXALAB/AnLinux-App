@@ -19,7 +19,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="45dp"
                 android:layout_margin="15dp"
-                android:text="@string/gui_step1" />
+                android:text="@string/ssh_step1" />
 
             <Button
                 android:id="@+id/button"
