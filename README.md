@@ -15,7 +15,7 @@ The bash script download image over internet, then decompress the image and then
 
 ## Desktop Environment, Window Manager and GUI
 
-You can now run [LXDE Desktop Environment](https://lxde.org/), currently only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/) are supported, and only [LXDE Desktop Environment](https://lxde.org/) will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
+You can now run [LXDE Desktop Environment](https://lxde.org/), currently only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/), [Arch Linux](https://www.archlinux.org/) are supported, and only [LXDE Desktop Environment](https://lxde.org/) will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
 
 About future development in desktop environment:
 
