@@ -138,6 +138,9 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         });
 
         if(savedInstanceState == null){
+            MenuItem selected = navigationView.getMenu().findItem(R.id.dashboard);
+            selected.setCheckable(true);
+            selected.setChecked(true);
             newFragment(0);
         }
     }

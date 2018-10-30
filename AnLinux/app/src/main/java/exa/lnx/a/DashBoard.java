@@ -133,7 +133,7 @@ public class DashBoard extends Fragment {
                         clipboard.setPrimaryClip(clip);
                     }
                 }else if(distro.equals("BlackArch")){
-                    ClipData clip = ClipData.newPlainText("Command", "pacman-key init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
                     clipboard.setPrimaryClip(clip);
                 }
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
@@ -410,7 +410,7 @@ public class DashBoard extends Fragment {
                     }
                     notifyUserForDeviceSpace();
                 }else if(distro.equals("BlackArch")){
-                    textView2.setText("Note: Please run this command inside Arch Linux shell to enable BlackArch Repository (Arch Linux need to be installed first).\n\nStep 2 : Copy the command to clipboard : pacman-key init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
+                    textView2.setText("Note: Please run this command inside Arch Linux shell to enable BlackArch Repository (Arch Linux need to be installed first).\n\nStep 2 : Copy the command to clipboard : pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
                     textView3.setText("Step 3 : Start Termux, enter Arch Linux shell by running ./start-arch.sh, then paste and enter the command to install BlackArch Repo. Remember: you will need to run ./start-arch.sh to enter Arch Linux shell first before using the command above.");
                 }
                 button2.setEnabled(true);
@@ -632,7 +632,7 @@ public class DashBoard extends Fragment {
                     textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh \n\n This should install Arch Linux on your system, you can then run ./start-arch.sh to run the command line.\n\nAfter that, you will need to run ./additional.sh to setup resolv.conf, otherwise network connection wont work!!! (First time only)");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the command line, after that, you will also need to run: chmod 755 additional.sh & ./additional.sh to setup resolv.conf, otherwise network connection wont work!!! (First time only)");
                 }else if(distro.equals("BlackArch")){
-                    textView2.setText("Note: Please run this command inside Arch Linux shell to enable BlackArch Repository. (Arch Linux need to be installed first)\n\nStep 2 : Copy the command to clipboard : pacman-key init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
+                    textView2.setText("Note: Please run this command inside Arch Linux shell to enable BlackArch Repository. (Arch Linux need to be installed first)\n\nStep 2 : Copy the command to clipboard : pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
                     textView3.setText("Step 3 : Start Termux, enter Arch Linux shell by running ./start-arch.sh, then paste and enter the command to install BlackArch Repo. Remember: you will need to run ./start-arch.sh to enter Arch Linux shell first before using the command above.");
                 }
                 button2.setEnabled(true);
