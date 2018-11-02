@@ -8,6 +8,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -24,9 +25,13 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class SSH extends Fragment {
 
     Context context;
+    SharedPreferences sharedPreferences;
     Button button;
     Button button2;
     Button button3;
@@ -44,6 +49,8 @@ public class SSH extends Fragment {
         View view = inflater.inflate(R.layout.desktop_environment, container, false);
 
         context = getActivity().getApplicationContext();
+
+        sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
 
         distro = "Nothing";
 
@@ -108,7 +115,7 @@ public class SSH extends Fragment {
                     }
                 }
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
-                    if(!donationInstalled()){
+                    if(!donationInstalled() && !isVideoAdsWatched()){
                         mInterstitialAd.show();
                     }
                     shouldShowAds = false;
@@ -266,26 +273,26 @@ public class SSH extends Fragment {
                 }
                 if(distro.equals("Ubuntu")){
                     textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh \n\n This should setup OpenSSH on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Debian")){
                     textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh \n\n This should setup OpenSSH on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Kali")){
                     textView2.setText("Step 2 : Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh \n\n This should setup OpenSSH on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Fedora")){
                     textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh \n\n This should setup OpenSSH on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
                 }else if(distro.equals("CentOS")){
                     textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh \n\n This should setup OpenSSH on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Arch")){
                     if(s.contains("arm")){
                         textView2.setText("pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh && bash ssh-pac.sh \n\n This should setup OpenSSH on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
                     }else{
                         textView2.setText("pacman-key --init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh && bash ssh-pac.sh \n\n This should setup OpenSSH on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
                     }
                 }
                 button2.setEnabled(true);
@@ -343,5 +350,13 @@ public class SSH extends Fragment {
     private boolean donationInstalled() {
         PackageManager packageManager = context.getPackageManager();
         return packageManager.checkSignatures(context.getPackageName(), "exa.lnx.d") == PackageManager.SIGNATURE_MATCH;
+    }
+    private boolean isVideoAdsWatched(){
+        Calendar cal = Calendar.getInstance();
+        Date date = cal.getTime();
+        cal.setTime(date);
+        int a =  cal.get(Calendar.DAY_OF_MONTH);
+        int b = sharedPreferences.getInt("VideoAds", 0);
+        return a == b;
     }
 }

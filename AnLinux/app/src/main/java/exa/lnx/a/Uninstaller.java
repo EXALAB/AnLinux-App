@@ -348,7 +348,7 @@ public class Uninstaller extends Fragment{
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");
                 }else if(distro.equals("Fedora")){
                     textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Fedora/UNI-fedora.sh && bash UNI-fedora.sh \n\n This should fully remove Fedora from your system.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the command line.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Remember: you will need to run ./start-fedora.sh to run the command line.");
                 }else if(distro.equals("CentOS")){
                     textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/CentOS/UNI-centos.sh && bash UNI-centos.sh \n\n This should fully remove CentOS from your system.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.");

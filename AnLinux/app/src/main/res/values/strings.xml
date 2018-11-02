@@ -20,9 +20,11 @@
     <string name="_continue">Continue</string>
     <string name="report">Report Error</string>
     <string name="ssh">SSH</string>
-    <string name="step1">Please scroll down to see all steps if your device screen is small\n\nStep 1 : Choose the distro you want to install, you can install multiple disto without conflict.</string>
-    <string name="gui_step1">Please scroll down to see all steps if your device screen is small\n\nWARNING: Only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nStep 1 : Please choose a distro to setup the GUI</string>
-    <string name="ssh_step1">Please scroll down to see all steps if your device screen is small\n\nWARNING: Only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nStep 1 : Please choose a distro to setup OpenSSH Server</string>
+    <string name="patches">Patches</string>
+    <string name="step1">Please scroll down to see all steps if your device screen is small.\n\nStep 1 : Choose the distro you want to install, you can install multiple disto without conflict.</string>
+    <string name="gui_step1">Please scroll down to see all steps if your device screen is small.\n\nWARNING: Only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nStep 1 : Please choose a distro to setup the Desktop Environment</string>
+    <string name="ssh_step1">Please scroll down to see all steps if your device screen is small.\n\nWARNING: Only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nStep 1 : Please choose a distro to setup OpenSSH Server</string>
+    <string name="patch_step1">Please scroll down to see all steps.\n\nWARNING: Only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nStep 1 : Please choose a Patches</string>
     <string name="press_again_to_exit">Please press again to exit application</string>
     <string name="about_content">LinuxOnAndroid is a project intent to bring the access of Linux to Android platform.\n\nThe icon of this application is taken from https://www.iconfinder.com , which is created by user : "Alpár-Etele Méder", you can reach the icon author by clicking "ICON AUTHOR" button below.\n\nThanks for using this apps.\n\n\nRegards, EXA Lab</string>
 </resources>

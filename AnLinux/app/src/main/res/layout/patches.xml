@@ -21,7 +21,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="45dp"
                 android:layout_margin="15dp"
-                android:text="Step 1 : Choose the distro you want to UNINSTALL, the distro will be removed without a trace and could not be recovered." />
+                android:text="@string/patch_step1" />
 
             <Button
                 android:id="@+id/button"

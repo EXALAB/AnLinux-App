@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class DashBoard extends Fragment {
     String distro;
     String s;
     boolean shouldShowAds;
+    boolean isOreoNotified;
     SharedPreferences sharedPreferences;
     InterstitialAd mInterstitialAd;
     AdView mAdView;
@@ -52,6 +54,7 @@ public class DashBoard extends Fragment {
 
         context = getActivity().getApplicationContext();
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
+        isOreoNotified = sharedPreferences.getBoolean("IsOreoNotified", false);
 
         distro = "Nothing";
 
@@ -67,11 +70,8 @@ public class DashBoard extends Fragment {
         mInterstitialAd = new InterstitialAd(context);
         mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
 
-        mAdView = view.findViewById(R.id.adView);
-
         if(!donationInstalled() && !isVideoAdsWatched()){
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            mAdView.loadAd(new AdRequest.Builder().build());
         }
 
         button = view.findViewById(R.id.button);
@@ -162,6 +162,11 @@ public class DashBoard extends Fragment {
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
+        if(Build.VERSION.SDK_INT >= 26){
+            if(!isOreoNotified){
+                showOreoDialog();
+            }
+        }
         return view;
     }
     public void notifyUserToChooseDistro(){
@@ -715,5 +720,39 @@ public class DashBoard extends Fragment {
         int a =  cal.get(Calendar.DAY_OF_MONTH);
         int b = sharedPreferences.getInt("VideoAds", 0);
         return a == b;
+    }
+    protected void showOreoDialog(){
+
+        final ViewGroup nullParent = null;
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        View view = layoutInflater.inflate(R.layout.oreo_warning, nullParent);
+        CheckBox checkBox = view.findViewById(R.id.checkBox);
+        builder.setView(view);
+        builder.setCancelable(false);
+        builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which){
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("IsOreoNotified", true);
+                editor.apply();
+                dialog.dismiss();
+            }
+        });
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                }else{
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                }
+            }
+        });
     }
 }

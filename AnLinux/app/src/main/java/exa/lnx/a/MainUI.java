@@ -178,6 +178,21 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+            }else if(fragment instanceof SSH){
+                fragment = new DashBoard();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }else if(fragment instanceof Uninstaller){
+                fragment = new DashBoard();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }else if(fragment instanceof Patches){
+                fragment = new DashBoard();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         }
         return false;
@@ -220,6 +235,11 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setCheckable(true);
             selected.setChecked(true);
             newFragment(3);
+        }else if(id == R.id.patch){
+            MenuItem selected = navigationView.getMenu().findItem(R.id.patch);
+            selected.setCheckable(true);
+            selected.setChecked(true);
+            newFragment(5);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -263,6 +283,13 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
             case 4:
                 fragment = new SSH();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+            case 5:
+                fragment = new Patches();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();

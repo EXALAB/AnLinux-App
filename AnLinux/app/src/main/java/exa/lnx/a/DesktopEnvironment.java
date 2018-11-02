@@ -26,6 +26,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class DesktopEnvironment extends Fragment {
 
     Context context;
@@ -90,29 +93,63 @@ public class DesktopEnvironment extends Fragment {
             @Override
             public void onClick(View view) {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
-                if(distro.equals("Ubuntu")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
-                    clipboard.setPrimaryClip(clip);
-                }else if(distro.equals("Debian")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
-                    clipboard.setPrimaryClip(clip);
-                }else if(distro.equals("Kali")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
-                    clipboard.setPrimaryClip(clip);
-                }else if(distro.equals("Fedora")){
-                    ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/de-yum.sh && bash de-yum.sh");
-                    clipboard.setPrimaryClip(clip);
-                }else if(distro.equals("Arch")){
-                    if(s.contains("arm")){
-                        ClipData clip = ClipData.newPlainText("Command", "pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh");
+                if(Build.VERSION.SDK_INT >= 26){
+                    if(distro.equals("Ubuntu")){
+                        ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Oreo/de-apt.sh && bash de-apt.sh");
                         clipboard.setPrimaryClip(clip);
-                    }else{
-                        ClipData clip = ClipData.newPlainText("Command", "pacman-key --init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh");
+                    }else if(distro.equals("Debian")){
+                        ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Oreo/de-apt.sh && bash de-apt.sh");
                         clipboard.setPrimaryClip(clip);
+                    }else if(distro.equals("Kali")){
+                        ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Oreo/de-apt.sh && bash de-apt.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }else if(distro.equals("Fedora")){
+                        if(s.contains("arm") && !s.equals("arm64-v8a")){
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/de-yum.sh && bash de-yum.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }else{
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/de-yum.sh && bash de-yum.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }
+                    }else if(distro.equals("Arch")){
+                        if(s.contains("arm")){
+                            ClipData clip = ClipData.newPlainText("Command", "pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }else{
+                            ClipData clip = ClipData.newPlainText("Command", "pacman-key --init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }
+                    }
+                }else{
+                    if(distro.equals("Ubuntu")){
+                        ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }else if(distro.equals("Debian")){
+                        ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }else if(distro.equals("Kali")){
+                        ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }else if(distro.equals("Fedora")){
+                        if(s.contains("arm") && !s.equals("arm64-v8a")){
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/de-yum.sh && bash de-yum.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }else{
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/de-yum.sh && bash de-yum.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }
+                    }else if(distro.equals("Arch")){
+                        if(s.contains("arm")){
+                            ClipData clip = ClipData.newPlainText("Command", "pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }else{
+                            ClipData clip = ClipData.newPlainText("Command", "pacman-key --init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }
                     }
                 }
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
-                    if(!donationInstalled()){
+                    if(!donationInstalled() && !isVideoAdsWatched()){
                         mInterstitialAd.show();
                     }
                     shouldShowAds = false;
@@ -248,25 +285,59 @@ public class DesktopEnvironment extends Fragment {
                         distro = "Arch";
                     }
                 }
-                if(distro.equals("Ubuntu")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de.sh && bash de.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
-                }else if(distro.equals("Debian")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de.sh && bash de.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
-                }else if(distro.equals("Kali")){
-                    textView2.setText("Step 2 : Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de.sh && bash de.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
-                }else if(distro.equals("Fedora")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/de.sh && bash de.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
-                }else if(distro.equals("Arch")){
-                    if(s.contains("arm")){
-                        textView2.setText("pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
-                    }else{
-                        textView2.setText("pacman-key --init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                if(Build.VERSION.SDK_INT >= 26){
+                    if(distro.equals("Ubuntu")){
+                        textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Oreo/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
+                    }else if(distro.equals("Debian")){
+                        textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Oreo/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
+                    }else if(distro.equals("Kali")){
+                        textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Oreo/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
+                    }else if(distro.equals("Fedora")){
+                        if(s.contains("arm") && !s.equals("arm64-v8a")){
+                            textView2.setText("Step 2 : Copy the command to clipboard : yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/de-yum.sh && bash de-yum.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                            textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }else{
+                            textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/de-yum.sh && bash de-yum.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                            textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }
+                    }else if(distro.equals("Arch")){
+                        if(s.contains("arm")){
+                            textView2.setText("pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                            textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                        }else{
+                            textView2.setText("pacman-key --init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                            textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                        }
+                    }
+                }else{
+                    if(distro.equals("Ubuntu")){
+                        textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
+                    }else if(distro.equals("Debian")){
+                        textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
+                    }else if(distro.equals("Kali")){
+                        textView2.setText("Step 2 : Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
+                    }else if(distro.equals("Fedora")){
+                        if(s.contains("arm") && !s.equals("arm64-v8a")){
+                            textView2.setText("Step 2 : Copy the command to clipboard : yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/de-yum.sh && bash de-yum.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                            textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }else{
+                            textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/de-yum.sh && bash de-yum.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                            textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }
+                    }else if(distro.equals("Arch")){
+                        if(s.contains("arm")){
+                            textView2.setText("pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                            textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                        }else{
+                            textView2.setText("pacman-key --init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                            textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                        }
                     }
                 }
                 button2.setEnabled(true);
@@ -354,5 +425,13 @@ public class DesktopEnvironment extends Fragment {
     private boolean donationInstalled() {
         PackageManager packageManager = context.getPackageManager();
         return packageManager.checkSignatures(context.getPackageName(), "exa.lnx.d") == PackageManager.SIGNATURE_MATCH;
+    }
+    private boolean isVideoAdsWatched(){
+        Calendar cal = Calendar.getInstance();
+        Date date = cal.getTime();
+        cal.setTime(date);
+        int a =  cal.get(Calendar.DAY_OF_MONTH);
+        int b = sharedPreferences.getInt("VideoAds", 0);
+        return a == b;
     }
 }
