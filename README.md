@@ -22,7 +22,7 @@ About future development in desktop environment:
 We are currently planning to support more lightweight desktop environment, current status:
 
 1. [LXDE](https://lxde.org): success
-2. [Xfce4](https://xfce.org): failed
+2. [Xfce4](https://xfce.org): success (Failed for Arch Linux)
 3. [LXQt](https://lxqt.org): failed
 4. [Enlightment](https://www.enlightenment.org): not yet tested
 5. [fluxbox](http://www.fluxbox.org): not yet tested
