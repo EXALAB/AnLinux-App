@@ -51,6 +51,7 @@ If you have any tweak, suggestion, recommendation, please open an issue on Githu
 ## Extra License
 
 The author of application icon is [Alpár-Etele Méder](https://www.iconfinder.com/pocike)
+
 Source of Ashmem library used in this app: [android-shmem](https://github.com/pelya/android-shmem)
 
 
