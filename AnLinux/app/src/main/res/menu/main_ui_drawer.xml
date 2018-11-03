@@ -24,6 +24,10 @@
                 android:id="@+id/uninstall"
                 android:icon="@drawable/ic_uninstall"
                 android:title="@string/uninstall" />
+            <item
+                android:id="@+id/patch"
+                android:icon="@drawable/ic_patch"
+                android:title="@string/patches" />
         </menu>
     </item>
 

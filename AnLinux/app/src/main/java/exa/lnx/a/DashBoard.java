@@ -44,7 +44,6 @@ public class DashBoard extends Fragment {
     boolean isOreoNotified;
     SharedPreferences sharedPreferences;
     InterstitialAd mInterstitialAd;
-    AdView mAdView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 

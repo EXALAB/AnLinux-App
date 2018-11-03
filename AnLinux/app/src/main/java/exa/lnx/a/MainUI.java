@@ -188,6 +188,11 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+            }else if(fragment instanceof Patches){
+                fragment = new DashBoard();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         }
         return false;
@@ -216,24 +221,25 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         }else if(id == R.id.report){
             notifyUserToReportError();
         }else if(id == R.id.ssh){
-            if(Build.VERSION.SDK_INT >= 26){
-                notifyUserForOreo();
-            }else{
-                MenuItem selected = navigationView.getMenu().findItem(R.id.ssh);
-                selected.setCheckable(true);
-                selected.setChecked(true);
-                newFragment(4);
-            }
+            MenuItem selected = navigationView.getMenu().findItem(R.id.ssh);
+            selected.setCheckable(true);
+            selected.setChecked(true);
+            newFragment(4);
         }else if(id == R.id.gui){
             MenuItem selected = navigationView.getMenu().findItem(R.id.gui);
             selected.setCheckable(true);
             selected.setChecked(true);
             newFragment(2);
-        }else if(id == R.id.uninstall) {
+        }else if(id == R.id.uninstall){
             MenuItem selected = navigationView.getMenu().findItem(R.id.uninstall);
             selected.setCheckable(true);
             selected.setChecked(true);
             newFragment(3);
+        }else if(id == R.id.patch){
+            MenuItem selected = navigationView.getMenu().findItem(R.id.patch);
+            selected.setCheckable(true);
+            selected.setChecked(true);
+            newFragment(5);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -277,6 +283,13 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
             case 4:
                 fragment = new SSH();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+            case 5:
+                fragment = new Patches();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
@@ -387,23 +400,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         });
         alertDialog.show();
         textView.setText("If you encountered a bug, you can choose to open an issue on Github, or email us.");
-    }
-    public void notifyUserForOreo(){
-        final ViewGroup nullParent = null;
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        LayoutInflater layoutInflater = LayoutInflater.from(this);
-        View view = layoutInflater.inflate(R.layout.notify1, nullParent);
-        TextView textView = view.findViewById(R.id.textView);
-
-        alertDialog.setView(view);
-        alertDialog.setCancelable(false);
-        alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        alertDialog.show();
-        textView.setText("Sorry, this feature is not available for Android 8.0+ Devices.");
     }
     private boolean donationInstalled() {
         PackageManager packageManager = context.getPackageManager();
