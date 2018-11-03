@@ -13,9 +13,9 @@ The bash script download image over internet, then decompress the image and then
 
 
 
-## Desktop Environment, Window Manager and GUI
+## Desktop Environment
 
-You can now run [LXDE Desktop Environment](https://lxde.org/), currently only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/), [Arch Linux](https://www.archlinux.org/) are supported, and only [LXDE Desktop Environment](https://lxde.org/) will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
+You can now run [LXDE Desktop Environment](https://lxde.org/), currently only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/), [Arch Linux](https://www.archlinux.org/) are supported, and only [LXDE Desktop Environment](https://lxde.org/) and [Xfce4](https://xfce.org) will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
 
 About future development in desktop environment:
 
@@ -24,8 +24,7 @@ We are currently planning to support more lightweight desktop environment, curre
 1. [LXDE](https://lxde.org): success
 2. [Xfce4](https://xfce.org): success (Failed for Arch Linux)
 3. [LXQt](https://lxqt.org): failed
-4. [Enlightment](https://www.enlightenment.org): not yet tested
-5. [fluxbox](http://www.fluxbox.org): not yet tested
+4. [Mate](https://mate-desktop.org/): not yet tested
 
 If you have any tweak, suggestion, recommendation, please open an issue on Github.
 
