@@ -45,7 +45,7 @@ public class Uninstaller extends Fragment{
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
-        getActivity().setTitle(R.string.dashboard);
+        getActivity().setTitle(R.string.uninstall);
 
         context = getActivity().getApplicationContext();
         View view = inflater.inflate(R.layout.uninstaller, container, false);
