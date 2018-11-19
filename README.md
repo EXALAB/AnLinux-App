@@ -15,7 +15,7 @@ The bash script download image over internet, then decompress the image and then
 
 ## Desktop Environment
 
-You can now run [Xfce4 Desktop Environment](https://xfce.org), currently only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/), [Arch Linux](https://www.archlinux.org/) are supported, and only [LXDE Desktop Environment](https://lxde.org/) and [Xfce4](https://xfce.org) will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
+You can now run [Xfce4 Desktop Environment](https://xfce.org), currently only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/), [Arch Linux](https://www.archlinux.org/) are supported, and only [LXDE Desktop Environment](https://lxde.org/) and [Xfce4](https://xfce.org) will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
 
 About future development in desktop environment:
 
@@ -42,7 +42,7 @@ If you have any tweak, suggestion, recommendation, please open an issue on Githu
 
 3. Currently supported distro:
 
-   [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Fedora](https://getfedora.org/), [CentOS](https://www.centos.org/), [openSUSE Leap](https://www.opensuse.org/), [openSUSE Tumbleweed](https://www.opensuse.org/), [Arch Linux](https://www.archlinux.org/), [BlackArch](https://blackarch.org/)
+   [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/), [CentOS](https://www.centos.org/), [openSUSE Leap](https://www.opensuse.org/), [openSUSE Tumbleweed](https://www.opensuse.org/), [Arch Linux](https://www.archlinux.org/), [BlackArch](https://blackarch.org/)
 
 5. For any suggestion or issue, please open an issue on Github.
 
