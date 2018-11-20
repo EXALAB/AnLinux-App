@@ -108,6 +108,9 @@ public class DashBoard extends Fragment {
                 }else if(distro.equals("Kali")){
                     ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh");
                     clipboard.setPrimaryClip(clip);
+                }else if(distro.equals("Parrot")){
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Parrot/parrot.sh && bash parrot.sh");
+                    clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Fedora")){
                     ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh");
                     clipboard.setPrimaryClip(clip);
@@ -182,6 +185,7 @@ public class DashBoard extends Fragment {
         final CheckBox checkBox7 = view.findViewById(R.id.checkBox7);
         final CheckBox checkBox8 = view.findViewById(R.id.checkBox8);
         final CheckBox checkBox9 = view.findViewById(R.id.checkBox9);
+        final CheckBox checkBox10 = view.findViewById(R.id.checkBox10);
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
@@ -192,13 +196,308 @@ public class DashBoard extends Fragment {
             checkBox2.setChecked(true);
         }else if(distro.equals("Kali")){
             checkBox3.setChecked(true);
-        }else if(distro.equals("Fedora")){
+        }else if(distro.equals("Parrot")){
             checkBox4.setChecked(true);
-        }else if(distro.equals("CentOS")){
+        }else if(distro.equals("Fedora")){
             checkBox5.setChecked(true);
-        }else if(distro.equals("Leap")){
+        }else if(distro.equals("CentOS")){
             checkBox6.setChecked(true);
+        }else if(distro.equals("Leap")){
+            checkBox7.setChecked(true);
         }else if(distro.equals("Tumbleweed")){
+            checkBox8.setChecked(true);
+        }else if(distro.equals("Arch")){
+            checkBox9.setChecked(true);
+        }else if(distro.equals("BlackArch")){
+            checkBox10.setChecked(true);
+        }
+
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
+                checkBox9.setChecked(false);
+                checkBox10.setChecked(false);
+            }
+        });
+        checkBox2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
+                checkBox9.setChecked(false);
+                checkBox10.setChecked(false);
+            }
+        });
+        checkBox3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
+                checkBox9.setChecked(false);
+                checkBox10.setChecked(false);
+            }
+        });
+        checkBox4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
+                checkBox9.setChecked(false);
+                checkBox10.setChecked(false);
+            }
+        });
+        checkBox5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
+                checkBox9.setChecked(false);
+                checkBox10.setChecked(false);
+            }
+        });
+        checkBox6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
+                checkBox9.setChecked(false);
+                checkBox10.setChecked(false);
+            }
+        });
+        checkBox7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox8.setChecked(false);
+                checkBox9.setChecked(false);
+                checkBox10.setChecked(false);
+            }
+        });
+        checkBox8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
+                checkBox9.setChecked(false);
+                checkBox10.setChecked(false);
+            }
+        });
+        checkBox9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
+                checkBox10.setChecked(false);
+            }
+        });
+        checkBox10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
+                checkBox9.setChecked(false);
+            }
+        });
+        if(s.equals("i386")){
+            checkBox5.setEnabled(false);
+            checkBox7.setEnabled(false);
+            checkBox8.setEnabled(false);
+            checkBox9.setEnabled(false);
+            checkBox10.setEnabled(false);
+            checkBox5.setText("Not supported");
+            checkBox7.setText("Not supported");
+            checkBox8.setText("Not supported");
+            checkBox9.setText("Not supported");
+            checkBox10.setText("Not supported");
+        }
+        alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                if(checkBox.isChecked()){
+                    if(!distro.equals("Ubuntu")){
+                        shouldShowAds = true;
+                        distro = "Ubuntu";
+                    }
+                }else if(checkBox2.isChecked()){
+                    if(!distro.equals("Debian")){
+                        shouldShowAds = true;
+                        distro = "Debian";
+                    }
+                }else if(checkBox3.isChecked()){
+                    if(!distro.equals("Kali")){
+                        shouldShowAds = true;
+                        distro = "Kali";
+                    }
+                }else if(checkBox4.isChecked()){
+                    if(!distro.equals("Parrot")){
+                        shouldShowAds = true;
+                        distro = "Parrot";
+                    }
+                }else if(checkBox5.isChecked()){
+                    if(!distro.equals("Fedora")){
+                        shouldShowAds = true;
+                        distro = "Fedora";
+                    }
+                }else if(checkBox6.isChecked()){
+                    if(!distro.equals("CentOS")){
+                        shouldShowAds = true;
+                        distro = "CentOS";
+                    }
+                }else if(checkBox7.isChecked()){
+                    if(!distro.equals("Leap")){
+                        shouldShowAds = true;
+                        distro = "Leap";
+                    }
+                }else if(checkBox8.isChecked()){
+                    if(!distro.equals("Tumbleweed")){
+                        shouldShowAds = true;
+                        distro = "Tumbleweed";
+                    }
+                }else if(checkBox9.isChecked()){
+                    if(!distro.equals("Arch")){
+                        shouldShowAds = true;
+                        distro = "Arch";
+                    }
+                }else if(checkBox10.isChecked()){
+                    if(!distro.equals("BlackArch")){
+                        shouldShowAds = true;
+                        distro = "BlackArch";
+                    }
+                }
+                if(distro.equals("Ubuntu")){
+                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh \n\n This should install Ubuntu on your system, you can then run ./start-ubuntu.sh to run the command line.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-ubuntu.sh to run the command line.");
+                }else if(distro.equals("Debian")){
+                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh \n\n This should install Debian on your system, you can then run ./start-debian.sh to run the command line.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-debian.sh to run the command line.");
+                }else if(distro.equals("Kali")){
+                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh \n\n This should install Kali on your system, you can then run ./start-kali.sh to run the command line.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-kali.sh to run the command line.");
+                }else if(distro.equals("Parrot")){
+                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Parrot/parrot.sh && bash parrot.sh \n\n This should install Parrot Security OS on your system, you can then run ./start-parrot.sh to run the command line.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-parrot.sh to run the command line.");
+                }else if(distro.equals("Fedora")){
+                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh \n\n This should install Fedora on your system, you can then run ./start-fedora.sh to run the command line.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the command line.");
+                }else if(distro.equals("CentOS")){
+                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh \n\n This should install CentOS on your system, you can then run ./start-centos.sh to run the command line.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-centos.sh to run the command line.");
+                }else if(distro.equals("Leap")){
+                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh \n\n This should install openSUSE Leap on your system, you can then run ./start-leap.sh to run the command line.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-leap.sh to run the command line.");
+                }else if(distro.equals("Tumbleweed")){
+                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh \n\n This should install openSUSE Tumbleweed on your system, you can then run ./start-tumbleweed.sh to run the command line.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-tumbleweed.sh to run the command line.");
+                }else if(distro.equals("Arch")){
+                    if(s.equals("x86_64")){
+                        textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/arch.sh && bash arch.sh && bash start-arch.sh && wget \n\n This should install Arch Linux on your system, you can then run ./start-arch.sh to run the command line.\n\nAfter that, you will need to run: chmod 755 additional.sh & ./additional.sh to setup resolv.conf, otherwise network connection wont work!!! (First time only)");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the command line, after that, you will also need to run ./additional.sh to setup resolv.conf, otherwise network connection wont work!!!");
+                    }else{
+                        textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh \n\n This should install Arch Linux on your system, you can then run ./start-arch.sh to run the command line.\n\nAfter that, you will need to run: chmod 755 additional.sh & ./additional.sh to setup resolv.conf, otherwise network connection wont work!!! (First time only)");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the command line, after that, you will also need to run ./additional.sh to setup resolv.conf, otherwise network connection wont work!!!");
+                    }
+                    notifyUserForDeviceSpace();
+                }else if(distro.equals("BlackArch")){
+                    textView2.setText("Note: Please run this command inside Arch Linux shell to enable BlackArch Repository (Arch Linux need to be installed first).\n\nStep 2 : Copy the command to clipboard : pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
+                    textView3.setText("Step 3 : Start Termux, enter Arch Linux shell by running ./start-arch.sh, then paste and enter the command to install BlackArch Repo. Remember: you will need to run ./start-arch.sh to enter Arch Linux shell first before using the command above.");
+                }
+                button2.setEnabled(true);
+                button3.setEnabled(true);
+                dialog.dismiss();
+            }
+        });
+        alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialog.show();
+    }
+
+    public void notifyUserToChooseDistroARM(){
+        final ViewGroup nullParent = null;
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        View view = layoutInflater.inflate(R.layout.distro_chooser_arm, nullParent);
+        final CheckBox checkBox = view.findViewById(R.id.checkBox);
+        final CheckBox checkBox2 = view.findViewById(R.id.checkBox2);
+        final CheckBox checkBox3 = view.findViewById(R.id.checkBox3);
+        final CheckBox checkBox4 = view.findViewById(R.id.checkBox4);
+        final CheckBox checkBox5 = view.findViewById(R.id.checkBox5);
+        final CheckBox checkBox6 = view.findViewById(R.id.checkBox6);
+        final CheckBox checkBox7 = view.findViewById(R.id.checkBox7);
+        final CheckBox checkBox8 = view.findViewById(R.id.checkBox8);
+        final CheckBox checkBox9 = view.findViewById(R.id.checkBox9);
+
+        alertDialog.setView(view);
+        alertDialog.setCancelable(false);
+
+        if(distro.equals("Ubuntu")){
+            checkBox.setChecked(true);
+        }else if(distro.equals("Debian")){
+            checkBox2.setChecked(true);
+        }else if(distro.equals("Kali")){
+            checkBox3.setChecked(true);
+        }else if(distro.equals("Parrot")){
+            checkBox4.setChecked(true);
+        }else if(distro.equals("Fedora")){
+            checkBox5.setChecked(true);
+        }else if(distro.equals("CentOS")){
+            checkBox6.setChecked(true);
+        }else if(distro.equals("openSUSE")){
             checkBox7.setChecked(true);
         }else if(distro.equals("Arch")){
             checkBox8.setChecked(true);
@@ -323,18 +622,6 @@ public class DashBoard extends Fragment {
                 checkBox8.setChecked(false);
             }
         });
-        if(s.equals("i386")){
-            checkBox4.setEnabled(false);
-            checkBox6.setEnabled(false);
-            checkBox7.setEnabled(false);
-            checkBox8.setEnabled(false);
-            checkBox9.setEnabled(false);
-            checkBox4.setText("Not supported");
-            checkBox6.setText("Not supported");
-            checkBox7.setText("Not supported");
-            checkBox8.setText("Not supported");
-            checkBox9.setText("Not supported");
-        }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 if(checkBox.isChecked()){
@@ -353,24 +640,24 @@ public class DashBoard extends Fragment {
                         distro = "Kali";
                     }
                 }else if(checkBox4.isChecked()){
+                    if(!distro.equals("Parrot")){
+                        shouldShowAds = true;
+                        distro = "Parrot";
+                    }
+                }else if(checkBox5.isChecked()){
                     if(!distro.equals("Fedora")){
                         shouldShowAds = true;
                         distro = "Fedora";
                     }
-                }else if(checkBox5.isChecked()){
+                }else if(checkBox6.isChecked()){
                     if(!distro.equals("CentOS")){
                         shouldShowAds = true;
                         distro = "CentOS";
                     }
-                }else if(checkBox6.isChecked()){
-                    if(!distro.equals("Leap")){
-                        shouldShowAds = true;
-                        distro = "Leap";
-                    }
                 }else if(checkBox7.isChecked()){
-                    if(!distro.equals("Tumbleweed")){
+                    if(!distro.equals("openSUSE")){
                         shouldShowAds = true;
-                        distro = "Tumbleweed";
+                        distro = "openSUSE";
                     }
                 }else if(checkBox8.isChecked()){
                     if(!distro.equals("Arch")){
@@ -392,237 +679,9 @@ public class DashBoard extends Fragment {
                 }else if(distro.equals("Kali")){
                     textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh \n\n This should install Kali on your system, you can then run ./start-kali.sh to run the command line.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-kali.sh to run the command line.");
-                }else if(distro.equals("Fedora")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh \n\n This should install Fedora on your system, you can then run ./start-fedora.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the command line.");
-                }else if(distro.equals("CentOS")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh \n\n This should install CentOS on your system, you can then run ./start-centos.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-centos.sh to run the command line.");
-                }else if(distro.equals("Leap")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh \n\n This should install openSUSE Leap on your system, you can then run ./start-leap.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-leap.sh to run the command line.");
-                }else if(distro.equals("Tumbleweed")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh \n\n This should install openSUSE Tumbleweed on your system, you can then run ./start-tumbleweed.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-tumbleweed.sh to run the command line.");
-                }else if(distro.equals("Arch")){
-                    if(s.equals("x86_64")){
-                        textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/arch.sh && bash arch.sh && bash start-arch.sh && wget \n\n This should install Arch Linux on your system, you can then run ./start-arch.sh to run the command line.\n\nAfter that, you will need to run: chmod 755 additional.sh & ./additional.sh to setup resolv.conf, otherwise network connection wont work!!! (First time only)");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the command line, after that, you will also need to run ./additional.sh to setup resolv.conf, otherwise network connection wont work!!!");
-                    }else{
-                        textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh \n\n This should install Arch Linux on your system, you can then run ./start-arch.sh to run the command line.\n\nAfter that, you will need to run: chmod 755 additional.sh & ./additional.sh to setup resolv.conf, otherwise network connection wont work!!! (First time only)");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-arch.sh to run the command line, after that, you will also need to run ./additional.sh to setup resolv.conf, otherwise network connection wont work!!!");
-                    }
-                    notifyUserForDeviceSpace();
-                }else if(distro.equals("BlackArch")){
-                    textView2.setText("Note: Please run this command inside Arch Linux shell to enable BlackArch Repository (Arch Linux need to be installed first).\n\nStep 2 : Copy the command to clipboard : pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
-                    textView3.setText("Step 3 : Start Termux, enter Arch Linux shell by running ./start-arch.sh, then paste and enter the command to install BlackArch Repo. Remember: you will need to run ./start-arch.sh to enter Arch Linux shell first before using the command above.");
-                }
-                button2.setEnabled(true);
-                button3.setEnabled(true);
-                dialog.dismiss();
-            }
-        });
-        alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        alertDialog.show();
-    }
-
-    public void notifyUserToChooseDistroARM(){
-        final ViewGroup nullParent = null;
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-        View view = layoutInflater.inflate(R.layout.distro_chooser_arm, nullParent);
-        final CheckBox checkBox = view.findViewById(R.id.checkBox);
-        final CheckBox checkBox2 = view.findViewById(R.id.checkBox2);
-        final CheckBox checkBox3 = view.findViewById(R.id.checkBox3);
-        final CheckBox checkBox4 = view.findViewById(R.id.checkBox4);
-        final CheckBox checkBox5 = view.findViewById(R.id.checkBox5);
-        final CheckBox checkBox6 = view.findViewById(R.id.checkBox6);
-        final CheckBox checkBox7 = view.findViewById(R.id.checkBox7);
-        final CheckBox checkBox8 = view.findViewById(R.id.checkBox8);
-
-        alertDialog.setView(view);
-        alertDialog.setCancelable(false);
-
-        if(distro.equals("Ubuntu")){
-            checkBox.setChecked(true);
-        }else if(distro.equals("Debian")){
-            checkBox2.setChecked(true);
-        }else if(distro.equals("Kali")){
-            checkBox3.setChecked(true);
-        }else if(distro.equals("Fedora")){
-            checkBox4.setChecked(true);
-        }else if(distro.equals("CentOS")){
-            checkBox5.setChecked(true);
-        }else if(distro.equals("openSUSE")){
-            checkBox6.setChecked(true);
-        }else if(distro.equals("Arch")){
-            checkBox7.setChecked(true);
-        }else if(distro.equals("BlackArch")){
-            checkBox8.setChecked(true);
-        }
-
-        checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox2.setChecked(false);
-                checkBox3.setChecked(false);
-                checkBox4.setChecked(false);
-                checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
-            }
-        });
-        checkBox2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox.setChecked(false);
-                checkBox3.setChecked(false);
-                checkBox4.setChecked(false);
-                checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
-            }
-        });
-        checkBox3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox.setChecked(false);
-                checkBox2.setChecked(false);
-                checkBox4.setChecked(false);
-                checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
-            }
-        });
-        checkBox4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox.setChecked(false);
-                checkBox2.setChecked(false);
-                checkBox3.setChecked(false);
-                checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
-            }
-        });
-        checkBox5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox.setChecked(false);
-                checkBox2.setChecked(false);
-                checkBox3.setChecked(false);
-                checkBox4.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
-            }
-        });
-        checkBox6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox.setChecked(false);
-                checkBox2.setChecked(false);
-                checkBox3.setChecked(false);
-                checkBox4.setChecked(false);
-                checkBox5.setChecked(false);
-                checkBox7.setChecked(false);
-                checkBox8.setChecked(false);
-            }
-        });
-        checkBox7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox.setChecked(false);
-                checkBox2.setChecked(false);
-                checkBox3.setChecked(false);
-                checkBox4.setChecked(false);
-                checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox8.setChecked(false);
-            }
-        });
-        checkBox8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkBox.setChecked(false);
-                checkBox2.setChecked(false);
-                checkBox3.setChecked(false);
-                checkBox4.setChecked(false);
-                checkBox5.setChecked(false);
-                checkBox6.setChecked(false);
-                checkBox7.setChecked(false);
-            }
-        });
-        if(s.equals("i386")){
-            checkBox4.setEnabled(false);
-            checkBox6.setEnabled(false);
-            checkBox7.setEnabled(false);
-            checkBox8.setEnabled(false);
-            checkBox4.setText("Not supported");
-            checkBox6.setText("Not supported");
-            checkBox7.setText("Not supported");
-            checkBox8.setText("Not supported");
-        }
-        alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                if(checkBox.isChecked()){
-                    if(!distro.equals("Ubuntu")){
-                        shouldShowAds = true;
-                        distro = "Ubuntu";
-                    }
-                }else if(checkBox2.isChecked()){
-                    if(!distro.equals("Debian")){
-                        shouldShowAds = true;
-                        distro = "Debian";
-                    }
-                }else if(checkBox3.isChecked()){
-                    if(!distro.equals("Kali")){
-                        shouldShowAds = true;
-                        distro = "Kali";
-                    }
-                }else if(checkBox4.isChecked()){
-                    if(!distro.equals("Fedora")){
-                        shouldShowAds = true;
-                        distro = "Fedora";
-                    }
-                }else if(checkBox5.isChecked()){
-                    if(!distro.equals("CentOS")){
-                        shouldShowAds = true;
-                        distro = "CentOS";
-                    }
-                }else if(checkBox6.isChecked()){
-                    if(!distro.equals("openSUSE")){
-                        shouldShowAds = true;
-                        distro = "openSUSE";
-                    }
-                }else if(checkBox7.isChecked()){
-                    if(!distro.equals("Arch")){
-                        shouldShowAds = true;
-                        distro = "Arch";
-                    }
-                }else if(checkBox8.isChecked()){
-                    if(!distro.equals("BlackArch")){
-                        shouldShowAds = true;
-                        distro = "BlackArch";
-                    }
-                }
-                if(distro.equals("Ubuntu")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh \n\n This should install Ubuntu on your system, you can then run ./start-ubuntu.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-ubuntu.sh to run the command line.");
-                }else if(distro.equals("Debian")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh \n\n This should install Debian on your system, you can then run ./start-debian.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-debian.sh to run the command line.");
-                }else if(distro.equals("Kali")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh \n\n This should install Kali on your system, you can then run ./start-kali.sh to run the command line.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-kali.sh to run the command line.");
+                }else if(distro.equals("Parrot")){
+                    textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Parrot/parrot.sh && bash parrot.sh \n\n This should install Parrot Security OS on your system, you can then run ./start-parrot.sh to run the command line.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-parrot.sh to run the command line.");
                 }else if(distro.equals("Fedora")){
                     textView2.setText("Step 2 : Copy the command to clipboard : pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh \n\n This should install Fedora on your system, you can then run ./start-fedora.sh to run the command line.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run ./start-fedora.sh to run the command line.");

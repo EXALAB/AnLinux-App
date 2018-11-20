@@ -102,6 +102,9 @@ public class DesktopEnvironment extends Fragment {
                 }else if(distro.equals("Kali")){
                     ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
                     clipboard.setPrimaryClip(clip);
+                }else if(distro.equals("Parrot")){
+                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
+                    clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
                         ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/de-yum.sh && bash de-yum.sh");
@@ -161,6 +164,7 @@ public class DesktopEnvironment extends Fragment {
         final CheckBox checkBox3 = view.findViewById(R.id.checkBox3);
         final CheckBox checkBox4 = view.findViewById(R.id.checkBox4);
         final CheckBox checkBox5 = view.findViewById(R.id.checkBox5);
+        final CheckBox checkBox6 = view.findViewById(R.id.checkBox6);
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
@@ -171,10 +175,12 @@ public class DesktopEnvironment extends Fragment {
             checkBox2.setChecked(true);
         }else if(distro.equals("Kali")){
             checkBox3.setChecked(true);
-        }else if(distro.equals("Fedora")){
+        }else if(distro.equals("Parrot")){
             checkBox4.setChecked(true);
-        }else if(distro.equals("Arch")){
+        }else if(distro.equals("Fedora")){
             checkBox5.setChecked(true);
+        }else if(distro.equals("Arch")){
+            checkBox6.setChecked(true);
         }
 
         checkBox.setOnClickListener(new View.OnClickListener() {
@@ -184,6 +190,7 @@ public class DesktopEnvironment extends Fragment {
                 checkBox3.setChecked(false);
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
             }
         });
         checkBox2.setOnClickListener(new View.OnClickListener() {
@@ -193,6 +200,7 @@ public class DesktopEnvironment extends Fragment {
                 checkBox3.setChecked(false);
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
             }
         });
         checkBox3.setOnClickListener(new View.OnClickListener() {
@@ -202,6 +210,7 @@ public class DesktopEnvironment extends Fragment {
                 checkBox2.setChecked(false);
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
             }
         });
         checkBox4.setOnClickListener(new View.OnClickListener() {
@@ -211,6 +220,7 @@ public class DesktopEnvironment extends Fragment {
                 checkBox2.setChecked(false);
                 checkBox3.setChecked(false);
                 checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
             }
         });
         checkBox5.setOnClickListener(new View.OnClickListener() {
@@ -220,13 +230,24 @@ public class DesktopEnvironment extends Fragment {
                 checkBox2.setChecked(false);
                 checkBox3.setChecked(false);
                 checkBox4.setChecked(false);
+                checkBox6.setChecked(false);
+            }
+        });
+        checkBox6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
             }
         });
         if(s.equals("i386")){
-            checkBox4.setEnabled(false);
-            checkBox4.setText("Not supported");
             checkBox5.setEnabled(false);
             checkBox5.setText("Not supported");
+            checkBox6.setEnabled(false);
+            checkBox6.setText("Not supported");
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -246,25 +267,33 @@ public class DesktopEnvironment extends Fragment {
                         distro = "Kali";
                     }
                 }else if(checkBox4.isChecked()){
+                    if(!distro.equals("Parrot")){
+                        shouldShowAds = true;
+                        distro = "Parrot";
+                    }
+                }else if(checkBox5.isChecked()){
                     if(!distro.equals("Fedora")){
                         shouldShowAds = true;
                         distro = "Fedora";
                     }
-                }else if(checkBox5.isChecked()){
+                }else if(checkBox6.isChecked()){
                     if(!distro.equals("Arch")){
                         shouldShowAds = true;
                         distro = "Arch";
                     }
                 }
                 if(distro.equals("Ubuntu")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Oreo/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Debian")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Oreo/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Kali")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Oreo/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
+                }else if(distro.equals("Parrot")){
+                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-parrot.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
                         textView2.setText("Step 2 : Copy the command to clipboard : yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/de-yum.sh && bash de-yum.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");

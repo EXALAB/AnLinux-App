@@ -154,6 +154,7 @@ public class SSH extends Fragment {
         final CheckBox checkBox4 = view.findViewById(R.id.checkBox4);
         final CheckBox checkBox5 = view.findViewById(R.id.checkBox5);
         final CheckBox checkBox6 = view.findViewById(R.id.checkBox6);
+        final CheckBox checkBox7 = view.findViewById(R.id.checkBox7);
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
@@ -164,12 +165,14 @@ public class SSH extends Fragment {
             checkBox2.setChecked(true);
         }else if(distro.equals("Kali")){
             checkBox3.setChecked(true);
-        }else if(distro.equals("Fedora")){
+        }else if(distro.equals("Parrot")){
             checkBox4.setChecked(true);
-        }else if(distro.equals("CentOS")){
+        }else if(distro.equals("Fedora")){
             checkBox5.setChecked(true);
-        }else if(distro.equals("Arch")){
+        }else if(distro.equals("CentOS")){
             checkBox6.setChecked(true);
+        }else if(distro.equals("Arch")){
+            checkBox7.setChecked(true);
         }
 
         checkBox.setOnClickListener(new View.OnClickListener() {
@@ -180,6 +183,7 @@ public class SSH extends Fragment {
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
             }
         });
         checkBox2.setOnClickListener(new View.OnClickListener() {
@@ -190,6 +194,7 @@ public class SSH extends Fragment {
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
             }
         });
         checkBox3.setOnClickListener(new View.OnClickListener() {
@@ -200,6 +205,7 @@ public class SSH extends Fragment {
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
             }
         });
         checkBox4.setOnClickListener(new View.OnClickListener() {
@@ -210,6 +216,7 @@ public class SSH extends Fragment {
                 checkBox3.setChecked(false);
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
             }
         });
         checkBox5.setOnClickListener(new View.OnClickListener() {
@@ -220,6 +227,7 @@ public class SSH extends Fragment {
                 checkBox3.setChecked(false);
                 checkBox4.setChecked(false);
                 checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
             }
         });
         checkBox6.setOnClickListener(new View.OnClickListener() {
@@ -230,6 +238,18 @@ public class SSH extends Fragment {
                 checkBox3.setChecked(false);
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
+                checkBox7.setChecked(false);
+            }
+        });
+        checkBox7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
             }
         });
         if(s.equals("i386")){
@@ -256,16 +276,21 @@ public class SSH extends Fragment {
                         distro = "Kali";
                     }
                 }else if(checkBox4.isChecked()){
+                    if(!distro.equals("Parrot")){
+                        shouldShowAds = true;
+                        distro = "Parrot";
+                    }
+                }else if(checkBox5.isChecked()){
                     if(!distro.equals("Fedora")){
                         shouldShowAds = true;
                         distro = "Fedora";
                     }
-                }else if(checkBox5.isChecked()){
+                }else if(checkBox6.isChecked()){
                     if(!distro.equals("CentOS")){
                         shouldShowAds = true;
                         distro = "CentOS";
                     }
-                }else if(checkBox6.isChecked()){
+                }else if(checkBox7.isChecked()){
                     if(!distro.equals("Arch")){
                         shouldShowAds = true;
                         distro = "Arch";
@@ -280,6 +305,9 @@ public class SSH extends Fragment {
                 }else if(distro.equals("Kali")){
                     textView2.setText("Step 2 : Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh \n\n This should setup OpenSSH on the Linux System.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
+                }else if(distro.equals("Parrot")){
+                    textView2.setText("Step 2 : Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh \n\n This should setup OpenSSH on the Linux System.");
+                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-parrot.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Fedora")){
                     textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh \n\n This should setup OpenSSH on the Linux System.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
