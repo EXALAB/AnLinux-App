@@ -15,16 +15,14 @@ The bash script download image over internet, then decompress the image and then
 
 ## Desktop Environment
 
-You can now run [Xfce4 Desktop Environment](https://xfce.org), currently only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/), [Arch Linux](https://www.archlinux.org/) are supported, and only [LXDE Desktop Environment](https://lxde.org/) and [Xfce4](https://xfce.org) will work correctly. If you have any suggestion or method about the desktop environment, please open an issue on Github
+We currently supported 4 Desktop Environment, and only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/), [Arch Linux](https://www.archlinux.org/) distro are supported.
 
-About future development in desktop environment:
+Supported Desktop Environment:
 
-We are currently planning to support more lightweight desktop environment, current status:
-
-1. [LXDE](https://lxde.org): success
-2. [Xfce4](https://xfce.org): success (Failed for Arch Linux)
-3. [LXQt](https://lxqt.org): failed
-4. [Mate](https://mate-desktop.org/): not yet tested
+1. [Xfce4](https://xfce.org)
+2. [Mate](https://mate-desktop.org)
+3. [LXQt](https://lxqt.org)
+4. [LXDE](https://lxde.org)
 
 If you have any tweak, suggestion, recommendation, please open an issue on Github.
 

@@ -6,8 +6,8 @@ android {
         applicationId "exa.lnx.a"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 43
-        versionName "4.3 Stable"
+        versionCode 45
+        versionName "4.5 Stable"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

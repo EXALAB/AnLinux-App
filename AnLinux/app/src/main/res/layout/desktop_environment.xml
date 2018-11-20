@@ -44,11 +44,9 @@
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/button"
-                android:layout_alignStart="@+id/button"
                 android:layout_below="@+id/textView2"
-                android:layout_marginTop="19dp"
-                android:text="COPY" />
+                android:layout_centerHorizontal="true"
+                android:text="Choose" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -56,16 +54,35 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/button2"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="43dp"
+                android:layout_marginTop="34dp"
                 android:layout_margin="15dp" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/button"
+                android:layout_alignStart="@+id/button"
+                android:layout_below="@+id/textView3"
+                android:layout_marginTop="19dp"
+                android:text="COPY" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="43dp"
+                android:layout_margin="15dp" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/button2"
                 android:layout_alignStart="@+id/button2"
-                android:layout_below="@+id/textView3"
+                android:layout_below="@+id/textView4"
                 android:layout_marginTop="25dp"
                 android:text="Launch" />
 

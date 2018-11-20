@@ -36,9 +36,12 @@ public class DesktopEnvironment extends Fragment {
     Button button;
     Button button2;
     Button button3;
+    Button button4;
     TextView textView2;
     TextView textView3;
+    TextView textView4;
     String distro;
+    String desktop;
     String s;
     boolean shouldShowAds;
     boolean isDeviceSpaceNotified;
@@ -53,6 +56,7 @@ public class DesktopEnvironment extends Fragment {
         context = getActivity().getApplicationContext();
 
         distro = "Nothing";
+        desktop = "Nothing";
 
         s = Build.SUPPORTED_ABIS[0];
 
@@ -64,14 +68,18 @@ public class DesktopEnvironment extends Fragment {
         button = view.findViewById(R.id.button);
         button2 = view.findViewById(R.id.button2);
         button3 = view.findViewById(R.id.button3);
+        button4 = view.findViewById(R.id.button4);
 
         textView2 = view.findViewById(R.id.textView2);
         textView3 = view.findViewById(R.id.textView3);
+        textView4 = view.findViewById(R.id.textView4);
 
-        textView2.setText("Step 2 : Please choose a distro first");
-        textView3.setText("Step 3 : Please choose a distro first.");
+        textView2.setText("Step 2 : Please choose a distro first.");
+        textView3.setText("Step 3 : Please choose a Desktop Environment first");
+        textView4.setText("Step 4 : Please choose a Desktop Environment first.");
         button2.setEnabled(false);
         button3.setEnabled(false);
+        button4.setEnabled(false);
 
         mInterstitialAd = new InterstitialAd(context);
         mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
@@ -91,27 +99,57 @@ public class DesktopEnvironment extends Fragment {
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
+            public void onClick(View v) {
+                notifyUserToChooseDesktop();
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
-                if(distro.equals("Ubuntu")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
-                    clipboard.setPrimaryClip(clip);
-                }else if(distro.equals("Debian")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
-                    clipboard.setPrimaryClip(clip);
-                }else if(distro.equals("Kali")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
-                    clipboard.setPrimaryClip(clip);
-                }else if(distro.equals("Parrot")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh");
-                    clipboard.setPrimaryClip(clip);
+                if(distro.equals("Ubuntu") | distro.equals("Debian") | distro.equals("Kali") | distro.equals("Parrot")){
+                    if(desktop.equals("Xfce4")){
+                        ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }else if(desktop.equals("Mate")){
+                        ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh && bash de-apt-mate.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }else if(desktop.equals("LXQt")){
+                        ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }else if(desktop.equals("LXDE")){
+                        ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
-                        ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/de-yum.sh && bash de-yum.sh");
-                        clipboard.setPrimaryClip(clip);
+                        if(desktop.equals("Xfce4")){
+                            ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }else if(desktop.equals("Mate")){
+                            ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Mate/de-apt-mate.sh && bash de-apt-mate.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }else if(desktop.equals("LXQt")){
+                            ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }else if(desktop.equals("LXDE")){
+                            ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }
                     }else{
-                        ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/de-yum.sh && bash de-yum.sh");
-                        clipboard.setPrimaryClip(clip);
+                        if(desktop.equals("Xfce4")){
+                            ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }else if(desktop.equals("Mate")){
+                            ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Mate/de-apt-mate.sh && bash de-apt-mate.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }else if(desktop.equals("LXQt")){
+                            ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }else if(desktop.equals("LXDE")){
+                            ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }
                     }
                 }else if(distro.equals("Arch")){
                     if(s.contains("arm")){
@@ -131,7 +169,7 @@ public class DesktopEnvironment extends Fragment {
             }
         });
 
-        button3.setOnClickListener(new View.OnClickListener() {
+        button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = context.getPackageManager().getLaunchIntentForPackage("com.termux");
@@ -282,37 +320,212 @@ public class DesktopEnvironment extends Fragment {
                         distro = "Arch";
                     }
                 }
+                textView2.setText("Step 2: Please choose a Desktop Environment");
+                button2.setEnabled(true);
+                textView3.setText("Step 3 : Please choose a Desktop Environment first");
+                textView4.setText("Step 4 : Please choose a Desktop Environment first.");
+                button3.setEnabled(false);
+                button4.setEnabled(false);
+                desktop = "Nothing";
+                dialog.dismiss();
+            }
+        });
+        alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialog.show();
+    }
+    public void notifyUserToChooseDesktop(){
+        final ViewGroup nullParent = null;
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        View view = layoutInflater.inflate(R.layout.desktop_environment_chooser2, nullParent);
+        final CheckBox checkBox = view.findViewById(R.id.checkBox);
+        final CheckBox checkBox2 = view.findViewById(R.id.checkBox2);
+        final CheckBox checkBox3 = view.findViewById(R.id.checkBox3);
+        final CheckBox checkBox4 = view.findViewById(R.id.checkBox4);
+
+        alertDialog.setView(view);
+        alertDialog.setCancelable(false);
+
+        if(desktop.equals("Xfce4")){
+            if(!distro.equals("Arch")){
+                checkBox.setChecked(true);
+            }
+        }else if(desktop.equals("Mate")){
+            if(!distro.equals("Arch")){
+                checkBox2.setChecked(true);
+            }
+        }else if(desktop.equals("LXQt")){
+            if(!distro.equals("Arch")){
+                checkBox3.setChecked(true);
+            }
+        }else if(desktop.equals("LXDE")){
+            checkBox4.setChecked(true);
+        }
+
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+            }
+        });
+        checkBox2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+            }
+        });
+        checkBox3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox4.setChecked(false);
+            }
+        });
+        checkBox4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+            }
+        });
+        if(distro.equals("Arch")){
+            checkBox.setText("Not Available");
+            checkBox2.setText("Not Available");
+            checkBox3.setText("Not Available");
+            checkBox.setEnabled(false);
+            checkBox2.setEnabled(false);
+            checkBox3.setEnabled(false);
+        }
+        alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                if(checkBox.isChecked()){
+                    if(!desktop.equals("Xfce4")){
+                        shouldShowAds = true;
+                        desktop = "Xfce4";
+                    }
+                }else if(checkBox2.isChecked()){
+                    if(!desktop.equals("Mate")){
+                        shouldShowAds = true;
+                        desktop = "Mate";
+                    }
+                }else if(checkBox3.isChecked()){
+                    if(!desktop.equals("LXQt")){
+                        shouldShowAds = true;
+                        desktop = "LXQt";
+                    }
+                }else if(checkBox4.isChecked()){
+                    if(!desktop.equals("LXDE")){
+                        shouldShowAds = true;
+                        desktop = "LXDE";
+                    }
+                }
                 if(distro.equals("Ubuntu")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
+                    if(desktop.equals("Xfce4")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("Mate")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh && bash de-apt-mate.sh \n\n This should setup Mate and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("LXQt")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh \n\n This should setup LXQt and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("LXDE")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
+                    }
                 }else if(distro.equals("Debian")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
+                    if(desktop.equals("Xfce4")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("Mate")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh && bash de-apt-mate.sh \n\n This should setup Mate and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("LXQt")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh \n\n This should setup LXQt and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("LXDE")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
+                    }
                 }else if(distro.equals("Kali")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
+                    if(desktop.equals("Xfce4")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("Mate")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh && bash de-apt-mate.sh \n\n This should setup Mate and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("LXQt")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh \n\n This should setup LXQt and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("LXDE")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
+                    }
                 }else if(distro.equals("Parrot")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/de-apt.sh && bash de-apt.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-parrot.sh to run the Linux System before using this command.");
+                    if(desktop.equals("Xfce4")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-parrot.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("Mate")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh && bash de-apt-mate.sh \n\n This should setup Mate and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-parrot.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("LXQt")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh \n\n This should setup LXQt and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-parrot.sh to run the Linux System before using this command.");
+                    }else if(desktop.equals("LXDE")){
+                        textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-parrot.sh to run the Linux System before using this command.");
+                    }
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
-                        textView2.setText("Step 2 : Copy the command to clipboard : yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/de-yum.sh && bash de-yum.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        if(desktop.equals("Xfce4")){
+                            textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Xfce4/de-yum-xfce4.sh && bash de-yum-xfce4.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                            textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }else if(desktop.equals("Mate")){
+                            textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Mate/de-yum-mate.sh && bash de-yum-mate.sh \n\n This should setup Mate and Tiger VNC on the Linux System.");
+                            textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }else if(desktop.equals("LXQt")){
+                            textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXQt/de-yum-lxqt.sh && bash de-yum-lxqt.sh \n\n This should setup LXQt and Tiger VNC on the Linux System.");
+                            textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }else if(desktop.equals("LXDE")){
+                            textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXDE/de-yum-lxde.sh && bash de-yum-lxde.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                            textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }
                     }else{
-                        textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/de-yum.sh && bash de-yum.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        if(desktop.equals("Xfce4")){
+                            textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Xfce4/de-yum-xfce4.sh && bash de-yum-xfce4.sh \n\n This should setup Xfce4 and Tiger VNC on the Linux System.");
+                            textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }else if(desktop.equals("Mate")){
+                            textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Mate/de-yum-mate.sh && bash de-yum-mate.sh \n\n This should setup Mate and Tiger VNC on the Linux System.");
+                            textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }else if(desktop.equals("LXQt")){
+                            textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXQt/de-yum-lxqt.sh && bash de-yum-lxqt.sh \n\n This should setup LXQt and Tiger VNC on the Linux System.");
+                            textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }else if(desktop.equals("LXDE")) {
+                            textView3.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXDE/de-yum-lxde.sh && bash de-yum-lxde.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                            textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        }
                     }
                 }else if(distro.equals("Arch")){
                     if(s.contains("arm")){
-                        textView2.setText("pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                        textView3.setText("pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
                     }else{
-                        textView2.setText("pacman-key --init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                        textView3.setText("pacman-key --init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh \n\n This should setup LXDE and Tiger VNC on the Linux System.");
+                        textView4.setText("Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
                     }
                 }
-                button2.setEnabled(true);
                 button3.setEnabled(true);
+                button4.setEnabled(true);
                 dialog.dismiss();
             }
         });
@@ -383,7 +596,7 @@ public class DesktopEnvironment extends Fragment {
             }
         });
         alertDialog.show();
-        textView.setText("Installing Desktop Environment will take around 1 GB space, 1.5 GB space is recommended, do you still want to install the desktop environment ?");
+        textView.setText("IMPORTANT\n\n\nPlease take a look at below warning patiently:\n\n1. Installing Desktop Environment will take around 1 GB space, 1.5 GB space is recommended.\n\n2. NEVER install two Desktop Environment on a same distro, if you want to install another Desktop Environment, please uninstall the distro using \"Uninstall\" feature first.\n\n\nDo you agree to proceed ?");
     }
     private boolean isPackageInstalled(String packageName, PackageManager packageManager) {
         try {
