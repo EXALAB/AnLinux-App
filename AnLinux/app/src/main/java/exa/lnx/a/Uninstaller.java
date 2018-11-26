@@ -101,6 +101,9 @@ public class Uninstaller extends Fragment{
                 }else if(distro.equals("Kali")){
                     ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Kali/UNI-kali.sh && bash UNI-kali.sh");
                     clipboard.setPrimaryClip(clip);
+                }else if(distro.equals("Parrot")){
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Kali/UNI-parrot.sh && bash UNI-parrot.sh");
+                    clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Fedora")){
                     ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Fedora/UNI-fedora.sh && bash UNI-fedora.sh");
                     clipboard.setPrimaryClip(clip);

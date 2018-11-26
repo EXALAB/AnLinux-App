@@ -99,6 +99,9 @@ public class SSH extends Fragment {
                 }else if(distro.equals("Kali")){
                     ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
                     clipboard.setPrimaryClip(clip);
+                }else if(distro.equals("Parrot")){
+                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
+                    clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Fedora")){
                     ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh");
                     clipboard.setPrimaryClip(clip);
