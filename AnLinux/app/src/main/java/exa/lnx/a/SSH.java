@@ -103,8 +103,13 @@ public class SSH extends Fragment {
                     ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Fedora")){
-                    ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh");
-                    clipboard.setPrimaryClip(clip);
+                    if(s.contains("arm") && !s.equals("arm64-v8a")){
+                        ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }else{
+                        ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }
                 }else if(distro.equals("CentOS")){
                     ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh");
                     clipboard.setPrimaryClip(clip);
@@ -312,8 +317,13 @@ public class SSH extends Fragment {
                     textView2.setText("Step 2 : Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh \n\n This should setup OpenSSH on the Linux System.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-parrot.sh to run the Linux System before using this command.");
                 }else if(distro.equals("Fedora")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh \n\n This should setup OpenSSH on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                    if(s.contains("arm") && !s.equals("arm64-v8a")){
+                        textView2.setText("Step 2 : Copy the command to clipboard : yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh \n\n This should setup OpenSSH on the Linux System.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                    }else{
+                        textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh \n\n This should setup OpenSSH on the Linux System.");
+                        textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                    }
                 }else if(distro.equals("CentOS")){
                     textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh \n\n This should setup OpenSSH on the Linux System.");
                     textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
