@@ -336,7 +336,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             }
         });
         alertDialog.show();
-        textView.setText("Thanks for using this app, do you want to support the developers?\n\n You can choose to watch an ad video, which will remove advertisement for a day, or purchase a Donation Package on Play Store which remove the ads forever.");
+        textView.setText("Thanks for using this app, do you want to support the developers?\n\nYou can choose to watch an ad video, which will remove advertisement for a day, or purchase a Donation Package on Play Store which remove the ads forever.");
     }
     public void notifyUserForSupportAfterDonation(){
         final ViewGroup nullParent = null;

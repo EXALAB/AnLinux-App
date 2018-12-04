@@ -22,7 +22,6 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.Calendar;
@@ -42,7 +41,6 @@ public class Patches extends Fragment {
     boolean shouldShowAds;
     SharedPreferences sharedPreferences;
     InterstitialAd mInterstitialAd;
-    AdView mAdView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
@@ -55,8 +53,6 @@ public class Patches extends Fragment {
 
         mInterstitialAd = new InterstitialAd(context);
         mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
-
-        mAdView = view.findViewById(R.id.adView);
 
         patches = "Nothing";
         s = Build.SUPPORTED_ABIS[0];

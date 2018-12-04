@@ -22,7 +22,6 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.Calendar;
@@ -41,7 +40,6 @@ public class SSH extends Fragment {
     String s;
     boolean shouldShowAds;
     InterstitialAd mInterstitialAd;
-    AdView mAdView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         getActivity().setTitle(R.string.ssh_title);
@@ -73,11 +71,8 @@ public class SSH extends Fragment {
         mInterstitialAd = new InterstitialAd(context);
         mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
 
-        mAdView = view.findViewById(R.id.adView);
-
         if(!donationInstalled()){
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            mAdView.loadAd(new AdRequest.Builder().build());
         }
 
         button.setOnClickListener(new View.OnClickListener() {
