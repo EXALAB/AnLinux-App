@@ -3,7 +3,7 @@ This is repo for the main application. If you are looking for the images and scr
 # AnLinux
 Run Linux On Android Without Root Access, thanks for the Awesome [Termux](https://github.com/termux/termux-app) and [PRoot](https://github.com/proot-me/PRoot), which make this project possible.
 
-You can find the application on Play Store [Here](https://play.google.com/store/apps/details?id=exa.lnx.a) , or download it on Github if you dont have access to Play Store.
+You can find the application on Play Store [here](https://play.google.com/store/apps/details?id=exa.lnx.a), or download it from Github if you don't have access to Play Store.
 
 
 
@@ -15,9 +15,9 @@ The bash script download image over internet, then decompress the image and then
 
 ## Desktop Environment
 
-We currently supported 4 Desktop Environment, and only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/), [Arch Linux](https://www.archlinux.org/) distro are supported.
+We currently support 4 Desktop Environments, and only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/), [Arch Linux](https://www.archlinux.org/) distros are supported.
 
-Supported Desktop Environment:
+Supported Desktop Environments:
 
 1. [Xfce4](https://xfce.org)
 2. [Mate](https://mate-desktop.org)
@@ -30,15 +30,15 @@ If you have any tweak, suggestion, recommendation, please open an issue on Githu
 
 ## Note
 
-1. This app required [Termux](https://github.com/termux/termux-app) to work, it could be install on Play Store. Or download it from [F-Droid](https://f-droid.org/packages/com.termux/) if you dont have access to Play Store
+1. This app requires [Termux](https://github.com/termux/termux-app) to work, it can be install from Play Store or from [F-Droid](https://f-droid.org) if you don't have access to Play Store
 
-2. About device requirement:
+2. About device requirements:
 
-   Android Version : At lease Android Lollipop
+   Android Version : At least Android Lollipop
 
-   Architeture : armv7, arm64, x86, x86_64
+   Architecture : armv7, arm64, x86, x86_64
 
-3. Currently supported distro:
+3. Currently supported distros:
 
    [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/), [CentOS](https://www.centos.org/), [openSUSE Leap](https://www.opensuse.org/), [openSUSE Tumbleweed](https://www.opensuse.org/), [Arch Linux](https://www.archlinux.org/), [BlackArch](https://blackarch.org/)
 
