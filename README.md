@@ -15,9 +15,9 @@ The bash script download image over internet, then decompress the image and then
 
 ## Desktop Environment
 
-We currently supported 4 Desktop Environment, and only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/), [Arch Linux](https://www.archlinux.org/) distro are supported.
+We currently support 4 Desktop Environments, and only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/), [Arch Linux](https://www.archlinux.org/) distros are supported.
 
-Supported Desktop Environment:
+Supported Desktop Environments:
 
 1. [Xfce4](https://xfce.org)
 2. [Mate](https://mate-desktop.org)
@@ -34,11 +34,11 @@ If you have any tweak, suggestion, recommendation, please open an issue on Githu
 
 2. About device requirement:
 
-   Android Version : At lease Android Lollipop
+   Android Version : At least Android Lollipop
 
-   Architeture : armv7, arm64, x86, x86_64
+   Architecture : armv7, arm64, x86, x86_64
 
-3. Currently supported distro:
+3. Currently supported distros:
 
    [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/), [CentOS](https://www.centos.org/), [openSUSE Leap](https://www.opensuse.org/), [openSUSE Tumbleweed](https://www.opensuse.org/), [Arch Linux](https://www.archlinux.org/), [BlackArch](https://blackarch.org/)
 
