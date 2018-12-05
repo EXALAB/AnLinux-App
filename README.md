@@ -3,7 +3,9 @@ This is repo for the main application. If you are looking for the images and scr
 # AnLinux
 Run Linux On Android Without Root Access, thanks for the Awesome [Termux](https://github.com/termux/termux-app) and [PRoot](https://github.com/proot-me/PRoot), which make this project possible.
 
-You can find the application on Play Store [here](https://play.google.com/store/apps/details?id=exa.lnx.a), or download it from Github if you don't have access to Play Store.
+<a href='https://play.google.com/store/apps/details?id=exa.lnx.a'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="100"/></a>
+
+Or download it [from Github](https://github.com/EXALAB/AnLinux-App/releases) if you don't have access to Play Store.
 
 
 
