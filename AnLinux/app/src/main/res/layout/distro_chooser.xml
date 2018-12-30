@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox3"
-            android:text="Parrot Security OS"/>
+            android:text="Kali Nethunter"/>
 
         <CheckBox
             android:id="@+id/checkBox5"
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox4"
-            android:text="Fedora"/>
+            android:text="Parrot Security OS"/>
 
         <CheckBox
             android:id="@+id/checkBox6"
@@ -53,15 +53,15 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox5"
-            android:text="CentOS"/>
+            android:text="Fedora"/>
 
         <CheckBox
             android:id="@+id/checkBox7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:layout_below="@id/checkBox6"
-            android:text="openSUSE Leap"/>
+            android:layout_below="@id/checkBox7"
+            android:text="CentOS"/>
 
         <CheckBox
             android:id="@+id/checkBox8"
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox7"
-            android:text="openSUSE Tumbleweed"/>
+            android:text="openSUSE Leap"/>
 
         <CheckBox
             android:id="@+id/checkBox9"
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox8"
-            android:text="Arch Linux"/>
+            android:text="openSUSE Tumbleweed"/>
 
         <CheckBox
             android:id="@+id/checkBox10"
@@ -85,7 +85,22 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox9"
+            android:text="Arch Linux"/>
+
+        <CheckBox
+            android:id="@+id/checkBox11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_below="@id/checkBox10"
             android:text="Black Arch"/>
+        <CheckBox
+            android:id="@+id/checkBox12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_below="@id/checkBox11"
+            android:text="Alpine"/>
 
     </RelativeLayout>
 
