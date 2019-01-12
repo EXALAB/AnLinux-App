@@ -59,6 +59,7 @@ Source of Ashmem library used in this app: [android-shmem](https://github.com/pe
 ## Todo
 
 1. [FreeBSD](https://www.freebsd.org/), [Slackware](http://www.slackware.com/), [Manjaro](https://manjaro.org/) support
+2. Add Window Manager feature.
 
 
 
