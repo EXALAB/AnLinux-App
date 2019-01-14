@@ -240,6 +240,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setCheckable(true);
             selected.setChecked(true);
             newFragment(5);
+        }else if(id == R.id.documentation){
+            notifyUserForDocumentation();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -295,6 +297,38 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 fragmentTransaction.commit();
                 break;
         }
+    }
+    public void notifyUserForDocumentation(){
+        final ViewGroup nullParent = null;
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.notify1, nullParent);
+        TextView textView = view.findViewById(R.id.textView);
+
+        alertDialog.setView(view);
+        alertDialog.setCancelable(false);
+        alertDialog.setPositiveButton("Donate", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                Uri uri = Uri.parse("https://github.com/EXALAB/AnLinux-App/wiki");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                if(Build.VERSION.SDK_INT >= 21){
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                }
+                try{
+                    startActivity(intent);
+                }catch(ActivityNotFoundException e){
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/EXALAB/AnLinux-App/wiki")));
+                }
+                dialog.dismiss();
+            }
+        });
+        alertDialog.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialog.show();
+        textView.setText("Does not understand how it works?\n\nForgot how to start or exit distro, or forgot how to start the VNC Server(Desktop Enviroment)?\n\nThen this feature is for you, if you have these problem, you could find it in the Github wiki pages.\n\nVisit now?");
     }
     public void notifyUserForSupport(){
         final ViewGroup nullParent = null;

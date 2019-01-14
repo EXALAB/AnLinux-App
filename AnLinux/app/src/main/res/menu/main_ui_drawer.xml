@@ -34,6 +34,10 @@
     <item android:title="@string/others">
         <menu>
             <item
+                android:id="@+id/documentation"
+                android:icon="@drawable/ic_documentation"
+                android:title="@string/documentation" />
+            <item
                 android:id="@+id/support"
                 android:icon="@drawable/ic_support"
                 android:title="@string/support" />
