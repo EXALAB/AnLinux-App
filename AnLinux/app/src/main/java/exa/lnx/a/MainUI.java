@@ -307,7 +307,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
-        alertDialog.setPositiveButton("Donate", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Uri uri = Uri.parse("https://github.com/EXALAB/AnLinux-App/wiki");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
