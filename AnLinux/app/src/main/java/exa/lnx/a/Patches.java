@@ -52,7 +52,7 @@ public class Patches extends Fragment {
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
 
         mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
+        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/1086414838");
 
         patches = "Nothing";
         s = Build.SUPPORTED_ABIS[0];

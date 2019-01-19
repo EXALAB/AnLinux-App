@@ -55,7 +55,7 @@ public class Uninstaller extends Fragment{
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
 
         mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
+        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/9994737883");
 
         if(!donationInstalled()){
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
