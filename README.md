@@ -7,7 +7,7 @@ Run Linux On Android Without Root Access, thanks for the Awesome [Termux](https:
 
 Or 
 
-[<img src="https://user-images.githubusercontent.com/663460/26973090-f8fdc986-4d14-11e7-995a-e7c5e79ed925.png" alt="Download APK from GitHub" height="80">](https://github.com/EXALAB/AnLinux-App/releases/latest) 
+[<img src="https://user-images.githubusercontent.com/663460/26973090-f8fdc986-4d14-11e7-995a-e7c5e79ed925.png" alt="Download APK from GitHub" height="100">](https://github.com/EXALAB/AnLinux-App/releases/latest) 
 
 if you don't have access to Play Store.
 
