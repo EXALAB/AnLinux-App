@@ -110,7 +110,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         editor.putInt("VideoAds", a);
                         editor.apply();
                     }
-                    Toast.makeText(context, "Thanks for your support!!!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, R.string.thanks_for_support, Toast.LENGTH_LONG).show();
                 }else{
                     Calendar cal = Calendar.getInstance();
                     Date date = cal.getTime();
@@ -121,7 +121,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         editor.putInt("VideoAds", a);
                         editor.apply();
                         relativeLayout.removeView(mAdView);
-                        Toast.makeText(context, "The ads are removed for today.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, R.string.ads_removed_temp, Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -328,7 +328,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             }
         });
         alertDialog.show();
-        textView.setText("Does not understand how it works?\n\nForgot how to start or exit distro, or forgot how to start the VNC Server(Desktop Enviroment)?\n\nThen this feature is for you, if you have these problem, you could find it in the Github wiki pages.\n\nVisit now?");
+        textView.setText(R.string.documentation_prompt);
     }
     public void notifyUserForSupport(){
         final ViewGroup nullParent = null;
@@ -359,7 +359,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (mRewardedVideoAd.isLoaded()) {
                     mRewardedVideoAd.show();
                 }else{
-                    Toast.makeText(context, "Currently no video ads available", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.no_video_ads, Toast.LENGTH_SHORT).show();
                 }
                 dialog.dismiss();
             }
@@ -370,7 +370,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             }
         });
         alertDialog.show();
-        textView.setText("Thanks for using this app, do you want to support the developers?\n\nYou can choose to watch an ad video, which will remove advertisement for a day, or purchase a Donation Package on Play Store which remove the ads forever.");
+        textView.setText(R.string.ask_for_donation);
     }
     public void notifyUserForSupportAfterDonation(){
         final ViewGroup nullParent = null;
@@ -386,7 +386,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (mRewardedVideoAd.isLoaded()) {
                     mRewardedVideoAd.show();
                 }else{
-                    Toast.makeText(context, "Currently no video ads available", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.no_video_ads, Toast.LENGTH_SHORT).show();
                 }
                 dialog.dismiss();
             }
@@ -397,7 +397,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             }
         });
         alertDialog.show();
-        textView.setText("Thanks for purchasing Donation Package, you can still watch video ads to support the developers, or continue to enjoy this app.");
+        textView.setText(R.string.support_after_donation);
     }
     public void notifyUserToReportError(){
         final ViewGroup nullParent = null;
@@ -414,9 +414,9 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
                 emailIntent.setType("plain/text");
                 emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"exalabdevelopers@gmail.com"});
-                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Bug Report");
+                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, R.string.bug_report1);
 
-                context.startActivity(Intent.createChooser(emailIntent, "Please choose an app"));
+                context.startActivity(Intent.createChooser(emailIntent, getString(R.string.bug_report2)));
             }
         });
         alertDialog.setNegativeButton("Github", new DialogInterface.OnClickListener() {
@@ -433,7 +433,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             }
         });
         alertDialog.show();
-        textView.setText("If you encountered a bug, you can choose to open an issue on Github, or email us.");
+        textView.setText(R.string.bug_encounter);
     }
     private boolean donationInstalled() {
         PackageManager packageManager = context.getPackageManager();

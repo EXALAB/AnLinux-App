@@ -12,7 +12,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="We detected you are running Android Oreo (8.0) or higher version. Please read the information below carefully, as we only show it once.\n\nSince Android O, Seccomp was added, and it restricted some of the function of the linux distro (such as systemd), but we still managed to tweak the system so some of the distro still works well.\n\nCurrently tweaked distro: Ubuntu, Debian, Kali, Parrot Security OS, Fedora\n\nHowever, you could still try to install other distro if you wanted to, but please do not blame the developers if you encountered any error. We may find new ways and fix them in the future, you could use the Report Error feature to report the bugs to us. \n\nIf you have intention to help us, there are issues open on Github, you find the link to Github in the About page, thanks for paying attention, thats all."
+            android:text="@string/first_warning_content"
             android:textSize="15sp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -42,7 +42,7 @@
             android:layout_below="@id/textView"
             android:layout_toRightOf="@id/checkBox"
             android:layout_toEndOf="@id/checkBox"
-            android:text="I Understand"
+            android:text="@string/i_understand"
             android:textSize="15sp"/>
 
     </RelativeLayout>

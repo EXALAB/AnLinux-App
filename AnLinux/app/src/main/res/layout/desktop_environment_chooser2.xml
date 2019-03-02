@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
-            android:text="Xfce4 (Recommended)"/>
+            android:text="@string/xfce4_recommended"/>
 
         <CheckBox
             android:id="@+id/checkBox2"

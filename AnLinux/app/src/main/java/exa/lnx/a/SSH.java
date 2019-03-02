@@ -63,8 +63,8 @@ public class SSH extends Fragment {
         textView2 = view.findViewById(R.id.textView2);
         textView3 = view.findViewById(R.id.textView3);
 
-        textView2.setText("Step 2 : Please choose a distro first");
-        textView3.setText("Step 3 : Please choose a distro first.");
+        textView2.setText(R.string.step2_cd);
+        textView3.setText(R.string.step3_cd);
         button2.setEnabled(false);
         button3.setEnabled(false);
 
@@ -86,16 +86,19 @@ public class SSH extends Fragment {
             public void onClick(View view) {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
                 if(distro.equals("Ubuntu")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Debian")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Kali")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Parrot")){
-                    ClipData clip = ClipData.newPlainText("Command", "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
+                    clipboard.setPrimaryClip(clip);
+                }else if(distro.equals("BackBox")){
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
@@ -158,6 +161,7 @@ public class SSH extends Fragment {
         final CheckBox checkBox5 = view.findViewById(R.id.checkBox5);
         final CheckBox checkBox6 = view.findViewById(R.id.checkBox6);
         final CheckBox checkBox7 = view.findViewById(R.id.checkBox7);
+        final CheckBox checkBox8 = view.findViewById(R.id.checkBox8);
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
@@ -170,12 +174,14 @@ public class SSH extends Fragment {
             checkBox3.setChecked(true);
         }else if(distro.equals("Parrot")){
             checkBox4.setChecked(true);
-        }else if(distro.equals("Fedora")){
+        }else if(distro.equals("BackBox")){
             checkBox5.setChecked(true);
-        }else if(distro.equals("CentOS")){
+        }else if(distro.equals("Fedora")){
             checkBox6.setChecked(true);
-        }else if(distro.equals("Arch")){
+        }else if(distro.equals("CentOS")){
             checkBox7.setChecked(true);
+        }else if(distro.equals("Arch")){
+            checkBox8.setChecked(true);
         }
 
         checkBox.setOnClickListener(new View.OnClickListener() {
@@ -187,6 +193,7 @@ public class SSH extends Fragment {
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
             }
         });
         checkBox2.setOnClickListener(new View.OnClickListener() {
@@ -198,6 +205,7 @@ public class SSH extends Fragment {
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
             }
         });
         checkBox3.setOnClickListener(new View.OnClickListener() {
@@ -209,6 +217,7 @@ public class SSH extends Fragment {
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
             }
         });
         checkBox4.setOnClickListener(new View.OnClickListener() {
@@ -220,6 +229,7 @@ public class SSH extends Fragment {
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
             }
         });
         checkBox5.setOnClickListener(new View.OnClickListener() {
@@ -231,6 +241,7 @@ public class SSH extends Fragment {
                 checkBox4.setChecked(false);
                 checkBox6.setChecked(false);
                 checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
             }
         });
         checkBox6.setOnClickListener(new View.OnClickListener() {
@@ -242,6 +253,7 @@ public class SSH extends Fragment {
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
                 checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
             }
         });
         checkBox7.setOnClickListener(new View.OnClickListener() {
@@ -253,13 +265,26 @@ public class SSH extends Fragment {
                 checkBox4.setChecked(false);
                 checkBox5.setChecked(false);
                 checkBox6.setChecked(false);
+                checkBox8.setChecked(false);
+            }
+        });
+        checkBox8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
             }
         });
         if(s.equals("i386")){
-            checkBox4.setEnabled(false);
-            checkBox4.setText("Not supported");
             checkBox6.setEnabled(false);
-            checkBox6.setText("Not supported");
+            checkBox6.setText(R.string.not_Supported);
+            checkBox8.setEnabled(false);
+            checkBox8.setText(R.string.not_Supported);
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -284,51 +309,59 @@ public class SSH extends Fragment {
                         distro = "Parrot";
                     }
                 }else if(checkBox5.isChecked()){
+                    if(!distro.equals("BackBox")){
+                        shouldShowAds = true;
+                        distro = "BackBox";
+                    }
+                }else if(checkBox6.isChecked()){
                     if(!distro.equals("Fedora")){
                         shouldShowAds = true;
                         distro = "Fedora";
                     }
-                }else if(checkBox6.isChecked()){
+                }else if(checkBox7.isChecked()){
                     if(!distro.equals("CentOS")){
                         shouldShowAds = true;
                         distro = "CentOS";
                     }
-                }else if(checkBox7.isChecked()){
+                }else if(checkBox8.isChecked()){
                     if(!distro.equals("Arch")){
                         shouldShowAds = true;
                         distro = "Arch";
                     }
                 }
                 if(distro.equals("Ubuntu")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh \n\n This should setup OpenSSH on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-ubuntu.sh to run the Linux System before using this command.");
+                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh"));
+                    textView3.setText(getString(R.string.ssh_step3, "./start-ubuntu.sh"));
                 }else if(distro.equals("Debian")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh \n\n This should setup OpenSSH on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-debian.sh to run the Linux System before using this command.");
+                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh"));
+                    textView3.setText(getString(R.string.ssh_step3, "./start-debian.sh"));
                 }else if(distro.equals("Kali")){
-                    textView2.setText("Step 2 : Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh \n\n This should setup OpenSSH on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-kali.sh to run the Linux System before using this command.");
+                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh"));
+                    textView3.setText(getString(R.string.ssh_step3, "./start-kali.sh"));
                 }else if(distro.equals("Parrot")){
-                    textView2.setText("Step 2 : Step 2 : Copy the command to clipboard : apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh \n\n This should setup OpenSSH on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-parrot.sh to run the Linux System before using this command.");
+                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh"));
+                    textView3.setText(getString(R.string.ssh_step3, "./start-parrot.sh"));
+                }else if(distro.equals("BackBox")){
+                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh"));
+                    textView3.setText(getString(R.string.ssh_step3, "./start-backbox.sh"));
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
-                        textView2.setText("Step 2 : Copy the command to clipboard : yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh \n\n This should setup OpenSSH on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        textView2.setText(getString(R.string.ssh_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/arm/ssh-yum.sh && bash ssh-yum.sh"));
+                        textView3.setText(getString(R.string.ssh_step3, "./start-fedora.sh"));
                     }else{
-                        textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh \n\n This should setup OpenSSH on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                        textView2.setText(getString(R.string.ssh_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh"));
+                        textView3.setText(getString(R.string.ssh_step3, "./start-fedora.sh"));
                     }
                 }else if(distro.equals("CentOS")){
-                    textView2.setText("Step 2 : Copy the command to clipboard : yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh \n\n This should setup OpenSSH on the Linux System.");
-                    textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-fedora.sh to run the Linux System before using this command.");
+                    textView2.setText(getString(R.string.ssh_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh"));
+                    textView3.setText(getString(R.string.ssh_step3, "./start-centos.sh"));
                 }else if(distro.equals("Arch")){
                     if(s.contains("arm")){
-                        textView2.setText("pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh && bash ssh-pac.sh \n\n This should setup OpenSSH on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                        textView2.setText(getString(R.string.ssh_step2, "pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh && bash ssh-pac.sh"));
+                        textView3.setText(getString(R.string.ssh_step3, "./start-arch.sh"));
                     }else{
-                        textView2.setText("pacman-key --init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh && bash ssh-pac.sh \n\n This should setup OpenSSH on the Linux System.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to setup SSH. Remember: you will need to run ./start-arch.sh to run the Linux System before using this command.");
+                        textView2.setText(getString(R.string.ssh_step2, "pacman-key --init && pacman-key --populate archlinux && pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh && bash ssh-pac.sh"));
+                        textView3.setText(getString(R.string.ssh_step3, "./start-arch.sh"));
                     }
                 }
                 button2.setEnabled(true);
@@ -373,7 +406,7 @@ public class SSH extends Fragment {
             }
         });
         alertDialog.show();
-        textView.setText("Termux is not installed, do you want to install it now ?");
+        textView.setText(R.string.termux_not_Installed);
     }
     private boolean isPackageInstalled(String packageName, PackageManager packageManager) {
         try {

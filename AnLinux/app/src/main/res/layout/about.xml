@@ -46,7 +46,7 @@
                 android:layout_centerVertical="true"
                 android:layout_below="@id/textView"
                 android:layout_marginTop="15dp"
-                android:text="Icon Author"/>
+                android:text="@string/icon_author"/>
 
             <Button
                 android:id="@+id/button2"
@@ -56,7 +56,7 @@
                 android:layout_centerVertical="true"
                 android:layout_below="@id/button"
                 android:layout_marginTop="15dp"
-                android:text="Source Code"/>
+                android:text="@string/source_code"/>
 
         </RelativeLayout>
 

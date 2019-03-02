@@ -142,21 +142,21 @@ public class Patches extends Fragment {
                 }
                 if(patches.equals("Ashmem")){
                     if(s.equals("arm64-v8a")){
-                        textView.setText("Please scroll down to see all steps.\n\nWARNING: You should have wget installed on linux distro before proceeding, also remember only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nAbout Ashmem: System V shared memory emulation on Android, using ashmem. That includes shmget, shmat, shmdt and shmctl functions. It does not use Binder service, and does not link to Java libraries. It uses Linux sendmsg/recvmsg API instead to transfer file handlers.\n\nWhat it do: If you have error running some GUI programs, install this patch may solve the problem.\n\nHow to use: env LD_PRELOAD=\"/usr/local/lib/libandroid-shmem.so\" <linux_command>");
-                        textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/aarch64/install-ashmem.sh && bash install-ashmem.sh \n\n This should install Ashmem on your system.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install Patches. Remember: you will need to run ./start-*.sh to run the Linux System before using this command.");
+                        textView.setText(R.string.patches_step1);
+                        textView2.setText(getString(R.string.patches_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/aarch64/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
+                        textView3.setText(R.string.patches_step3);
                     }else if(s.contains("arm")){
-                        textView.setText("Please scroll down to see all steps.\n\nWARNING: You should have wget installed on linux distro before proceeding, also remember only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nAbout Ashmem: System V shared memory emulation on Android, using ashmem. That includes shmget, shmat, shmdt and shmctl functions. It does not use Binder service, and does not link to Java libraries. It uses Linux sendmsg/recvmsg API instead to transfer file handlers.\n\nWhat it do: If you have error running some GUI programs, install this patch may solve the problem.\n\nHow to use: env LD_PRELOAD=\"/usr/local/lib/libandroid-shmem.so\" <linux_command>");
-                        textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/armhf/install-ashmem.sh && bash install-ashmem.sh \n\n This should install Ashmem on your system.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install Patches. Remember: you will need to run ./start-*.sh to run the Linux System before using this command.");
+                        textView.setText(R.string.patches_step1);
+                        textView2.setText(getString(R.string.patches_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/armhf/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
+                        textView3.setText(R.string.patches_step3);
                     }else if(s.equals("x86")){
-                        textView.setText("Please scroll down to see all steps.\n\nWARNING: You should have wget installed on linux distro before proceeding, also remember only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nAbout Ashmem: System V shared memory emulation on Android, using ashmem. That includes shmget, shmat, shmdt and shmctl functions. It does not use Binder service, and does not link to Java libraries. It uses Linux sendmsg/recvmsg API instead to transfer file handlers.\n\nWhat it do: If you have error running some GUI programs, install this patch may solve the problem.\n\nHow to use: env LD_PRELOAD=\"/usr/local/lib/libandroid-shmem.so\" <linux_command>");
-                        textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/i386/install-ashmem.sh && bash install-ashmem.sh \n\n This should install Ashmem on your system.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install Patches. Remember: you will need to run ./start-*.sh to run the Linux System before using this command.");
+                        textView.setText(R.string.patches_step1);
+                        textView2.setText(getString(R.string.patches_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/i386/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
+                        textView3.setText(R.string.patches_step3);
                     }else if(s.equals("x86_64")){
-                        textView.setText("Please scroll down to see all steps.\n\nWARNING: You should have wget installed on linux distro before proceeding, also remember only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nAbout Ashmem: System V shared memory emulation on Android, using ashmem. That includes shmget, shmat, shmdt and shmctl functions. It does not use Binder service, and does not link to Java libraries. It uses Linux sendmsg/recvmsg API instead to transfer file handlers.\n\nWhat it do: If you have error running some GUI programs, install this patch may solve the problem.\n\nHow to use: env LD_PRELOAD=\"/usr/local/lib/libandroid-shmem.so\" <linux_command>");
-                        textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/amd64/install-ashmem.sh && bash install-ashmem.sh \n\n This should install Ashmem on your system.");
-                        textView3.setText("Step 3 : Start Termux, paste and enter the command to install Patches. Remember: you will need to run ./start-*.sh to run the Linux System before using this command.");
+                        textView.setText(R.string.patches_step1);
+                        textView2.setText(getString(R.string.patches_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/amd64/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
+                        textView3.setText(R.string.patches_step3);
                     }
                 }
                 button2.setEnabled(true);
@@ -201,7 +201,7 @@ public class Patches extends Fragment {
             }
         });
         alertDialog.show();
-        textView.setText("Termux is not installed, do you want to install it now ?");
+        textView.setText(R.string.termux_not_Installed);
     }
     private boolean isPackageInstalled(String packageName, PackageManager packageManager) {
         try {
