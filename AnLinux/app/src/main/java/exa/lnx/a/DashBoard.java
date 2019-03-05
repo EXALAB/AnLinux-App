@@ -101,51 +101,51 @@ public class DashBoard extends Fragment {
             public void onClick(View view) {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
                 if(distro.equals("Ubuntu")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Debian")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Kali")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Nethunter")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Nethunter/nethunter.sh && bash nethunter.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Nethunter/nethunter.sh && bash nethunter.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Parrot")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Parrot/parrot.sh && bash parrot.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Parrot/parrot.sh && bash parrot.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("BackBox")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/BackBox/backbox.sh && bash backbox.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/BackBox/backbox.sh && bash backbox.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Fedora")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("CentOS")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Leap")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Tumbleweed")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("openSUSE")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/armhf/opensuse.sh && bash opensuse.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/armhf/opensuse.sh && bash opensuse.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Arch")){
                     if(s.equals("x86_64")){
-                        ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/arch.sh && bash arch.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/arch.sh && bash arch.sh");
                         clipboard.setPrimaryClip(clip);
                     }else{
-                        ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh");
                         clipboard.setPrimaryClip(clip);
                     }
                 }else if(distro.equals("BlackArch")){
                     ClipData clip = ClipData.newPlainText("Command", "pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Alpine")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Alpine/alpine.sh && bash alpine.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Alpine/alpine.sh && bash alpine.sh");
                     clipboard.setPrimaryClip(clip);
                 }
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
@@ -536,41 +536,41 @@ public class DashBoard extends Fragment {
                     }
                 }
                 if(distro.equals("Ubuntu")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh", "Ubuntu", "./start-ubuntu.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh", "Ubuntu", "./start-ubuntu.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-ubuntu.sh"));
                 }else if(distro.equals("Debian")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh", "Debian", "./start-debian.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh", "Debian", "./start-debian.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-debian.sh"));
                 }else if(distro.equals("Kali")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh", "Debian", "./start-kali.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh", "Debian", "./start-kali.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-kali.sh"));
                 }else if(distro.equals("Nethunter")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Nethunter/nethunter.sh && bash nethunter.sh", "Kali Nethunter", "./start-nethunter.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Nethunter/nethunter.sh && bash nethunter.sh", "Kali Nethunter", "./start-nethunter.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-nethunter.sh"));
                 }else if(distro.equals("Parrot")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Parrot/parrot.sh && bash parrot.sh", "Parrot Security OS", "./start-parrot.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Parrot/parrot.sh && bash parrot.sh", "Parrot Security OS", "./start-parrot.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-parrot.sh"));
                 }else if(distro.equals("BackBox")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/BackBox/backbox.sh && bash backbox.sh", "BackBox", "./start-backbox.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/BackBox/backbox.sh && bash backbox.sh", "BackBox", "./start-backbox.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-backbox.sh"));
                 }else if(distro.equals("Fedora")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh", "Fedora", "./start-fedora.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh", "Fedora", "./start-fedora.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-fedora.sh"));
                 }else if(distro.equals("CentOS")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh", "CentOS", "./start-centos.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh", "CentOS", "./start-centos.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-centos.sh"));
                 }else if(distro.equals("Leap")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh", "openSUSE Leap", "./start-leap.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh", "openSUSE Leap", "./start-leap.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-leap.sh"));
                 }else if(distro.equals("Tumbleweed")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh", "openSUSE Tumbleweed", "./start-tumbleweed.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Tumbleweed/opensuse-tumbleweed.sh && bash opensuse-tumbleweed.sh", "openSUSE Tumbleweed", "./start-tumbleweed.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-tumbleweed.sh"));
                 }else if(distro.equals("Arch")){
                     if(s.equals("x86_64")){
-                        textView2.setText(getString(R.string.dashboard_step2_arch, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/arch.sh && bash arch.sh", "Arch Linux", "./start-arch.sh"));
+                        textView2.setText(getString(R.string.dashboard_step2_arch, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/amd64/arch.sh && bash arch.sh", "Arch Linux", "./start-arch.sh"));
                         textView3.setText(R.string.dashboard_step3_arch);
                     }else{
-                        textView2.setText(getString(R.string.dashboard_step2_arch, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh", "Arch Linux", "./start-arch.sh"));
+                        textView2.setText(getString(R.string.dashboard_step2_arch, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh", "Arch Linux", "./start-arch.sh"));
                         textView3.setText(R.string.dashboard_step3_arch);
                     }
                     notifyUserForArchLinux();
@@ -578,7 +578,7 @@ public class DashBoard extends Fragment {
                     textView2.setText(getString(R.string.dashboard_step2_blackarch,"pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh"));
                     textView3.setText(R.string.dashboard_step3_blackarch);
                 }else if(distro.equals("Alpine")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Alpine/alpine.sh && bash alpine.sh", "Alpine", "./start-alpine.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Alpine/alpine.sh && bash alpine.sh", "Alpine", "./start-alpine.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-alpine.sh"));
                 }
                 button2.setEnabled(true);
@@ -904,41 +904,41 @@ public class DashBoard extends Fragment {
                     }
                 }
                 if(distro.equals("Ubuntu")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh", "Ubuntu", "./start-ubuntu.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh", "Ubuntu", "./start-ubuntu.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-ubuntu.sh"));
                 }else if(distro.equals("Debian")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh", "Debian", "./start-debian.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh", "Debian", "./start-debian.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-debian.sh"));
                 }else if(distro.equals("Kali")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh", "Debian", "./start-kali.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh", "Debian", "./start-kali.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-kali.sh"));
                 }else if(distro.equals("Nethunter")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Nethunter/nethunter.sh && bash nethunter.sh", "Kali Nethunter", "./start-nethunter.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Nethunter/nethunter.sh && bash nethunter.sh", "Kali Nethunter", "./start-nethunter.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-nethunter.sh"));
                 }else if(distro.equals("Parrot")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Parrot/parrot.sh && bash parrot.sh", "Parrot Security OS", "./start-parrot.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Parrot/parrot.sh && bash parrot.sh", "Parrot Security OS", "./start-parrot.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-parrot.sh"));
                 }else if(distro.equals("BackBox")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/BackBox/backbox.sh && bash backbox.sh", "BackBox", "./start-backbox.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/BackBox/backbox.sh && bash backbox.sh", "BackBox", "./start-backbox.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-backbox.sh"));
                 }else if(distro.equals("Fedora")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh", "Fedora", "./start-fedora.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh", "Fedora", "./start-fedora.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-fedora.sh"));
                 }else if(distro.equals("CentOS")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh", "CentOS", "./start-centos.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh", "CentOS", "./start-centos.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-centos.sh"));
                 }else if(distro.equals("openSUSE")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot tar -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/armhf/opensuse.sh && bash opensuse.sh", "openSUSE", "./start-opensuse.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/armhf/opensuse.sh && bash opensuse.sh", "openSUSE", "./start-opensuse.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-opensuse.sh"));
                 }else if(distro.equals("Arch")){
-                    textView2.setText(getString(R.string.dashboard_step2_arch, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh", "Arch Linux", "./start-arch.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2_arch, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && bash arch.sh", "Arch Linux", "./start-arch.sh"));
                     textView3.setText(R.string.dashboard_step3_arch);
                     notifyUserForArchLinux();
                 }else if(distro.equals("BlackArch")){
                     textView2.setText(getString(R.string.dashboard_step2_blackarch,"pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && ./strap.sh"));
                     textView3.setText(R.string.dashboard_step3_blackarch);
                 }else if(distro.equals("Alpine")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget proot -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Alpine/alpine.sh && bash alpine.sh", "Alpine", "./start-alpine.sh"));
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Alpine/alpine.sh && bash alpine.sh", "Alpine", "./start-alpine.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-alpine.sh"));
                 }
                 button2.setEnabled(true);
