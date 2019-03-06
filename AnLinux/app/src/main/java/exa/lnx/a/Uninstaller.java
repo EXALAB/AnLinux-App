@@ -177,7 +177,7 @@ public class Uninstaller extends Fragment{
         final CheckBox checkBox10 = view.findViewById(R.id.checkBox10);
         final CheckBox checkBox11 = view.findViewById(R.id.checkBox11);
         final CheckBox checkBox12 = view.findViewById(R.id.checkBox12);
-        final CheckBox checkBox13 = view.findViewById(R.id.checkBox12);
+        final CheckBox checkBox13 = view.findViewById(R.id.checkBox13);
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
@@ -481,30 +481,26 @@ public class Uninstaller extends Fragment{
                 }else if(distro.equals("Parrot")){
                     textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Parrot/UNI-parrot.sh && bash UNI-parrot.sh", "Parrot Security OS"));
                     textView3.setText(R.string.uninstall_step3);
-                }else if(distro.equals("Parrot")){
-                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Parrot/UNI-parrot.sh && bash UNI-parrot.sh", "Parrot Security OS"));
-                    textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("BackBox")){
                     textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/BackBox/UNI-backbox.sh && bash UNI-backbox.sh", "BackBox"));
+                    textView3.setText(R.string.uninstall_step3);
+                }else if(distro.equals("Fedora")){
+                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Fedora/UNI-fedora.sh && bash UNI-fedora.sh", "Fedora"));
                     textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("CentOS")){
                     textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/CentOS/UNI-centos.sh && bash UNI-centos.sh", "CentOS"));
                     textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("Leap")){
-                    textView2.setText(getString(R.string.uninstall_step2, "", ""));
-                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/Leap/UNI-opensuse-leap.sh && bash UNI-opensuse-leap.sh \n\n This should fully remove openSUSE Leap from your system.");
+                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/Leap/UNI-opensuse-leap.sh && bash UNI-opensuse-leap.sh", "openSUSE Leap"));
                     textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("Tumbleweed")){
-                    textView2.setText(getString(R.string.uninstall_step2, "", ""));
-                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/Tumbleweed/UNI-opensuse-tumbleweed.sh && bash UNI-opensuse-tumbleweed.sh \n\n This should fully remove openSUSE Tumbleweed from your system.");
+                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/Tumbleweed/UNI-opensuse-tumbleweed.sh && bash UNI-opensuse-tumbleweed.sh", "openSUSE Tumbleweed"));
                     textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("Arch")){
-                    textView2.setText(getString(R.string.uninstall_step2, "", ""));
-                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Arch/UNI-arch.sh && bash UNI-arch.sh \n\n This should fully remove Arch Linux from your system.");
+                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Arch/UNI-arch.sh && bash UNI-arch.sh", "Arch Linux"));
                     textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("Alpine")){
-                    textView2.setText(getString(R.string.uninstall_step2, "", ""));
-                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Alpine/UNI-alpine.sh && bash UNI-alpine.sh \n\n This should fully remove Alpine from your system.");
+                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Alpine/UNI-alpine.sh && bash UNI-alpine.sh", "Alpine"));
                     textView3.setText(R.string.uninstall_step3);
                 }
                 button2.setEnabled(true);
@@ -804,26 +800,23 @@ public class Uninstaller extends Fragment{
                 }else if(distro.equals("Parrot")){
                     textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Parrot/UNI-parrot.sh && bash UNI-parrot.sh", "Parrot Security OS"));
                     textView3.setText(R.string.uninstall_step3);
-                }else if(distro.equals("Parrot")){
-                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Parrot/UNI-parrot.sh && bash UNI-parrot.sh", "Parrot Security OS"));
-                    textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("BackBox")){
                     textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/BackBox/UNI-backbox.sh && bash UNI-backbox.sh", "BackBox"));
+                    textView3.setText(R.string.uninstall_step3);
+                }else if(distro.equals("Fedora")){
+                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Fedora/UNI-fedora.sh && bash UNI-fedora.sh", "Fedora"));
                     textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("CentOS")){
                     textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/CentOS/UNI-centos.sh && bash UNI-centos.sh", "CentOS"));
                     textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("openSUSE")){
-                    textView2.setText(getString(R.string.uninstall_step2, "", ""));
-                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/armhf/UNI-opensuse.sh && bash UNI-opensuse.sh \n\n This should fully remove openSUSE from your system.");
+                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/openSUSE/armhf/UNI-opensuse.sh", "openSUSE"));
                     textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("Arch")){
-                    textView2.setText(getString(R.string.uninstall_step2, "", ""));
-                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Arch/UNI-arch.sh && bash UNI-arch.sh \n\n This should fully remove Arch Linux from your system.");
+                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Arch/UNI-arch.sh && bash UNI-arch.sh", "Arch Linux"));
                     textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("Alpine")){
-                    textView2.setText(getString(R.string.uninstall_step2, "", ""));
-                    textView2.setText("Step 2 : Copy the command to clipboard : wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Alpine/UNI-alpine.sh && bash UNI-alpine.sh \n\n This should fully remove Alpine from your system.");
+                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Alpine/UNI-alpine.sh && bash UNI-alpine.sh", "Alpine"));
                     textView3.setText(R.string.uninstall_step3);
                 }
                 button2.setEnabled(true);
