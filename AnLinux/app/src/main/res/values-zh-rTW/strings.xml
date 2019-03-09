@@ -65,8 +65,8 @@
     <string name="de_step3">第三步：啟動Termux，貼上並輸入指令以安裝桌面。注意：您必須先使用 %1$s 來啟動Linux System後才能使用此指令。 </string>
     <string name="dashboard_step2">第二步：請複制此指令：%1$s \n\n這將會把%2$s 安裝到您的系統，之後您可以使用%3$s 指令來啟動系統。 </string>
     <string name="dashboard_step3">第三步：啟動Termux，貼上並輸入指令以安裝系統。注意：您之後必須使用 %1$s 指令來啟動系統。 </string>
-    <string name="dashboard_step2_arch">第二步：請複制此指令：%1$s \n\n這將安裝%2$s 到您的設備, 您稍後可以使用%3$s 指令來啟動系統。 \n\n啟動後，您必須執行以下指令：chmod 755 additional.sh &amp;&amp; ./additional.sh 來設置 resolv.conf，否則網絡連接將無法使用。 (僅限第一次)</string>
-    <string name="dashboard_step3_arch">第三步：啟動Termux，貼上並輸入指令以安裝系統。注意：您之後必須使用./start-arch.sh 指令來啟動系統，之後，您必須執行以下指令：chmod 755 additional.sh &amp;&amp; ./additional.sh 來設置resolv.conf，否則網絡連接將無法使用。 </string>
+    <string name="dashboard_step2_arch">第二步：請複制此指令：%1$s \n\n這將安裝%2$s 到您的設備, 您稍後可以使用%3$s 指令來啟動系統。 \n\n啟動後，您必須執行以下指令：chmod 755 additional.sh &amp;&amp; ./additional.sh 來設置 resolv.conf 和 pacman-key，否則網絡連接和 pacman 將無法使用！ (僅限第一次)</string>
+    <string name="dashboard_step3_arch">第三步：啟動Termux，貼上並輸入指令以安裝系統。注意：您之後必須使用./start-arch.sh 指令來啟動系統，之後，您必須執行以下指令：chmod 755 additional.sh &amp;&amp; ./additional.sh 來設置resolv.conf 和pacman-key，否則網絡連接和pacman 將無法使用！ (僅限第一次)</string>
     <string name="dashboard_step2_blackarch">注意：請在Arch Linux系統中執行此指令以開啟BlackArch Repo （Arch Linux必須先安裝\n\n第二步：請複制此指令：%1$s</string>
     <string name="dashboard_step3_blackarch">第三步：啟動Termux，輸入 ./start-arch.sh 指令以進入Arch Linux， 貼上並輸入指令以BlackArch Repo。注意： 您必須先使用 ./start-arch.sh 來進入Arch Linux後才能執行此指令。 </string>
     <string name="arch_linux_warning_content">Arch Linux 的系統比一般系統更大 (大約 400 MB), 在解壓後講佔用更多空間。推薦至少有1.5GB空間儲備。 \n\n\n注意：\n\n1. 在解壓時會出現此問題：tar: Ignoring unknown extended header keyword \'SCHILY.fflags\'，這並不會造成任何問題，請無視。 \n\n2. Arch Linux 系統存在於第三方服務器，並有可能出現無法使用的狀態，如果您發現任何問題，請回報至exalabdevelopers@gmail.com</string>
