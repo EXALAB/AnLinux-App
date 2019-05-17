@@ -48,7 +48,9 @@ If you have any tweak, suggestion, recommendation, please open an issue on Githu
 
    [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Kali Nethunter](https://www.kali.org/kali-linux-nethunter/), [Parrot Security OS](https://www.parrotsec.org/), [BackBox](https://www.backbox.org/), [Fedora](https://getfedora.org/), [CentOS](https://www.centos.org/), [openSUSE Leap](https://www.opensuse.org/), [openSUSE Tumbleweed](https://www.opensuse.org/), [Arch Linux](https://www.archlinux.org/), [BlackArch](https://blackarch.org/), [Alpine](https://alpinelinux.org/)
 
-5. For any suggestion or issue, please open an issue on Github.
+4. For any suggestion or issue, please open an issue on Github.
+
+5. The support of Windows Manager has been removed, because of /dev/tty0 could not be found error.
 
 
 
@@ -63,7 +65,6 @@ Source of Ashmem library used in this app: [android-shmem](https://github.com/pe
 ## Todo
 
 1. [FreeBSD](https://www.freebsd.org/), [Slackware](http://www.slackware.com/), [Manjaro](https://manjaro.org/) support
-2. Add Window Manager feature.
 
 
 
