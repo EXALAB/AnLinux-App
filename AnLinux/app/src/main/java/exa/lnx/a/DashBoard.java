@@ -60,8 +60,6 @@ public class DashBoard extends Fragment {
 
         s = Build.SUPPORTED_ABIS[0];
 
-        shouldShowAds = false;
-
         if(s.equals("mips") | s.equals("mips64")){
             Toast.makeText(context, "Your device is not supported", Toast.LENGTH_LONG).show();
             getActivity().finish();
@@ -72,6 +70,7 @@ public class DashBoard extends Fragment {
 
         if(!donationInstalled() && !isVideoAdsWatched()){
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            shouldShowAds = true;
         }
 
         button = view.findViewById(R.id.button);
@@ -148,6 +147,7 @@ public class DashBoard extends Fragment {
                     ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Alpine/alpine.sh && bash alpine.sh");
                     clipboard.setPrimaryClip(clip);
                 }
+                Toast.makeText(context, getString(R.string.command_copied), Toast.LENGTH_SHORT).show();
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
                     if(!donationInstalled() && !isVideoAdsWatched()){
                         mInterstitialAd.show();
@@ -174,10 +174,8 @@ public class DashBoard extends Fragment {
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
-        if(Build.VERSION.SDK_INT >= 26){
-            if(!isOreoNotified){
-                showOreoDialog();
-            }
+        if(!isOreoNotified){
+            showFirstDialog();
         }
         return view;
     }
@@ -1043,7 +1041,7 @@ public class DashBoard extends Fragment {
         int b = sharedPreferences.getInt("VideoAds", 0);
         return a == b;
     }
-    protected void showOreoDialog(){
+    protected void showFirstDialog(){
 
         final ViewGroup nullParent = null;
 
@@ -1054,7 +1052,7 @@ public class DashBoard extends Fragment {
         CheckBox checkBox = view.findViewById(R.id.checkBox);
         builder.setView(view);
         builder.setCancelable(false);
-        builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.close, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which){
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean("IsOreoNotified", true);

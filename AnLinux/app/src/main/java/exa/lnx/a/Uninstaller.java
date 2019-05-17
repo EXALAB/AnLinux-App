@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -57,8 +58,9 @@ public class Uninstaller extends Fragment{
         mInterstitialAd = new InterstitialAd(context);
         mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/9994737883");
 
-        if(!donationInstalled()){
+        if(!donationInstalled() && !isVideoAdsWatched()){
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            shouldShowAds = true;
         }
 
         button = view.findViewById(R.id.button);
@@ -132,6 +134,7 @@ public class Uninstaller extends Fragment{
                     ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Alpine/UNI-alpine.sh && bash UNI-alpine.sh");
                     clipboard.setPrimaryClip(clip);
                 }
+                Toast.makeText(context, getString(R.string.command_copied), Toast.LENGTH_SHORT).show();
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
                     if(!donationInstalled() && !isVideoAdsWatched()){
                         mInterstitialAd.show();
@@ -419,50 +422,62 @@ public class Uninstaller extends Fragment{
             public void onClick(DialogInterface dialog, int which) {
                 if(checkBox.isChecked()){
                     if(!distro.equals("Ubuntu")){
+                        shouldShowAds = true;
                         distro = "Ubuntu";
                     }
                 }else if(checkBox2.isChecked()){
                     if(!distro.equals("Debian")){
+                        shouldShowAds = true;
                         distro = "Debian";
                     }
                 }else if(checkBox3.isChecked()){
                     if(!distro.equals("Kali")){
+                        shouldShowAds = true;
                         distro = "Kali";
                     }
                 }else if(checkBox4.isChecked()){
                     if(!distro.equals("Nethunter")){
+                        shouldShowAds = true;
                         distro = "Nethunter";
                     }
                 }else if(checkBox5.isChecked()){
                     if(!distro.equals("Parrot")){
+                        shouldShowAds = true;
                         distro = "Parrot";
                     }
                 }else if(checkBox6.isChecked()){
                     if(!distro.equals("BackBox")){
+                        shouldShowAds = true;
                         distro = "BackBox";
                     }
                 }else if(checkBox7.isChecked()){
                     if(!distro.equals("Fedora")){
+                        shouldShowAds = true;
                         distro = "Fedora";
                     }
                 }else if(checkBox8.isChecked()){
                     if(!distro.equals("CentOS")){
+                        shouldShowAds = true;
                         distro = "CentOS";
                     }
                 }else if(checkBox9.isChecked()){
                     if(!distro.equals("Leap")){
+                        shouldShowAds = true;
                         distro = "Leap";
                     }
                 }else if(checkBox10.isChecked()){
                     if(!distro.equals("Tumbleweed")){
+                        shouldShowAds = true;
                         distro = "Tumbleweed";
                     }
                 }else if(checkBox11.isChecked()){
                     if(!distro.equals("Arch")){
+                        shouldShowAds = true;
                         distro = "Arch";
                     }
                 }else if(checkBox13.isChecked()){
                     if(!distro.equals("Alpine")){
+                        shouldShowAds = true;
                         distro = "Alpine";
                     }
                 }
@@ -742,46 +757,57 @@ public class Uninstaller extends Fragment{
             public void onClick(DialogInterface dialog, int which) {
                 if(checkBox.isChecked()){
                     if(!distro.equals("Ubuntu")){
+                        shouldShowAds = true;
                         distro = "Ubuntu";
                     }
                 }else if(checkBox2.isChecked()){
                     if(!distro.equals("Debian")){
+                        shouldShowAds = true;
                         distro = "Debian";
                     }
                 }else if(checkBox3.isChecked()){
                     if(!distro.equals("Kali")){
+                        shouldShowAds = true;
                         distro = "Kali";
                     }
                 }else if(checkBox4.isChecked()){
                     if(!distro.equals("Nethunter")){
+                        shouldShowAds = true;
                         distro = "Nethunter";
                     }
                 }else if(checkBox5.isChecked()){
                     if(!distro.equals("Parrot")){
+                        shouldShowAds = true;
                         distro = "Parrot";
                     }
                 }else if(checkBox6.isChecked()){
                     if(!distro.equals("BackBox")){
+                        shouldShowAds = true;
                         distro = "BackBox";
                     }
                 }else if(checkBox7.isChecked()){
                     if(!distro.equals("Fedora")){
+                        shouldShowAds = true;
                         distro = "Fedora";
                     }
                 }else if(checkBox8.isChecked()){
                     if(!distro.equals("CentOS")){
+                        shouldShowAds = true;
                         distro = "CentOS";
                     }
                 }else if(checkBox9.isChecked()){
                     if(!distro.equals("openSUSE")){
+                        shouldShowAds = true;
                         distro = "openSUSE";
                     }
                 }else if(checkBox10.isChecked()){
+                    shouldShowAds = true;
                     if(!distro.equals("Arch")){
                         distro = "Arch";
                     }
                 }else if(checkBox12.isChecked()){
                     if(!distro.equals("Alpine")){
+                        shouldShowAds = true;
                         distro = "Alpine";
                     }
                 }

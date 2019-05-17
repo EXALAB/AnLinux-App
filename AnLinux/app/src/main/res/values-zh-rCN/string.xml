@@ -73,4 +73,11 @@
     <string name="dashboard_step3_blackarch">第三步：启动Termux，输入 ./start-arch.sh 指令以进入Arch Linux， 贴上并输入指令以BlackArch Repo。注意： 您必须先使用 ./start-arch.sh 来进入Arch Linux后才能执行此指令。</string>
     <string name="arch_linux_warning_content">Arch Linux 的系统比一般系统更大 (大约 400 MB), 在解压后讲占用更多空间。推荐至少有1.5GB空间储备。\n\n\n注意：\n\n1. 在解压时会出现此问题：tar: Ignoring unknown extended header keyword \'SCHILY.fflags\'，这并不会造成任何问题，请无视。\n\n2. Arch Linux 系统存在于第三方服务器，并有可能出现无法使用的状态，如果您发现任何问题，请回报至exalabdevelopers@gmail.com</string>
     <string name="nethunter_warning_content">请稍等！\n\n以下是重要的信息，请务必阅读：\n\n1. Kali Nethunter 的系统为1GB空间解压后将占用更多空间，强烈建议您至少有5GB空间储备。\n\n2. 解压时间较长 (大约是0分钟。)\n\n3. 桌面将无法使用，请不要使用Kali的桌面指令来进行安装。\n\n4. Nethunter 的系统已经超过一年没有更新了，部分功能可能有问题，如果您需要时常在最新状态，自定义的系统，请选择原版的Kali。</string>
+    <string name="run_with_root">以超级权限运行</string>
+    <string name="root_content">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n首先，此功能只给设备已有超级权限（ROOT）的用户，如果您不曾听说过Root，Superuser，SU，SuperSU, Magisk,超级权限等名词，请不要使用此功能。\n\n我们了解，大部分用户的目的都是为了不使用超级权限来运行Linux系统。但是，如果您的设备有超级权限，您依然要用不使用超级权限运行吗？使用超级权限运行可以获得很多好处，特别是用于运行需要高级权限的安全性测试软件。\n\n给不知道的用户：Termux可以使用su指令进入超级权限模式，但是在此模式下直接运行./start-*.sh指令会出现PRoot无法被找到的错误。\n\n但是别担心，我们有方法，请根据以下的步骤进行：\n\n1. 点击以下的按钮以复制指令：pkg install tsu -y &amp;&amp; hash -r</string>
+    <string name="root_content2">启动Termux，贴上和输入指令，之后您能直接运行su指令，然后像往常一样使用./start-*.sh指令。</string>
+    <string name="su_warning_content">抱歉耽误您的时间，但是这很重要，我们只会显示一次，所以请仔细查看。\n\n以超级权限运行运行Linux系统可以获得很多溢出，但是如果您不正确的使用也可能会带来能将整个Android系统清除的危险。\n\n请注意您所做的事情，同时作者将不会因为您执行不当的指令而造成设备变砖作出回应，同时请记得，绝对不要运行类似rm -rf /*的指令来进行测试。\n\n如果您选择继续，代表您同意以上的条款。</string>
+    <string name="i_agree">我同意</string>
+    <string name="command_copied">指令已复制</string>
+    <string name="close">关闭</string>
 </resources>

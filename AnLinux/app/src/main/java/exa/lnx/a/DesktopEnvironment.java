@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -84,6 +85,7 @@ public class DesktopEnvironment extends Fragment {
 
         if(!donationInstalled()){
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            shouldShowAds = true;
         }
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -155,6 +157,7 @@ public class DesktopEnvironment extends Fragment {
                         clipboard.setPrimaryClip(clip);
                     }
                 }
+                Toast.makeText(context, getString(R.string.command_copied), Toast.LENGTH_SHORT).show();
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
                     if(!donationInstalled() && !isVideoAdsWatched()){
                         mInterstitialAd.show();

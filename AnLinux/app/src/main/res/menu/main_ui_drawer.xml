@@ -28,6 +28,10 @@
                 android:id="@+id/patch"
                 android:icon="@drawable/ic_patch"
                 android:title="@string/patches" />
+            <item
+                android:id="@+id/su"
+                android:icon="@drawable/ic_superuser"
+                android:title="@string/run_with_root" />
         </menu>
     </item>
 
