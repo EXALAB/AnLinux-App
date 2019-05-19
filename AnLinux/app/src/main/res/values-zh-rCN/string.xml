@@ -24,7 +24,7 @@
     <string name="documentation">指南</string>
     <string name="step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n第一步：选择一个您要安装的系统，您可以同时安装多个系统，这并不会导致冲突问题。</string>
     <string name="gui_step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n警告：请在Linux终端中执行此指令，而不是Termux终端，否则此指令将失效！\n\n第一步：请先选择一个桌面</string>
-    <string name="ssh_step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n警告：请在Linux终端中执行此指令，而不是Termux终端，否则此指令将失效！\n\n第一步：请先选择一个Linux系统以设置SSH</string>
+    <string name="ssh_step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n警告：除了使用以超级权限运行Linux系统，ssh server将无法被外部的设备链接。同时请在Linux终端中执行此指令，而不是Termux终端，否则此指令将失效！\n\n第一步：请先选择一个Linux系统以设置SSH</string>
     <string name="patch_step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n警告：请在Linux终端中执行此指令，而不是Termux终端，否则此指令将失效！\n\n第一步：请选择一个补丁</string>
     <string name="press_again_to_exit">请再次点击以关闭</string>
     <string name="about_content">AnLinux是一个为了将Linux系统的体验移植到Android上为目的的开源项目。\n\n应用的图标取自： https://www.iconfinder.com , 由此作者制作 : "Alpár-Etele Méder", 您可以点击下方的 “图标作者” 按钮以找到作者。\n\n感谢您使用此应用。\n\n\n以上, EXA Lab</string>
@@ -35,7 +35,7 @@
     <string name="Launch">启动</string>
     <string name="ubuntu_beginner">Ubuntu (Recommended for Beginner)</string>
     <string name="xfce4_recommended">Xfce4 (Recommended)</string>
-    <string name="first_warning_content">首先，非常感谢您下载AnLinux，以下是重要的内容，请仔细阅读。\n\n1. 为了让安装更为方便和简易，除了Arch Linux 和 Kali Nethunter 都是非常简易的rootfs，这表示系统中有许多功能还未被安装，您可以根据需求安装他们，同时请不要因此询问系统是不是虚假的。\n\n2. 所有安装的系统都在此目录： /data/data/com.termux/files/home ，请在安装功能之前缺人您的设备有足够的空间，同时不要抱怨应用占用了你的空间，因为一切都是由您在控制。\n\n3. 有些系统会因为您的设备架构关系而无使用。\n\n4. 当前，少部分的设备无法运行。\n\n\n感谢您的阅读，祝您有个快乐的一天 ：）</string>
+    <string name="first_warning_content">首先，非常感谢您下载AnLinux，以下是重要的内容，请仔细阅读。\n\n1. 为了让安装更为方便和简易，除了Arch Linux 和 Kali Nethunter 都是非常简易的rootfs，这表示系统中有许多功能还未被安装，您可以根据需求安装他们，同时请不要因此询问系统是不是虚假的。\n\n2. 所有安装的系统都在此目录： /data/data/com.termux/files/home ，请在安装功能之前缺人您的设备有足够的空间，同时不要抱怨应用占用了你的空间，因为一切都是由您在控制。\n\n3. 有些系统会因为您的设备架构关系而无使用。\n\n4. 当前，所有除了mips以外的设备都能运行此应用，如果您遇到类似Proot signal 6, or function not implemented的问题，请至应用内的补丁功能使用SECCOMP补丁。\n\n\n感谢您的阅读，祝您有个快乐的一天 ：）</string>
     <string name="i_understand">我了解</string>
     <string name="step2_cd">第二步：请先选择一个系统</string>
     <string name="step3_cd">第三步：请先选择一个系统</string>
@@ -45,9 +45,9 @@
     <string name="termux_not_Installed">Termux并未安装，请问是否要现在安装？</string>
     <string name="uninstall_step2">第二步：请复制此指令：%1$s \n\n这将会把 %2$s 从Termux移除。</string>
     <string name="uninstall_step3">第三步：启动Termux，贴上并输入指令以解除安装。注意：请在Termux终端中执行此指令，而不是Linux终端。</string>
-    <string name="patches_step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n警告：请确定在执行此操作前Linux系统已安装wget，同时请在Linux终端中执行此指令，而不是Termux终端，否则此指令将失效！\n\n关于 Ashmem: 安卓上的 系统V shared memory 模拟, 使用 ashmem。包挂了 shmget, shmat, shmdt 和 shmctl 的功能. 它并不使用 Binder service, 同时也不关联任何 Java libraries. 它使用了 Linux 的 sendmsg/recvmsg API 来进行传输。\n\n作用: 当您在执行某些GUI程式时出现问题，安装此补丁有可能可以解决问题。\n\n使用方法: env LD_PRELOAD="/usr/local/lib/libandroid-shmem.so" 指令"</string>
-    <string name="patches_step2">第二步：请复制此指令：%1$s \n\n这将会把 %2$s 安装到您的系统。</string>
-    <string name="patches_step3">第三步：启动Termux，贴上并输入指令以安装补丁。注意：您必须先使用 ./start-*.sh 来启动Linux System后才能使用此指令。</string>
+    <string name="ashmem_step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n警告：请确定在执行此操作前Linux系统已安装wget，同时请在Linux终端中执行此指令，而不是Termux终端，否则此指令将失效！\n\n关于 Ashmem: 安卓上的 系统V shared memory 模拟, 使用 ashmem。包挂了 shmget, shmat, shmdt 和 shmctl 的功能. 它并不使用 Binder service, 同时也不关联任何 Java libraries. 它使用了 Linux 的 sendmsg/recvmsg API 来进行传输。\n\n作用: 当您在执行某些GUI程式时出现问题，安装此补丁有可能可以解决问题。\n\n使用方法: env LD_PRELOAD="/usr/local/lib/libandroid-shmem.so" 指令"</string>
+    <string name="ashmem_step2">第二步：请复制此指令：%1$s \n\n这将会把 %2$s 安装到您的系统。</string>
+    <string name="ashmem_step3">第三步：启动Termux，贴上并输入指令以安装补丁。注意：您必须先使用 ./start-*.sh 来启动Linux System后才能使用此指令。</string>
     <string name="bug_encounter">如果您遇到了问题，您可以使用Github或电邮进行回报。</string>
     <string name="support_after_donation">感谢您购买捐献包，您依然可以观看广告以支持开发者，或继续使用此应用。</string>
     <string name="ask_for_donation">感谢您使用此应用，请问是否要支持开发者？\n\n您可以选择观看广告，这会移除当天应用内的所有广告，或者您也可以选择在Play商店上购买捐献包以永久移除所有广告。</string>
@@ -75,9 +75,12 @@
     <string name="nethunter_warning_content">请稍等！\n\n以下是重要的信息，请务必阅读：\n\n1. Kali Nethunter 的系统为1GB空间解压后将占用更多空间，强烈建议您至少有5GB空间储备。\n\n2. 解压时间较长 (大约是0分钟。)\n\n3. 桌面将无法使用，请不要使用Kali的桌面指令来进行安装。\n\n4. Nethunter 的系统已经超过一年没有更新了，部分功能可能有问题，如果您需要时常在最新状态，自定义的系统，请选择原版的Kali。</string>
     <string name="run_with_root">以超级权限运行</string>
     <string name="root_content">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n首先，此功能只给设备已有超级权限（ROOT）的用户，如果您不曾听说过Root，Superuser，SU，SuperSU, Magisk,超级权限等名词，请不要使用此功能。\n\n我们了解，大部分用户的目的都是为了不使用超级权限来运行Linux系统。但是，如果您的设备有超级权限，您依然要用不使用超级权限运行吗？使用超级权限运行可以获得很多好处，特别是用于运行需要高级权限的安全性测试软件。\n\n给不知道的用户：Termux可以使用su指令进入超级权限模式，但是在此模式下直接运行./start-*.sh指令会出现PRoot无法被找到的错误。\n\n但是别担心，我们有方法，请根据以下的步骤进行：\n\n1. 点击以下的按钮以复制指令：pkg install tsu -y &amp;&amp; hash -r</string>
-    <string name="root_content2">启动Termux，贴上和输入指令，之后您能直接运行su指令，然后像往常一样使用./start-*.sh指令。</string>
+    <string name="root_content2">启动Termux，贴上和输入指令，之后您能直接运行tsu指令，然后像往常一样使用./start-*.sh指令。</string>
     <string name="su_warning_content">抱歉耽误您的时间，但是这很重要，我们只会显示一次，所以请仔细查看。\n\n以超级权限运行运行Linux系统可以获得很多溢出，但是如果您不正确的使用也可能会带来能将整个Android系统清除的危险。\n\n请注意您所做的事情，同时作者将不会因为您执行不当的指令而造成设备变砖作出回应，同时请记得，绝对不要运行类似rm -rf /*的指令来进行测试。\n\n如果您选择继续，代表您同意以上的条款。</string>
     <string name="i_agree">我同意</string>
     <string name="command_copied">指令已复制</string>
     <string name="close">关闭</string>
+    <string name="seccomp_step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n注意：仅在您遇到类似Proot signal 6, or function not implemented才使用此补丁。</string>
+    <string name="seccomp_step2">第二步：请复制此指令：echo "export PROOT_NO_SECCOMP=1" >> .bashrc &amp;&amp; hash -r</string>
+    <string name="seccomp_step3">第三步：启动Termux，贴上并输入指令以安装补丁。警告：您必须直接在Termux中执行此指令，而不是在Linux系统中，否则此指令将失效！</string>
 </resources>

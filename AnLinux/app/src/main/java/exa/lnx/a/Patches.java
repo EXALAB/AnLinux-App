@@ -95,6 +95,9 @@ public class Patches extends Fragment {
                         ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/amd64/install-ashmem.sh && bash install-ashmem.sh");
                         clipboard.setPrimaryClip(clip);
                     }
+                }else if(patches.equals("SECCOMP")){
+                    ClipData clip = ClipData.newPlainText("Command", "echo \"export PROOT_NO_SECCOMP=1\" >> .bashrc && hash -r");
+                    clipboard.setPrimaryClip(clip);
                 }
                 Toast.makeText(context, getString(R.string.command_copied), Toast.LENGTH_SHORT).show();
                 if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
@@ -130,12 +133,15 @@ public class Patches extends Fragment {
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
         View view = layoutInflater.inflate(R.layout.patches_chooser, nullParent);
         final CheckBox checkBox = view.findViewById(R.id.checkBox);
+        final CheckBox checkBox2 = view.findViewById(R.id.checkBox2);
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
 
         if(patches.equals("Ashmem")){
             checkBox.setChecked(true);
+        }else if(patches.equals("SECCOMP")){
+            checkBox2.setChecked(true);
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -144,25 +150,34 @@ public class Patches extends Fragment {
                         shouldShowAds = true;
                         patches = "Ashmem";
                     }
+                }else if(checkBox2.isChecked()){
+                    if(!patches.equals("SECCOMP")){
+                        shouldShowAds = true;
+                        patches = "SECCOMP";
+                    }
                 }
                 if(patches.equals("Ashmem")){
                     if(s.equals("arm64-v8a")){
-                        textView.setText(R.string.patches_step1);
-                        textView2.setText(getString(R.string.patches_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/aarch64/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
-                        textView3.setText(R.string.patches_step3);
+                        textView.setText(R.string.ashmem_step1);
+                        textView2.setText(getString(R.string.ashmem_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/aarch64/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
+                        textView3.setText(R.string.ashmem_step3);
                     }else if(s.contains("arm")){
-                        textView.setText(R.string.patches_step1);
-                        textView2.setText(getString(R.string.patches_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/armhf/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
-                        textView3.setText(R.string.patches_step3);
+                        textView.setText(R.string.ashmem_step1);
+                        textView2.setText(getString(R.string.ashmem_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/armhf/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
+                        textView3.setText(R.string.ashmem_step3);
                     }else if(s.equals("x86")){
-                        textView.setText(R.string.patches_step1);
-                        textView2.setText(getString(R.string.patches_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/i386/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
-                        textView3.setText(R.string.patches_step3);
+                        textView.setText(R.string.ashmem_step1);
+                        textView2.setText(getString(R.string.ashmem_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/i386/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
+                        textView3.setText(R.string.ashmem_step3);
                     }else if(s.equals("x86_64")){
-                        textView.setText(R.string.patches_step1);
-                        textView2.setText(getString(R.string.patches_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/amd64/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
-                        textView3.setText(R.string.patches_step3);
+                        textView.setText(R.string.ashmem_step1);
+                        textView2.setText(getString(R.string.ashmem_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Library/Ashmem/amd64/install-ashmem.sh && bash install-ashmem.sh", "ashmem"));
+                        textView3.setText(R.string.ashmem_step3);
                     }
+                }else if(patches.equals("SECCOMP")){
+                    textView.setText(R.string.seccomp_step1);
+                    textView2.setText(R.string.seccomp_step2);
+                    textView3.setText(R.string.seccomp_step3);
                 }
                 button2.setEnabled(true);
                 button3.setEnabled(true);
