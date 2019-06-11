@@ -27,9 +27,10 @@
     <string name="ssh_step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n警告：除了使用以超级权限运行Linux系统，ssh server将无法被外部的设备链接。同时请在Linux终端中执行此指令，而不是Termux终端，否则此指令将失效！\n\n第一步：请先选择一个Linux系统以设置SSH</string>
     <string name="patch_step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n警告：请在Linux终端中执行此指令，而不是Termux终端，否则此指令将失效！\n\n第一步：请选择一个补丁</string>
     <string name="press_again_to_exit">请再次点击以关闭</string>
-    <string name="about_content">AnLinux是一个为了将Linux系统的体验移植到Android上为目的的开源项目。\n\n应用的图标取自： https://www.iconfinder.com , 由此作者制作 : "Alpár-Etele Méder", 您可以点击下方的 “图标作者” 按钮以找到作者。\n\n感谢您使用此应用。\n\n\n以上, EXA Lab</string>
+    <string name="about_content">AnLinux是一个为了将Linux系统的体验移植到Android上为目的的开源项目。\n\n应用的图标取自： https://www.iconfinder.com , 由此作者制作 : "Alpár-Etele Méder", 您可以点击下方的 “图标作者” 按钮以找到作者。\n\n如果您想要此应用的源码，请点击源码按钮。\n\n如果您想要此应用的脚本或是Linux系统源码，请点击内容源码按钮。\n\n感谢您使用此应用。\n\n\n以上, EXA Lab</string>
     <string name="icon_author">图标作者</string>
     <string name="source_code">源码</string>
+    <string name="content_source_code">内容源码</string>
     <string name="choose">选择</string>
     <string name="copy">复制</string>
     <string name="Launch">启动</string>
@@ -83,4 +84,7 @@
     <string name="seccomp_step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n注意：仅在您遇到类似Proot signal 6, or function not implemented才使用此补丁。</string>
     <string name="seccomp_step2">第二步：请复制此指令：echo "export PROOT_NO_SECCOMP=1" >> .bashrc &amp;&amp; hash -r</string>
     <string name="seccomp_step3">第三步：启动Termux，贴上并输入指令以安装补丁。警告：您必须直接在Termux中执行此指令，而不是在Linux系统中，否则此指令将失效！</string>
+    <string name="rootfs_download">下载Rootfs（离线用途）</string>
+    <string name="rootfs_download_content">此功能是为了下载rootfs（或被成为系统）作为离线用途，如果您想要普通的安装Linux系统，请使用仪表板，而不是此功能。\n\n有些用户可能想下载rootfs作为研究或学习用途，因此我们创立此功能好让用户更轻易的找到载点。\n\n点击以下按钮将直接跳转到Github的页（也是rootfs存放的地方）：https://github.com/EXALAB/AnLinux-Resources/tree/master/Rootfs ，并不给予进一步的通知。</string>
+    <string name="view">查看</string>
 </resources>

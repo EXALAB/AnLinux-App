@@ -27,9 +27,10 @@
     <string name="ssh_step1">Please scroll down to see all steps if your device screen is small.\n\nWARNING: This ssh server could not be connected from outside by other device unless you run the Linux distro with Run with Root Permission feature. Also please run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nStep 1 : Please choose a distro to setup OpenSSH Server</string>
     <string name="patch_step1">Please scroll down to see all steps if your device screen is small.\n\nWARNING: Only run this command inside the Linux System and not in Termux, otherwise it will not work!!!\n\nStep 1 : Please choose a Patches</string>
     <string name="press_again_to_exit">Please press again to exit application</string>
-    <string name="about_content">AnLinux is a open source project intent to bring the access of Linux to Android platform.\n\nThe icon of this application is taken from https://www.iconfinder.com , which is created by user : "Alpár-Etele Méder", you can reach the icon author by clicking "ICON AUTHOR" button below.\n\nThanks for using this apps.\n\n\nRegards, EXA Lab</string>
+    <string name="about_content">AnLinux is a open source project intent to bring the access of Linux to Android platform.\n\nThe icon of this application is taken from https://www.iconfinder.com , which is created by user : "Alpár-Etele Méder", you can reach the icon author by clicking "ICON AUTHOR" button below.\n\nIf you are looking for the source code used in this app, click the SOURCE CODE button.\n\nIf you are looking for scripts and rootfs used in this app, please click the CONTENT SOURCE button, they are license under GPLv2.\n\nThanks for using this apps.\n\n\nRegards, EXA Lab</string>
     <string name="icon_author">Icon Author</string>
     <string name="source_code">Source Code</string>
+    <string name="content_source_code">Content Source</string>
     <string name="choose">Choose</string>
     <string name="copy">Copy</string>
     <string name="Launch">Launch</string>
@@ -83,4 +84,7 @@
     <string name="seccomp_step1">Please scroll down to see all steps if your device screen is small.\n\nWARNING: Only run this if you encountered error such as Proot signal 6, or function not implemented.</string>
     <string name="seccomp_step2">Step 2 : Copy the command to clipboard : echo "export PROOT_NO_SECCOMP=1" >> .bashrc &amp;&amp; hash -r</string>
     <string name="seccomp_step3">Step 3 : Start Termux, paste and enter the command to install Patches. Remember: you will need this command directly inside Termux and not in the Linux distro, otherwise it will not work.</string>
+    <string name="rootfs_download">Download Rootfs (Offline use)</string>
+    <string name="rootfs_download_content">This feature is to download the rootfs(Or simply know as distro) for offline use only, if you want to install distro normally you should install it from Dashboard, not here.\n\nSome users would want to download rootfs for investigation or learning purpose, we created this feature so users could easily find the location to download.\n\nClicking the Button below would open a webpage on Github where rootfs are stored: https://github.com/EXALAB/AnLinux-Resources/tree/master/Rootfs , without further notification.</string>
+    <string name="view">View</string>
 </resources>

@@ -198,6 +198,11 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+            }else if(fragment instanceof RootfsDownload){
+                fragment = new DashBoard();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         }
         return false;
@@ -252,6 +257,11 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setCheckable(true);
             selected.setChecked(true);
             newFragment(6);
+        }else if(id == R.id.rootfs_download){
+            MenuItem selected = navigationView.getMenu().findItem(R.id.rootfs_download);
+            selected.setCheckable(true);
+            selected.setChecked(true);
+            newFragment(7);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -309,6 +319,13 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
             case 6:
                 fragment = new SU();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+            case 7:
+                fragment = new RootfsDownload();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();

@@ -32,6 +32,10 @@
                 android:id="@+id/su"
                 android:icon="@drawable/ic_superuser"
                 android:title="@string/run_with_root" />
+            <item
+                android:id="@+id/rootfs_download"
+                android:icon="@drawable/ic_rootfsdownload"
+                android:title="@string/rootfs_download" />
         </menu>
     </item>
 
