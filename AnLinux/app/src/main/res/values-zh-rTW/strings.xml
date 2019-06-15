@@ -23,7 +23,7 @@
     <string name="step1">如果您的設備屏幕較小，請往下滑以使用其他步驟。 \n\n第一步：選擇一個您要安裝的系統，您可以同時安裝多個系統，這並不會導致衝突問題。 </string>
     <string name="gui_step1">如果您的設備屏幕較小，請往下滑以使用其他步驟。 \n\n警告：請在Linux終端中執行此指令，而不是Termux終端，否則此指令將失效！ \n\n第一步：請先選擇一個桌面</string>
     <string name="ssh_step1">如果您的設備屏幕較小，請往下滑以使用其他步驟。 \n\n警告：除了使用以超級權限運行Linux系統，ssh server將無法被外部的設備鏈接。同時請在Linux終端中執行此指令，而不是Termux終端，否則此指令將失效！ \n\n第一步：請先選擇一個Linux系統以設置SSH</string>
-    <string name="patch_step1">如果您的設備屏幕較小，請往下滑以使用其他步驟。 \n\n警告：請在Linux終端中執行此指令，而不是Termux終端，否則此指令將失效！ \n\n第一步：請選擇一個補丁</string>
+    <string name="patch_step1">如果您的設備屏幕較小，請往下滑以使用其他步驟。\n\n第一步：請選擇一個補丁</string>
     <string name="press_again_to_exit">請再次點擊以關閉</string>
     <string name="about_content">AnLinux是一個為了將Linux系統的體驗移植到Android上為目的的開源項目。 \n\n應用的圖標取自： https://www.iconfinder.com , 由此作者製作 : "Alpár-Etele Méder", 您可以點擊下方的 “圖標作者” 按鈕以找到作者。 \n\n如果您想要此應用的源碼，請點擊源碼按鈕。 \n\n如果您想要此應用的腳本或是Linux系統源碼，請點擊內容源碼按鈕。 \n\n感謝您使用此應用。 \n\n\n以上, EXA Lab</string>
     <string name="icon_author">圖標作者</string>
