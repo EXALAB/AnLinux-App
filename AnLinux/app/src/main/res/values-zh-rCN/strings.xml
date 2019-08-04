@@ -88,7 +88,7 @@
     <string name="seccomp_step2">第二步：请复制此指令：echo "export PROOT_NO_SECCOMP=1" >> .bashrc &amp;&amp; hash -r</string>
     <string name="seccomp_step3">第三步：启动Termux，贴上并输入指令以安装补丁。警告：您必须直接在Termux中执行此指令，而不是在Linux系统中，否则此指令将失效！</string>
     <string name="rootfs_download">下载Rootfs(离线用途)</string>
-    <string name="rootfs_download_content">此功能是为了下载rootfs(或被称为基础系统)作为离线用途，如果您想要普通的安装Linux系统，请使用"仪表板"，而不是此功能。而不是此功能。\n\n有些用户可能想下载rootfs作为研究或学习用途，因此我们提供下载连结好让用户更轻易的找到它。\n\n点击以下按钮将直接跳转到Github(rootfs存放的地方)：\nhttps://github.com/EXALAB/AnLinux-Resources/tree/master/Rootfs\n并不给予进一步的协助。</string>
+    <string name="rootfs_download_content">此功能是为了下载rootfs(或被称为基础系统)作为离线用途，如果您想要普通的安装Linux系统，请使用"仪表板"，而不是此功能。\n\n有些用户可能想下载rootfs作为研究或学习用途，因此我们提供下载连结好让用户更轻易的找到它。\n\n点击以下按钮将直接跳转到Github\n(rootfs存放的地方)\n\nhttps://github.com/EXALAB/AnLinux-Resources/tree/master/Rootfs\n\n并不给予进一步的协助。</string>
     <string name="view">查看</string>
     <string name="uninstall_step1">第一步：选择您要删除的Linux系统，系统一但被删除便无法复原</string>
 </resources>
