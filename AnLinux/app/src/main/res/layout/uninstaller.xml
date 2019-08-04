@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView"
                 android:layout_centerHorizontal="true"
-                android:text="Choose" />
+                android:text="@string/choose" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -48,7 +48,7 @@
                 android:layout_alignStart="@+id/button"
                 android:layout_below="@+id/textView2"
                 android:layout_marginTop="19dp"
-                android:text="COPY" />
+                android:text="@string/copy" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -67,7 +67,7 @@
                 android:layout_alignStart="@+id/button2"
                 android:layout_below="@+id/textView3"
                 android:layout_marginTop="25dp"
-                android:text="Launch" />
+                android:text="@string/Launch" />
 
         </RelativeLayout>
 

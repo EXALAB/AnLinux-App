@@ -41,8 +41,8 @@
     <string name="xfce4_recommended">Xfce4 (Recommended)</string>
     <string name="first_warning_content">首先，非常感谢您下载AnLinux，以下是重要的内容，请仔细阅读。\n\n1. 为了让安装更为方便和简易，除了Arch Linux 和 Kali Nethunter 都是非常简易的rootfs，这表示系统中有许多功能还未被安装，您可以根据需求安装他们，同时请不要因此询问系统是不是虚假的。\n\n2. 所有安装的系统都在此目录： /data/data/com.termux/files/home ，请在安装功能之前缺人您的设备有足够的空间，同时不要抱怨应用占用了你的空间，因为一切都是由您在控制。\n\n3. 有些系统会因为您的设备架构关系而无使用。\n\n4. 当前，所有除了mips以外的设备都能运行此应用，如果您遇到类似Proot signal 6, or function not implemented的问题，请至应用内的补丁功能使用SECCOMP补丁。\n\n\n感谢您的阅读，祝您有个快乐的一天 ：)</string>
     <string name="i_understand">我了解</string>
-    <string name="step2_cd">第二步：请先选择一个系统</string>
-    <string name="step3_cd">第三步：请先选择一个系统</string>
+    <string name="step2_cd">第二步：请先完成上一个选项</string>
+    <string name="step3_cd">第三步：请先完成上一个选项</string>
     <string name="not_Supported">不支持</string>
     <string name="not_available">不提供</string>
     <string name="same_arch_linux">和Arch Linux一样</string>
@@ -64,11 +64,11 @@
     <string name="ssh_step2">第二步：请复制此指令：%1$s \n\n这将会把SSH安装到您的系统。</string>
     <string name="ssh_step3">第三步：启动Termux，贴上并输入指令以安装SSH。注意：您必须先使用 %1$s 来启动Linux System后才能使用此指令。</string>
     <string name="de_notify_space">注意\n\n\n请仔细阅读以下的指令：\n\n1. 安装桌面会占用 1GB空间, 推荐至少有1.5GB空间储备。\n\n2. 千万不要同时安装两个不同的桌面，如果您要安装其他的桌面，请先重新安装Linux系统。要完成此操作，请先使用 “删除系统” 功能， 并从仪表板进行安装。\n\n\n请问您是否同意继续？</string>
-    <string name="de_step2_choose_first">第二步：请先选择一个桌面</string>
-    <string name="de_step3_choose_first">第三步：请先选择一个桌面</string>
-    <string name="de_step4_choose_first">第四步：请先选择一个桌面</string>
-    <string name="de_step2">第二步：请复制此指令：%1$s \n\n这将会把 %2$s 和桌面安装到您的系统。</string>
-    <string name="de_step3">第三步：启动Termux，贴上并输入指令以安装桌面。注意：您必须先使用 %1$s 来启动Linux System后才能使用此指令。</string>
+    <string name="de_step2_choose_first">第二步：请选择一个桌面</string>
+    <string name="de_step3_choose_first">第三步：请先完成上一个选项</string>
+    <string name="de_step4_choose_first">第四步：请先完成上一个选项</string>
+    <string name="de_step2">第三步：请复制此指令：%1$s \n\n这将会把 %2$s 和桌面安装到您的系统。</string>
+    <string name="de_step3">第四步：启动Termux，贴上并输入指令以安装桌面。注意：您必须先使用 %1$s 来启动Linux System后才能使用此指令。</string>
     <string name="dashboard_step2">第二步：请复制此指令：%1$s \n\n这将会把 %2$s 安装到您的系统，之后您可以使用 %3$s 指令来启动系统。</string>
     <string name="dashboard_step3">第三步：启动Termux，贴上并输入指令以安装系统。注意：您之后必须使用 %1$s 指令来启动系统。</string>
     <string name="dashboard_step2_arch">第二步：请复制此指令：%1$s \n\n这将安装 %2$s 到您的设备, 您稍后可以使用 %3$s 指令来启动系统。\n\n启动后，您必须执行以下指令：chmod 755 additional.sh &amp;&amp; ./additional.sh 来设置 resolv.conf 和 pacman-key，否则网络连接和 pacman 将无法使用！(仅限第一次)</string>
