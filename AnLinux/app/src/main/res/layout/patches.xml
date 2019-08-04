@@ -29,11 +29,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView"
                 android:layout_centerHorizontal="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:text="@string/patch_step1" />
+                android:text="@string/patch_step1"
+                android:layout_marginTop="34dp"
+                android:layout_margin="15dp" />
 
             <Button
                 android:id="@+id/button"
@@ -59,7 +57,7 @@
                 android:layout_alignLeft="@+id/button"
                 android:layout_alignStart="@+id/button"
                 android:layout_below="@+id/textView2"
-                android:layout_marginTop="19dp"
+               android:layout_marginTop="15dp"
                 android:text="@string/copy" />
 
             <TextView
@@ -68,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/button2"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="43dp"
+                android:layout_marginTop="34dp"
                 android:layout_margin="15dp" />
 
             <Button
@@ -78,7 +76,7 @@
                 android:layout_alignLeft="@+id/button2"
                 android:layout_alignStart="@+id/button2"
                 android:layout_below="@+id/textView3"
-                android:layout_marginTop="25dp"
+               android:layout_marginTop="15dp"
                 android:text="@string/Launch" />
 
         </RelativeLayout>
