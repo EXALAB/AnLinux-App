@@ -22,7 +22,8 @@
     <string name="ssh">SSH</string>
     <string name="patches">補丁</string>
     <string name="documentation">需要幫助？</string>
-    <string name="step1">如果您的設備螢幕較小，請往下滑以使用其他步驟。\n\n第一步：選擇一個您要安裝的系統，您可以同時安裝多個系統，這並不會導致衝突問題。</string>
+    <string name="step0">如果您的設備螢幕較小，請往下滑以使用其他步驟。</string>
+    <string name="step1">第一步：選擇一個您要安裝的系統，您可以同時安裝多個系統，這並不會導致衝突問題。</string>
     <string name="gui_step0">如果您的設備螢幕較小，請往下滑以使用其他步驟。\n\n警告：請在啟動Linux系統後的終端機中執行此指令，而不是Termux的，否則此指令將無法執行！</string>
     <string name="gui_step1">第一步：請先選擇一個Linux系統以安裝桌面環境</string>
     <string name="ssh_step0">如果您的設備螢幕較小，請往下滑以使用其他步驟。\n\n警告：除了使用以超級權限運行Linux系統，ssh server將無法被外部的設備鏈接。同時請在Linux終端中執行此指令，而不是Termux終端，否則此指令將失效！</string>
@@ -78,7 +79,8 @@
     <string name="arch_linux_warning_content">Arch Linux 的系統比一般系統更大 (大約 400 MB), 在解壓後講佔用更多空間。推薦至少有1.5GB空間儲備。\n\n\n注意：\n\n1. 在解壓時會出現此問題：tar: Ignoring unknown extended header keyword \'SCHILY.fflags\'，這並不會造成任何問題，請無視。\n\n2. Arch Linux 系統存在於第三方服務器，並有可能出現無法使用的狀態，如果您發現任何問題，請回報至exalabdevelopers@gmail.com</string>
     <string name="nethunter_warning_content">請稍等！ \n\n以下是重要的信息，請務必閱讀：\n\n1. Kali Nethunter 的系統為1GB空間解壓後將佔用更多空間，強烈建議您至少有5GB空間儲備。\n\n2. 解壓時間較長 (大約是0分鐘。)\n\n3. 桌面將無法使用，請不要使用Kali的桌面指令來進行安裝。\n\n4. Nethunter 的系統已經超過一年沒有更新了，部分功能可能有問題，如果您需要時常在最新狀態，自定義的系統，請選擇原版的Kali。</string>
     <string name="run_with_root">以超級權限運行</string>
-    <string name="root_content">如果您的設備螢幕較小，請往下滑以使用其他步驟。\n\n首先，此功能只給設備已有超級權限(ROOT)的用戶，如果您不曾聽說過Root，Superuser，SU，SuperSU, Magisk,超級權限等名詞，請不要使用此功能。\n\n我們了解，大部分用戶的目的都是為了不使用超級權限來運行Linux系統。但是，如果您的設備有超級權限，您依然要用不使用超級權限運行嗎？使用超級權限運行可以獲得很多好處，特別是用於運行需要高級權限的安全性測試軟件。\n\n給不知道的用戶：Termux可以使用su指令進入超級權限模式，但是在此模式下直接運行./start-*.sh指令會出現PRoot無法被找到的錯誤。\n\n但是別擔心，我們有方法，請根據以下的步驟進行：\n\n1. 點擊以下的按鈕以複製指令：pkg install tsu -y &amp;&amp; hash -r</string>
+    <string name="root_content0">如果您的設備螢幕較小，請往下滑以使用其他步驟。\n\n首先，此功能只給設備已有超級權限(ROOT)的用戶，如果您不曾聽說過Root，Superuser，SU，SuperSU, Magisk,超級權限等名詞，請不要使用此功能。\n\n我們了解，大部分用戶的目的都是為了不使用超級權限來運行Linux系統。但是，如果您的設備有超級權限，您依然要用不使用超級權限運行嗎？使用超級權限運行可以獲得很多好處，特別是用於運行需要高級權限的安全性測試軟件。\n\n給不知道的用戶：Termux可以使用su指令進入超級權限模式，但是在此模式下直接運行./start-*.sh指令會出現PRoot無法被找到的錯誤。\n\n但是別擔心，我們有方法，請根據以下的步驟進行：</string>
+    <string name="root_content1">1. 點擊以下的按鈕以複製指令：pkg install tsu -y &amp;&amp; hash -r</string>
     <string name="root_content2">啟動Termux，貼上和輸入指令，之後您能直接運行tsu指令，然後像往常一樣使用./start-*.sh指令。</string>
     <string name="su_warning_content">抱歉耽誤您的時間，但是這很重要，我們只會顯示一次，所以請仔細查看。\n\n以超級權限運行運行Linux系統可以帶來許多的方便，但是如果您不正確的使用也可能會帶來能將整個Android系統消失的危險。\n\n請注意您所做的事情，作者將不會因為您執行不當的指令而造成設備變磚作出回應，同時請記得，絕對不要運行類似rm -rf /*的指令來進行測試。\n\n如果您選擇繼續，代表您同意以上的條款。</string>
     <string name="i_agree">我同意</string>
