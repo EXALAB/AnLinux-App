@@ -31,7 +31,7 @@
     <string name="patch_step1">Step 1 : Please choose a Patches</string>
     <string name="uninstall_step1">Step 1 : Choose the distro you want to UNINSTALL, the distro will be removed without a trace and could not be recovered.</string>
     <string name="press_again_to_exit">Please press again to exit application</string>
-    <string name="about_content">AnLinux is a open source project intent to bring the access of Linux to Android platform.\n\nThe icon of this application is taken from https://www.iconfinder.com , which is created by user : "Alpár-Etele Méder", you can reach the icon author by clicking "ICON AUTHOR" button below.\n\nIf you are looking for the source code used in this app, click the SOURCE CODE button.\n\nIf you are looking for scripts and rootfs used in this app, please click the CONTENT SOURCE button, they are license under GPLv2.\n\nThanks for using this apps.\n\n\nRegards, EXA Lab</string>
+    <string name="about_content">AnLinux\nis a open source project intent to bring the access of Linux to Android platform.\n\nThe icon of this application is taken from https://www.iconfinder.com , which is created by user : "Alpár-Etele Méder", you can reach the icon author by clicking "ICON AUTHOR" button below.\n\nIf you are looking for the source code used in this app, click the SOURCE CODE button.\n\nIf you are looking for scripts and rootfs used in this app, please click the CONTENT SOURCE button, they are license under GPLv2.\n\nThanks for using this apps.\n\n\nRegards, EXA Lab</string>
     <string name="icon_author">Icon Author</string>
     <string name="source_code">Source Code</string>
     <string name="content_source_code">Content Source</string>

@@ -14,7 +14,8 @@
     <string name="uninstall">刪除系統</string>
     <string name="support">支持開發者</string>
     <string name="desktop_title">安裝桌面環境</string>
-    <string name="ssh_title">設置 SSH</string><string name="watch_ads">觀看廣告</string>
+    <string name="ssh_title">設置 SSH</string>
+    <string name="watch_ads">觀看廣告</string>
     <string name="donation">捐款</string>
     <string name="_continue">繼續</string>
     <string name="report">回報錯誤</string>
@@ -29,7 +30,7 @@
     <string name="patch_step0">如果您的設備螢幕較小，請往下滑以使用其他步驟。</string>
     <string name="patch_step1">第一步：請選擇一個補丁</string>
     <string name="press_again_to_exit">請再次點擊以關閉</string>
-    <string name="about_content">AnLinux是一個為了將Linux系統的體驗移植到Android上為目的的開源項目。\n\n應用程式的圖示取自： https://www.iconfinder.com , 由此作者製作 : "Alpár-Etele Méder", 您可以點擊下方的 “圖示作者” 按鈕以找到作者。\n\n如果您想要本應用程式的原始碼，請點擊原始碼按鈕。\n\n如果您想要本應用程式的腳本或是Linux系統原始碼，請點擊內容原始碼按鈕。\n\n感謝您使用本應用程式。\n\n\n以上, EXA Lab</string>
+    <string name="about_content">AnLinux\n是一個為了將Linux系統的體驗移植到Android上的開放原始碼專案。\n\n應用程式的圖示取自： https://www.iconfinder.com , 由此作者製作 : "Alpár-Etele Méder", 您可以點擊下方的 “圖示作者” 按鈕以找到作者。\n\n如果您想要本應用程式的原始碼，請點擊原始碼按鈕。\n\n如果您想要本應用程式的腳本或是Linux系統原始碼，請點擊其他資源原始碼按鈕。\n\n感謝您使用本應用程式。\n\n\nEXA Lab</string>
     <string name="icon_author">圖示作者</string>
     <string name="source_code">本程式原始碼</string>
     <string name="content_source_code">其他資源原始碼</string>
@@ -38,7 +39,7 @@
     <string name="Launch">啟動</string>
     <string name="ubuntu_beginner">Ubuntu (推薦給初學者)</string>
     <string name="xfce4_recommended">Xfce4 (推薦)</string>
-    <string name="first_warning_content">首先，非常感謝您下載AnLinux，以下是重要的內容，請仔細閱讀。\n\n1. 為了讓安裝更為方便和簡易，除了Arch Linux 和Kali Nethunter 都是非常簡易的rootfs(基本系統)，這表示系統中有許多功能還未被安裝，您可以根據需求安裝他們，但其不穩定性需要由使用者承擔。\n\n2. 所有安裝的系統都在於： \n/data/data/com.termux/files/home\n\n 請在安裝功能之前缺人您的設備有足夠的空間，同時不要抱怨應用程式佔用了你的空間，因為一切都是由您控制。\n\n3. 有些系統會因為您的設備架構關係而無從使用。\n\n4. 目前，除了mips架構的設備以外都能正常運行本程式，如果您遇到類似Proot signal 6, or function not implemented的問題，請至應用程式內的補丁功能使用SECCOMP補丁。\n\n\n感謝您的閱讀，祝您使用愉快 (((o(*ﾟ▽ﾟ*)o)))</string>
+    <string name="first_warning_content">首先，非常感謝您下載AnLinux，以下是重要的內容，請仔細閱讀。\n\n1. 為了讓安裝更為方便和簡易，除了Arch Linux 和Kali Nethunter 都是非常簡易的rootfs(基本系統)，這表示系統中有許多功能還未被安装/測試，您可以根據需求安裝他們，但其不穩定性需要由使用者承擔。\n\n2. 所有安裝的系統都在於： \n/data/data/com.termux/files/home\n\n 請在安裝功能之前缺人您的設備有足夠的空間，同時不要抱怨應用程式佔用了你的空間，因為一切都是由您控制。\n\n3. 有些系統會因為您的設備架構關係而無從使用。\n\n4. 目前，除了mips架構的設備以外都能正常運行本程式，如果您遇到類似Proot signal 6, or function not implemented的問題，請至應用程式內的補丁功能使用SECCOMP補丁。\n\n\n感謝您的閱讀，祝您使用愉快 (((o(*ﾟ▽ﾟ*)o)))</string>
     <string name="i_understand">我了解</string>
     <string name="step2_cd">第二步：請先完成上一個選項</string>
     <string name="step3_cd">第三步：請先完成上一個選項</string>
