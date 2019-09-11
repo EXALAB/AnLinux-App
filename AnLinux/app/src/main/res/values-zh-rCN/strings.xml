@@ -46,7 +46,7 @@
     <string name="step3_cd">第三步：请先完成上一个选项</string>
     <string name="not_Supported">不支持</string>
     <string name="not_available">不提供</string>
-    <string name="same_arch_linux">和Arch Linux一样</string>
+    <string name="same_arch_linux">Black Arch（和Arch Linux一样）</string>
     <string name="termux_not_Installed">Termux并未安装，请问是否要现在安装？</string>
     <string name="uninstall_step2">第二步：请复制此指令：%1$s \n\n这将会把 %2$s 从Termux移除。</string>
     <string name="uninstall_step3">第三步：启动Termux，贴上并输入指令以解除安装。注意：请在Termux终端中执行此指令，而不是Linux终端。</string>
@@ -64,12 +64,12 @@
     <string name="documentation_prompt">不了解如何操作？\n\n忘记如何启动或关闭系统，或是忘了如何启动VNC Server(桌面)？\n\n那么您可以在这里找到解答，如果您有以上的问题，或是对应用的某些部分不了解，您能在Github上的说明书找到答案。\n\n是否要前往？</string>
     <string name="ssh_step2">第二步：请复制此指令：%1$s \n\n这将会把SSH安装到您的系统。</string>
     <string name="ssh_step3">第三步：启动Termux，贴上并输入指令以安装SSH。注意：您必须先使用 %1$s 来启动Linux System后才能使用此指令。</string>
-    <string name="de_notify_space">注意\n\n\n请仔细阅读以下的指令：\n\n1. 安装桌面会占用 1GB空间, 推荐至少有1.5GB空间储备。\n\n2. 千万不要同时安装两个不同的桌面，如果您要安装其他的桌面，请先重新安装Linux系统。要完成此操作，请先使用 “删除系统” 功能， 并从仪表板进行安装。\n\n\n请问您是否同意继续？</string>
+    <string name="de_notify_space">注意\n\n\n请仔细阅读以下的指令：\n\n1. 安装桌面会占用1GB空间, 推荐至少有1.5GB空间储备。\n\n2. 千万不要同时安装两个不同的桌面或同时间安装窗口管理员和桌面，如果您要安装其他的桌面，请先重新安装Linux系统。要完成此操作，请先使用 “删除系统” 功能， 并从仪表板进行安装。\n\n\n请问您是否同意继续？</string>
     <string name="de_step2_choose_first">第二步：请选择一个桌面</string>
     <string name="de_step3_choose_first">第三步：请先完成上一个选项</string>
     <string name="de_step4_choose_first">第四步：请先完成上一个选项</string>
-    <string name="de_step2">第三步：请复制此指令：%1$s \n\n这将会把 %2$s 和桌面安装到您的系统。</string>
-    <string name="de_step3">第四步：启动Termux，贴上并输入指令以安装桌面。注意：您必须先使用 %1$s 来启动Linux System后才能使用此指令。</string>
+    <string name="gui_step2">第三步：请复制此指令：%1$s \n\n这将会把 %2$s 和桌面安装到您的系统。</string>
+    <string name="gui_step3">第四步：启动Termux，贴上并输入指令以安装桌面。注意：您必须先使用 %1$s 来启动Linux System后才能使用此指令。</string>
     <string name="dashboard_step2">第二步：请复制此指令：%1$s \n\n这将会把 %2$s 安装到您的系统，之后您可以使用 %3$s 指令来启动系统。</string>
     <string name="dashboard_step3">第三步：启动Termux，贴上并输入指令以安装系统。注意：您之后必须使用 %1$s 指令来启动系统。</string>
     <string name="dashboard_step2_arch">第二步：请复制此指令：%1$s \n\n这将安装 %2$s 到您的设备, 您稍后可以使用 %3$s 指令来启动系统。\n\n启动后，您必须执行以下指令：chmod 755 additional.sh &amp;&amp; ./additional.sh 来设置 resolv.conf 和 pacman-key，否则网络连接和 pacman 将无法使用！(仅限第一次)</string>
@@ -93,4 +93,14 @@
     <string name="rootfs_download_content">此功能是为了下载rootfs(或被称为基础系统)作为离线用途，如果您想要普通的安装Linux系统，请使用"仪表板"，而不是此功能。\n\n有些用户可能想下载rootfs作为研究或学习用途，因此我们提供下载连结好让用户更轻易的找到它。\n\n点击以下按钮将直接跳转到Github\n(rootfs存放的地方)\n\nhttps://github.com/EXALAB/AnLinux-Resources/tree/master/Rootfs\n\n并不给予进一步的协助。</string>
     <string name="view">查看</string>
     <string name="uninstall_step1">第一步：选择您要删除的Linux系统，系统一但被删除便无法复原</string>
+    <string name="window_manager">窗口管理员</string>
+    <string name="wm_step0">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n窗口管理员和桌面一样是一个GUI，但是窗口管理员比较小和轻，如果您喜欢较轻或古老风格的GUI，请使用窗口管理员，否则请使用桌面，请记得窗口管理员和桌面不能同时安装在同个系统上！！！\n\n警告：请在Linux终端中执行此指令，而不是Termux终端，否则此指令将失效！</string>
+    <string name="wm_step1">第一步：请先选择一个窗口管理员</string>
+    <string name="wm_notify_space">注意\n\n\n请仔细阅读以下的指令：\n\n1. 安装桌面会占用500MB空间, 推荐至少有1.GB空间储备。\n\n2. 千万不要同时安装两个不同的桌面或同时间安装窗口管理员和桌面，如果您要安装其他的桌面，请先重新安装Linux系统。要完成此操作，请先使用 “删除系统” 功能， 并从仪表板进行安装。\n\n\n请问您是否同意继续？</string>
+    <string name="wm_step2_choose_first">第二步：请选择一个窗口管理员</string>
+    <string name="wm_step3_choose_first">第三步：请先完成上一个选项</string>
+    <string name="wm_step4_choose_first">第四步：请先完成上一个选项</string>
+    <string name="wm_title">设置窗口管理员</string>
+    <string name="patches_step2_choose_first">第二步：请先选择一个补丁</string>
+    <string name="patches_step3_choose_first">第三步：请先选择一个补丁</string>
 </resources>

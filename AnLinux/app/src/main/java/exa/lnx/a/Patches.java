@@ -67,9 +67,15 @@ public class Patches extends Fragment {
         button2 = view.findViewById(R.id.button2);
         button3 = view.findViewById(R.id.button3);
 
+        button2.setEnabled(false);
+        button3.setEnabled(false);
+
         textView = view.findViewById(R.id.textView);
         textView2 = view.findViewById(R.id.textView2);
         textView3 = view.findViewById(R.id.textView3);
+
+        textView2.setText(R.string.patches_step2_choose_first);
+        textView3.setText(R.string.patches_step3_choose_first);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,17 +149,33 @@ public class Patches extends Fragment {
         }else if(patches.equals("SECCOMP")){
             checkBox2.setChecked(true);
         }
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox2.setChecked(false);
+            }
+        });
+        checkBox2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+            }
+        });
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 if(checkBox.isChecked()){
                     if(!patches.equals("Ashmem")){
                         shouldShowAds = true;
                         patches = "Ashmem";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
                     }
                 }else if(checkBox2.isChecked()){
                     if(!patches.equals("SECCOMP")){
                         shouldShowAds = true;
                         patches = "SECCOMP";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
                     }
                 }
                 if(patches.equals("Ashmem")){
@@ -179,8 +201,6 @@ public class Patches extends Fragment {
                     textView2.setText(R.string.seccomp_step2);
                     textView3.setText(R.string.seccomp_step3);
                 }
-                button2.setEnabled(true);
-                button3.setEnabled(true);
                 dialog.dismiss();
             }
         });

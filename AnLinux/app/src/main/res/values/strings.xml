@@ -25,7 +25,7 @@
     <string name="step0">Please scroll down to see all steps if your device screen is small.</string>
     <string name="step1">Step 1 : Choose the distro you want to install, you can install multiple disto without conflict.</string>
     <string name="gui_step0">Please scroll down to see all steps if your device screen is small.\n\nWARNING: Only run this command inside the Linux System and not in Termux, otherwise it will not work!!!</string>
-    <string name="gui_step1">Step 1 : \nPlease choose a distro to setup the Desktop Environment</string>
+    <string name="gui_step1">Step 1 : Please choose a distro to setup the Desktop Environment</string>
     <string name="ssh_step0">Please scroll down to see all steps if your device screen is small.\n\nWARNING: This ssh server could not be connected from outside by other device unless you run the Linux distro with Run with Root Permission feature. Also please run this command inside the Linux System and not in Termux, otherwise it will not work!!!</string>
     <string name="ssh_step1">Step 1 : Please choose a distro to setup OpenSSH Server</string>
     <string name="patch_step0">Please scroll down to see all steps if your device screen is small.</string>
@@ -47,7 +47,7 @@
     <string name="step3_cd">Step 3 : Please choose a distro first</string>
     <string name="not_Supported">Not Supported</string>
     <string name="not_available">Not Available</string>
-    <string name="same_arch_linux">Same as Arch Linux</string>
+    <string name="same_arch_linux">Black Arch (Same as Arch Linux)</string>
     <string name="termux_not_Installed">Termux is not installed, do you want to install it now ?</string>
     <string name="uninstall_step2">Step 2 : Copy the command to clipboard : %1$s \n\n This should fully remove %2$s from Termux.</string>
     <string name="uninstall_step3">Step 3 : Start Termux, paste and enter the command to uninstall distro. Important: you will need to run this command inside Termux shell and NOT IN Linux Shell.</string>
@@ -69,8 +69,8 @@
     <string name="de_step2_choose_first">Step 2: Please choose a Desktop Environment</string>
     <string name="de_step3_choose_first">Step 3: Please choose a Desktop Environment first</string>
     <string name="de_step4_choose_first">Step 4: Please choose a Desktop Environment first</string>
-    <string name="de_step2">Step 2 : Copy the command to clipboard : %1$s \n\nThis should setup %2$s and Tiger VNC on the Linux System.</string>
-    <string name="de_step3">Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run %1$s to run the Linux System before using this command.</string>
+    <string name="gui_step2">Step 2 : Copy the command to clipboard : %1$s \n\nThis should setup %2$s and Tiger VNC on the Linux System.</string>
+    <string name="gui_step3">Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run %1$s to run the Linux System before using this command.</string>
     <string name="dashboard_step2">Step 2 : Copy the command to clipboard : %1$s \n\nThis should install %2$s on your system, you can then run %3$s to run the command line.</string>
     <string name="dashboard_step3">Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run %1$s to run the command line.</string>
     <string name="dashboard_step2_arch">Step 2 : Copy the command to clipboard : %1$s \n\nThis should install %2$s on your system, you can then run %3$s to run the command line.\n\nAfter that, you will need to run: chmod 755 additional.sh &amp;&amp; ./additional.sh to setup resolv.conf and pacman-key, otherwise network connection and pacman wont work!!! (First time only)</string>
@@ -93,4 +93,14 @@
     <string name="rootfs_download">Download Rootfs (Offline use)</string>
     <string name="rootfs_download_content">This feature is to download the rootfs(Or simply know as distro) for offline use only, if you want to install distro normally you should install it from "Dashboard", not here.\n\nSome users would want to download rootfs for investigation or learning purpose, we created this feature so users could easily find the location to download.\n\nClicking the Button below would open a webpage on Github where rootfs are stored:\nhttps://github.com/EXALAB/AnLinux-Resources/tree/master/Rootfs\nwithout further notification.</string>
     <string name="view">View</string>
+    <string name="window_manager">Window Manager</string>
+    <string name="wm_step0">Please scroll down to see all steps if your device screen is small.\n\nWindows Manager is a GUI similar as Desktop Environment, but it is much smaller and lighter, if you prefer something more light weight and legacy feel, Window Manager is for your, otherwise use Desktop Environment instead, also NEVER install Window Manager alongside Desktop Environment!!!\n\nWARNING: Only run this command inside the Linux System and not in Termux, otherwise it will not work!!!</string>
+    <string name="wm_step1">Step 1 : Please choose a distro to setup the Window Manager</string>
+    <string name="wm_notify_space">IMPORTANT\n\n\nPlease take a look at below warning patiently:\n\n1. Installing Desktop Environment will take around 500 MB space, having 1 GB space spared is recommended.\n\n2. NEVER install two Desktop Environment or Window Manager alongside Desktop Environment on a same distro, if you want to install another Desktop Environment or Window Manager, please reinstall the distro first. To do this, use "Uninstall" feature first, then reinstall it from Dashboard.\n\n\nDo you agree to proceed ?</string>
+    <string name="wm_step2_choose_first">Step 2: Please choose a Window Manager</string>
+    <string name="wm_step3_choose_first">Step 3: Please choose a Window Manager first</string>
+    <string name="wm_step4_choose_first">Step 4: Please choose a Window Manager first</string>
+    <string name="wm_title">Setup Window Manager</string>
+    <string name="patches_step2_choose_first">Step 2: Please choose a Patches first</string>
+    <string name="patches_step3_choose_first">Step 3: Please choose a Patches first</string>
 </resources>

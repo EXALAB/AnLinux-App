@@ -293,41 +293,57 @@ public class SSH extends Fragment {
                     if(!distro.equals("Ubuntu")){
                         shouldShowAds = true;
                         distro = "Ubuntu";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
                     }
                 }else if(checkBox2.isChecked()){
                     if(!distro.equals("Debian")){
                         shouldShowAds = true;
                         distro = "Debian";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
                     }
                 }else if(checkBox3.isChecked()){
                     if(!distro.equals("Kali")){
                         shouldShowAds = true;
                         distro = "Kali";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
                     }
                 }else if(checkBox4.isChecked()){
                     if(!distro.equals("Parrot")){
                         shouldShowAds = true;
                         distro = "Parrot";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
                     }
                 }else if(checkBox5.isChecked()){
                     if(!distro.equals("BackBox")){
                         shouldShowAds = true;
                         distro = "BackBox";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
                     }
                 }else if(checkBox6.isChecked()){
                     if(!distro.equals("Fedora")){
                         shouldShowAds = true;
                         distro = "Fedora";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
                     }
                 }else if(checkBox7.isChecked()){
                     if(!distro.equals("CentOS")){
                         shouldShowAds = true;
                         distro = "CentOS";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
                     }
                 }else if(checkBox8.isChecked()){
                     if(!distro.equals("Arch")){
                         shouldShowAds = true;
                         distro = "Arch";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
                     }
                 }
                 if(distro.equals("Ubuntu")){
@@ -365,8 +381,6 @@ public class SSH extends Fragment {
                         textView3.setText(getString(R.string.ssh_step3, "./start-arch.sh"));
                     }
                 }
-                button2.setEnabled(true);
-                button3.setEnabled(true);
                 dialog.dismiss();
             }
         });

@@ -180,6 +180,11 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+            }else if(fragment instanceof WindowManager){
+                fragment = new DashBoard();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }else if(fragment instanceof SSH){
                 fragment = new DashBoard();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
@@ -225,45 +230,48 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setChecked(true);
             newFragment(1);
         }else if(id == R.id.support){
-            if(donationInstalled()){
-                notifyUserForSupportAfterDonation();
-            }else{
+            if(!donationInstalled()){
                 notifyUserForSupport();
             }
         }else if(id == R.id.report){
             notifyUserToReportError();
-        }else if(id == R.id.ssh){
-            MenuItem selected = navigationView.getMenu().findItem(R.id.ssh);
-            selected.setCheckable(true);
-            selected.setChecked(true);
-            newFragment(4);
         }else if(id == R.id.gui){
             MenuItem selected = navigationView.getMenu().findItem(R.id.gui);
             selected.setCheckable(true);
             selected.setChecked(true);
             newFragment(2);
+        }else if(id == R.id.wm){
+            MenuItem selected = navigationView.getMenu().findItem(R.id.wm);
+            selected.setCheckable(true);
+            selected.setChecked(true);
+            newFragment(3);
         }else if(id == R.id.uninstall){
             MenuItem selected = navigationView.getMenu().findItem(R.id.uninstall);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(3);
+            newFragment(4);
+        }else if(id == R.id.ssh){
+            MenuItem selected = navigationView.getMenu().findItem(R.id.ssh);
+            selected.setCheckable(true);
+            selected.setChecked(true);
+            newFragment(5);
         }else if(id == R.id.patch){
             MenuItem selected = navigationView.getMenu().findItem(R.id.patch);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(5);
+            newFragment(6);
         }else if(id == R.id.documentation){
             notifyUserForDocumentation();
         }else if(id == R.id.su){
             MenuItem selected = navigationView.getMenu().findItem(R.id.su);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(6);
+            newFragment(7);
         }else if(id == R.id.rootfs_download){
             MenuItem selected = navigationView.getMenu().findItem(R.id.rootfs_download);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(7);
+            newFragment(8);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -299,34 +307,41 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 break;
 
             case 3:
-                fragment = new Uninstaller();
+                fragment = new WindowManager();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
 
             case 4:
-                fragment = new SSH();
+                fragment = new Uninstaller();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
 
             case 5:
-                fragment = new Patches();
+                fragment = new SSH();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
 
             case 6:
-                fragment = new SU();
+                fragment = new Patches();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 break;
 
             case 7:
+                fragment = new SU();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+            case 8:
                 fragment = new RootfsDownload();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
@@ -452,7 +467,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"exalabdevelopers@gmail.com"});
                 emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, R.string.bug_report1);
 
-                context.startActivity(Intent.createChooser(emailIntent, getString(R.string.bug_report2)));
+                startActivity(Intent.createChooser(emailIntent, getString(R.string.bug_report2)));
             }
         });
         alertDialog.setNegativeButton("Github", new DialogInterface.OnClickListener() {
