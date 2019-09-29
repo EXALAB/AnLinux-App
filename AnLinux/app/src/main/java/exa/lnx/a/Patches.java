@@ -21,13 +21,6 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-
-import java.util.Calendar;
-import java.util.Date;
-
 public class Patches extends Fragment {
 
     Context context;
@@ -39,9 +32,7 @@ public class Patches extends Fragment {
     TextView textView3;
     String patches;
     String s;
-    boolean shouldShowAds;
     SharedPreferences sharedPreferences;
-    InterstitialAd mInterstitialAd;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
@@ -51,14 +42,6 @@ public class Patches extends Fragment {
 
         context = getActivity().getApplicationContext();
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
-
-        mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/1086414838");
-
-        if(!donationInstalled() && !isVideoAdsWatched()){
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            shouldShowAds = true;
-        }
 
         patches = "Nothing";
         s = Build.SUPPORTED_ABIS[0];
@@ -106,12 +89,6 @@ public class Patches extends Fragment {
                     clipboard.setPrimaryClip(clip);
                 }
                 Toast.makeText(context, getString(R.string.command_copied), Toast.LENGTH_SHORT).show();
-                if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
-                    if(!donationInstalled() && !isVideoAdsWatched()){
-                        mInterstitialAd.show();
-                    }
-                    shouldShowAds = false;
-                }
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
@@ -123,12 +100,6 @@ public class Patches extends Fragment {
                 }else{
                     notifyUserForInstallTerminal();
                 }
-            }
-        });
-        mInterstitialAd.setAdListener(new AdListener(){
-            @Override
-            public void onAdClosed() {
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
         return view;
@@ -165,14 +136,12 @@ public class Patches extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 if(checkBox.isChecked()){
                     if(!patches.equals("Ashmem")){
-                        shouldShowAds = true;
                         patches = "Ashmem";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox2.isChecked()){
                     if(!patches.equals("SECCOMP")){
-                        shouldShowAds = true;
                         patches = "SECCOMP";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
@@ -250,17 +219,5 @@ public class Patches extends Fragment {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
-    }
-    private boolean donationInstalled() {
-        PackageManager packageManager = context.getPackageManager();
-        return packageManager.checkSignatures(context.getPackageName(), "exa.lnx.d") == PackageManager.SIGNATURE_MATCH;
-    }
-    private boolean isVideoAdsWatched(){
-        Calendar cal = Calendar.getInstance();
-        Date date = cal.getTime();
-        cal.setTime(date);
-        int a =  cal.get(Calendar.DAY_OF_MONTH);
-        int b = sharedPreferences.getInt("VideoAds", 0);
-        return a == b;
     }
 }

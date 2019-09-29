@@ -22,13 +22,6 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-
-import java.util.Calendar;
-import java.util.Date;
-
 public class WindowManager extends Fragment {
 
     Context context;
@@ -43,9 +36,7 @@ public class WindowManager extends Fragment {
     String distro;
     String wm;
     String s;
-    boolean shouldShowAds;
     boolean isDeviceSpaceNotified2;
-    InterstitialAd mInterstitialAd;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         getActivity().setTitle(R.string.wm_title);
@@ -58,8 +49,6 @@ public class WindowManager extends Fragment {
         wm = "Nothing";
 
         s = Build.SUPPORTED_ABIS[0];
-
-        shouldShowAds = false;
 
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
         isDeviceSpaceNotified2 = sharedPreferences.getBoolean("IsDeviceSpaceNotified2", false);
@@ -79,14 +68,6 @@ public class WindowManager extends Fragment {
         button2.setEnabled(false);
         button3.setEnabled(false);
         button4.setEnabled(false);
-
-        mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/8306661432");
-
-        if(!donationInstalled()){
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            shouldShowAds = true;
-        }
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,12 +113,6 @@ public class WindowManager extends Fragment {
                     }
                 }
                 Toast.makeText(context, getString(R.string.command_copied), Toast.LENGTH_SHORT).show();
-                if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
-                    if(!donationInstalled() && !isVideoAdsWatched()){
-                        mInterstitialAd.show();
-                    }
-                    shouldShowAds = false;
-                }
             }
         });
 
@@ -150,12 +125,6 @@ public class WindowManager extends Fragment {
                 }else{
                     notifyUserForInstallTerminal();
                 }
-            }
-        });
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
         if(!isDeviceSpaceNotified2){
@@ -262,7 +231,6 @@ public class WindowManager extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 if(checkBox.isChecked()){
                     if(!distro.equals("Ubuntu")){
-                        shouldShowAds = true;
                         distro = "Ubuntu";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -274,7 +242,6 @@ public class WindowManager extends Fragment {
                     }
                 }else if(checkBox2.isChecked()){
                     if(!distro.equals("Debian")){
-                        shouldShowAds = true;
                         distro = "Debian";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -286,7 +253,6 @@ public class WindowManager extends Fragment {
                     }
                 }else if(checkBox3.isChecked()){
                     if(!distro.equals("Kali")){
-                        shouldShowAds = true;
                         distro = "Kali";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -298,7 +264,6 @@ public class WindowManager extends Fragment {
                     }
                 }else if(checkBox4.isChecked()){
                     if(!distro.equals("Parrot")){
-                        shouldShowAds = true;
                         distro = "Parrot";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -310,7 +275,6 @@ public class WindowManager extends Fragment {
                     }
                 }else if(checkBox5.isChecked()){
                     if(!distro.equals("BackBox")){
-                        shouldShowAds = true;
                         distro = "BackBox";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -322,7 +286,6 @@ public class WindowManager extends Fragment {
                     }
                 }else if(checkBox6.isChecked()){
                     if(!distro.equals("Fedora")){
-                        shouldShowAds = true;
                         distro = "Fedora";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -376,14 +339,12 @@ public class WindowManager extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 if(checkBox.isChecked()){
                     if(!wm.equals("Awesome")){
-                        shouldShowAds = true;
                         wm = "Awesome";
                         button3.setEnabled(true);
                         button4.setEnabled(true);
                     }
                 }else if(checkBox2.isChecked()){
                     if(!wm.equals("IceWM")){
-                        shouldShowAds = true;
                         wm = "IceWM";
                         button3.setEnabled(true);
                         button4.setEnabled(true);
@@ -519,17 +480,5 @@ public class WindowManager extends Fragment {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
-    }
-    private boolean donationInstalled() {
-        PackageManager packageManager = context.getPackageManager();
-        return packageManager.checkSignatures(context.getPackageName(), "exa.lnx.d") == PackageManager.SIGNATURE_MATCH;
-    }
-    private boolean isVideoAdsWatched(){
-        Calendar cal = Calendar.getInstance();
-        Date date = cal.getTime();
-        cal.setTime(date);
-        int a =  cal.get(Calendar.DAY_OF_MONTH);
-        int b = sharedPreferences.getInt("VideoAds", 0);
-        return a == b;
     }
 }

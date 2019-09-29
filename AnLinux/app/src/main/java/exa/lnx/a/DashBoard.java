@@ -18,16 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-
-import java.util.Calendar;
-import java.util.Date;
 
 public class DashBoard extends Fragment {
 
@@ -39,11 +31,8 @@ public class DashBoard extends Fragment {
     TextView textView3;
     String distro;
     String s;
-    boolean shouldShowAds;
-    boolean isOreoNotified;
     boolean isNethunterNotified;
     SharedPreferences sharedPreferences;
-    InterstitialAd mInterstitialAd;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
@@ -53,7 +42,6 @@ public class DashBoard extends Fragment {
 
         context = getActivity().getApplicationContext();
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
-        isOreoNotified = sharedPreferences.getBoolean("IsOreoNotified", false);
         isNethunterNotified = sharedPreferences.getBoolean("IsNethunterNotified", false);
 
         distro = "Nothing";
@@ -63,14 +51,6 @@ public class DashBoard extends Fragment {
         if(s.equals("mips") | s.equals("mips64")){
             Toast.makeText(context, "Your device is not supported", Toast.LENGTH_LONG).show();
             getActivity().finish();
-        }
-
-        mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
-
-        if(!donationInstalled() && !isVideoAdsWatched()){
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            shouldShowAds = true;
         }
 
         button = view.findViewById(R.id.button);
@@ -144,12 +124,6 @@ public class DashBoard extends Fragment {
                     clipboard.setPrimaryClip(clip);
                 }
                 Toast.makeText(context, getString(R.string.command_copied), Toast.LENGTH_SHORT).show();
-                if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
-                    if(!donationInstalled() && !isVideoAdsWatched()){
-                        mInterstitialAd.show();
-                    }
-                    shouldShowAds = false;
-                }
             }
         });
 
@@ -164,15 +138,6 @@ public class DashBoard extends Fragment {
                 }
             }
         });
-        mInterstitialAd.setAdListener(new AdListener(){
-            @Override
-            public void onAdClosed() {
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            }
-        });
-        if(!isOreoNotified){
-            showFirstDialog();
-        }
         return view;
     }
     public void notifyUserToChooseDistro(){
@@ -460,28 +425,24 @@ public class DashBoard extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 if(checkBox.isChecked()){
                     if(!distro.equals("Ubuntu")){
-                        shouldShowAds = true;
                         distro = "Ubuntu";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox2.isChecked()){
                     if(!distro.equals("Debian")){
-                        shouldShowAds = true;
                         distro = "Debian";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox3.isChecked()){
                     if(!distro.equals("Kali")){
-                        shouldShowAds = true;
                         distro = "Kali";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox4.isChecked()){
                     if(!distro.equals("Nethunter")){
-                        shouldShowAds = true;
                         distro = "Nethunter";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
@@ -491,63 +452,54 @@ public class DashBoard extends Fragment {
                     }
                 }else if(checkBox5.isChecked()){
                     if(!distro.equals("Parrot")){
-                        shouldShowAds = true;
                         distro = "Parrot";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox6.isChecked()){
                     if(!distro.equals("BackBox")){
-                        shouldShowAds = true;
                         distro = "BackBox";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox7.isChecked()){
                     if(!distro.equals("Fedora")){
-                        shouldShowAds = true;
                         distro = "Fedora";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox8.isChecked()){
                     if(!distro.equals("CentOS")){
-                        shouldShowAds = true;
                         distro = "CentOS";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox9.isChecked()){
                     if(!distro.equals("Leap")){
-                        shouldShowAds = true;
                         distro = "Leap";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox10.isChecked()){
                     if(!distro.equals("Tumbleweed")){
-                        shouldShowAds = true;
                         distro = "Tumbleweed";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox11.isChecked()){
                     if(!distro.equals("Arch")){
-                        shouldShowAds = true;
                         distro = "Arch";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox12.isChecked()){
                     if(!distro.equals("BlackArch")){
-                        shouldShowAds = true;
                         distro = "BlackArch";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
                 }else if(checkBox13.isChecked()){
                     if(!distro.equals("Alpine")){
-                        shouldShowAds = true;
                         distro = "Alpine";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
@@ -686,52 +638,5 @@ public class DashBoard extends Fragment {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
-    }
-    private boolean donationInstalled() {
-        PackageManager packageManager = context.getPackageManager();
-        return packageManager.checkSignatures(context.getPackageName(), "exa.lnx.d") == PackageManager.SIGNATURE_MATCH;
-    }
-    private boolean isVideoAdsWatched(){
-        Calendar cal = Calendar.getInstance();
-        Date date = cal.getTime();
-        cal.setTime(date);
-        int a =  cal.get(Calendar.DAY_OF_MONTH);
-        int b = sharedPreferences.getInt("VideoAds", 0);
-        return a == b;
-    }
-    protected void showFirstDialog(){
-
-        final ViewGroup nullParent = null;
-
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-        View view = layoutInflater.inflate(R.layout.first_warning, nullParent);
-        CheckBox checkBox = view.findViewById(R.id.checkBox);
-        builder.setView(view);
-        builder.setCancelable(false);
-        builder.setPositiveButton(R.string.close, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which){
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean("IsOreoNotified", true);
-                editor.apply();
-                isOreoNotified = sharedPreferences.getBoolean("IsOreoNotified", false);
-                dialog.dismiss();
-            }
-        });
-        final AlertDialog dialog = builder.create();
-        dialog.show();
-
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
-                }else{
-                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-                }
-            }
-        });
     }
 }

@@ -22,13 +22,6 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-
-import java.util.Calendar;
-import java.util.Date;
-
 public class DesktopEnvironment extends Fragment {
 
     Context context;
@@ -43,9 +36,7 @@ public class DesktopEnvironment extends Fragment {
     String distro;
     String desktop;
     String s;
-    boolean shouldShowAds;
     boolean isDeviceSpaceNotified;
-    InterstitialAd mInterstitialAd;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         getActivity().setTitle(R.string.desktop_title);
@@ -58,8 +49,6 @@ public class DesktopEnvironment extends Fragment {
         desktop = "Nothing";
 
         s = Build.SUPPORTED_ABIS[0];
-
-        shouldShowAds = false;
 
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
         isDeviceSpaceNotified = sharedPreferences.getBoolean("IsDeviceSpaceNotified", false);
@@ -79,14 +68,6 @@ public class DesktopEnvironment extends Fragment {
         button2.setEnabled(false);
         button3.setEnabled(false);
         button4.setEnabled(false);
-
-        mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/9052357158");
-
-        if(!donationInstalled()){
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            shouldShowAds = true;
-        }
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,12 +139,6 @@ public class DesktopEnvironment extends Fragment {
                     }
                 }
                 Toast.makeText(context, getString(R.string.command_copied), Toast.LENGTH_SHORT).show();
-                if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
-                    if(!donationInstalled() && !isVideoAdsWatched()){
-                        mInterstitialAd.show();
-                    }
-                    shouldShowAds = false;
-                }
             }
         });
 
@@ -176,12 +151,6 @@ public class DesktopEnvironment extends Fragment {
                 }else{
                     notifyUserForInstallTerminal();
                 }
-            }
-        });
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
         if(!isDeviceSpaceNotified){
@@ -309,7 +278,6 @@ public class DesktopEnvironment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 if(checkBox.isChecked()){
                     if(!distro.equals("Ubuntu")){
-                        shouldShowAds = true;
                         distro = "Ubuntu";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -321,7 +289,6 @@ public class DesktopEnvironment extends Fragment {
                     }
                 }else if(checkBox2.isChecked()){
                     if(!distro.equals("Debian")){
-                        shouldShowAds = true;
                         distro = "Debian";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -333,7 +300,6 @@ public class DesktopEnvironment extends Fragment {
                     }
                 }else if(checkBox3.isChecked()){
                     if(!distro.equals("Kali")){
-                        shouldShowAds = true;
                         distro = "Kali";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -345,7 +311,6 @@ public class DesktopEnvironment extends Fragment {
                     }
                 }else if(checkBox4.isChecked()){
                     if(!distro.equals("Parrot")){
-                        shouldShowAds = true;
                         distro = "Parrot";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -357,7 +322,6 @@ public class DesktopEnvironment extends Fragment {
                     }
                 }else if(checkBox5.isChecked()){
                     if(!distro.equals("BackBox")){
-                        shouldShowAds = true;
                         distro = "BackBox";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -369,7 +333,6 @@ public class DesktopEnvironment extends Fragment {
                     }
                 }else if(checkBox6.isChecked()){
                     if(!distro.equals("Fedora")){
-                        shouldShowAds = true;
                         distro = "Fedora";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -381,7 +344,6 @@ public class DesktopEnvironment extends Fragment {
                     }
                 }else if(checkBox7.isChecked()){
                     if(!distro.equals("Arch")){
-                        shouldShowAds = true;
                         distro = "Arch";
                         textView2.setText(R.string.de_step2_choose_first);
                         button2.setEnabled(true);
@@ -475,28 +437,24 @@ public class DesktopEnvironment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 if(checkBox.isChecked()){
                     if(!desktop.equals("Xfce4")){
-                        shouldShowAds = true;
                         desktop = "Xfce4";
                         button3.setEnabled(true);
                         button4.setEnabled(true);
                     }
                 }else if(checkBox2.isChecked()){
                     if(!desktop.equals("Mate")){
-                        shouldShowAds = true;
                         desktop = "Mate";
                         button3.setEnabled(true);
                         button4.setEnabled(true);
                     }
                 }else if(checkBox3.isChecked()){
                     if(!desktop.equals("LXQt")){
-                        shouldShowAds = true;
                         desktop = "LXQt";
                         button3.setEnabled(true);
                         button4.setEnabled(true);
                     }
                 }else if(checkBox4.isChecked()){
                     if(!desktop.equals("LXDE")){
-                        shouldShowAds = true;
                         desktop = "LXDE";
                         button3.setEnabled(true);
                         button4.setEnabled(true);
@@ -676,17 +634,5 @@ public class DesktopEnvironment extends Fragment {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
-    }
-    private boolean donationInstalled() {
-        PackageManager packageManager = context.getPackageManager();
-        return packageManager.checkSignatures(context.getPackageName(), "exa.lnx.d") == PackageManager.SIGNATURE_MATCH;
-    }
-    private boolean isVideoAdsWatched(){
-        Calendar cal = Calendar.getInstance();
-        Date date = cal.getTime();
-        cal.setTime(date);
-        int a =  cal.get(Calendar.DAY_OF_MONTH);
-        int b = sharedPreferences.getInt("VideoAds", 0);
-        return a == b;
     }
 }

@@ -25,12 +25,16 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
@@ -48,10 +52,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
     private long lastPressedTime;
     private static final int PERIOD = 3000;
     private RewardedVideoAd mRewardedVideoAd;
+    InterstitialAd mInterstitialAd;
     AdView mAdView;
     RelativeLayout relativeLayout;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    int i = 0;
+    boolean shouldShowAds = false;
+    boolean isOreoNotified;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +67,17 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         setContentView(R.layout.main_ui);
 
         context = getApplicationContext();
+
+        sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
+        editor = sharedPreferences.edit();
+
+        mInterstitialAd = new InterstitialAd(context);
+        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
+
+        if(!donationInstalled() && !isVideoAdsWatched()){
+            mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            shouldShowAds = true;
+        }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
 
@@ -71,9 +90,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         toggle.syncState();
 
         relativeLayout = findViewById(R.id.fragmentHolder);
+        isOreoNotified = sharedPreferences.getBoolean("IsOreoNotified", false);
 
-        sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
-        editor = sharedPreferences.edit();
 
         mAdView = findViewById(R.id.adView);
 
@@ -83,6 +101,13 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mInterstitialAd.setAdListener(new AdListener(){
+            @Override
+            public void onAdClosed() {
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+        });
 
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
         mRewardedVideoAd.loadAd("ca-app-pub-5748356089815497/5381178563", new AdRequest.Builder().build());
@@ -138,12 +163,20 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 mRewardedVideoAd.loadAd("ca-app-pub-5748356089815497/5381178563", new AdRequest.Builder().build());
             }
         });
-
-        if(savedInstanceState == null){
-            MenuItem selected = navigationView.getMenu().findItem(R.id.dashboard);
-            selected.setCheckable(true);
-            selected.setChecked(true);
-            newFragment(0);
+        if(donationInstalled()){
+            if(savedInstanceState == null) {
+                MenuItem selected = navigationView.getMenu().findItem(R.id.dashboard);
+                selected.setCheckable(true);
+                selected.setChecked(true);
+                newFragment(0);
+            }
+        }else{
+            if(!drawer.isDrawerOpen(GravityCompat.START)){
+                drawer.openDrawer(GravityCompat.START);
+            }
+        }
+        if(!isOreoNotified){
+            showFirstDialog();
         }
     }
     @Override
@@ -218,12 +251,28 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        Fragment fragment = this.getFragmentManager().findFragmentById(R.id.fragmentHolder);
 
         if (id == R.id.dashboard) {
             MenuItem selected = navigationView.getMenu().findItem(R.id.dashboard);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(0);
+            if(!(fragment instanceof DashBoard)){
+                if (i == 0) {
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 1;
+                }else if(i == 1){
+                    i = 2;
+                }else if(i == 2){
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 0;
+                }
+                newFragment(0);
+            }
         }else if(id == R.id.about){
             MenuItem selected = navigationView.getMenu().findItem(R.id.about);
             selected.setCheckable(true);
@@ -232,6 +281,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         }else if(id == R.id.support){
             if(!donationInstalled()){
                 notifyUserForSupport();
+            }else{
+                notifyUserForSupportAfterDonation();
             }
         }else if(id == R.id.report){
             notifyUserToReportError();
@@ -239,34 +290,124 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             MenuItem selected = navigationView.getMenu().findItem(R.id.gui);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(2);
+            if(!(fragment instanceof DesktopEnvironment)){
+                if (i == 0) {
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 1;
+                }else if(i == 1){
+                    i = 2;
+                }else if(i == 2){
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 0;
+                }
+                newFragment(2);
+            }
         }else if(id == R.id.wm){
             MenuItem selected = navigationView.getMenu().findItem(R.id.wm);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(3);
+            if(!(fragment instanceof WindowManager)){
+                if (i == 0) {
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 1;
+                }else if(i == 1){
+                    i = 2;
+                }else if(i == 2){
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 0;
+                }
+                newFragment(3);
+            }
         }else if(id == R.id.uninstall){
             MenuItem selected = navigationView.getMenu().findItem(R.id.uninstall);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(4);
+            if(!(fragment instanceof Uninstaller)){
+                if (i == 0) {
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 1;
+                }else if(i == 1){
+                    i = 2;
+                }else if(i == 2){
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 0;
+                }
+                newFragment(4);
+            }
         }else if(id == R.id.ssh){
             MenuItem selected = navigationView.getMenu().findItem(R.id.ssh);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(5);
+            if(!(fragment instanceof SSH)){
+                if (i == 0) {
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 1;
+                }else if(i == 1){
+                    i = 2;
+                }else if(i == 2){
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 0;
+                }
+                newFragment(5);
+            }
         }else if(id == R.id.patch){
             MenuItem selected = navigationView.getMenu().findItem(R.id.patch);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(6);
+            if(!(fragment instanceof Patches)){
+                if (i == 0) {
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 1;
+                }else if(i == 1){
+                    i = 2;
+                }else if(i == 2){
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 0;
+                }
+                newFragment(6);
+            }
         }else if(id == R.id.documentation){
             notifyUserForDocumentation();
         }else if(id == R.id.su){
             MenuItem selected = navigationView.getMenu().findItem(R.id.su);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(7);
+            if(!(fragment instanceof SU)){
+                if (i == 0) {
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 1;
+                }else if(i == 1){
+                    i = 2;
+                }else if(i == 2){
+                    if(mInterstitialAd.isLoaded()){
+                        mInterstitialAd.show();
+                    }
+                    i = 0;
+                }
+                newFragment(7);
+            }
         }else if(id == R.id.rootfs_download){
             MenuItem selected = navigationView.getMenu().findItem(R.id.rootfs_download);
             selected.setCheckable(true);
@@ -497,5 +638,40 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         int a =  cal.get(Calendar.DAY_OF_MONTH);
         int b = sharedPreferences.getInt("VideoAds", 0);
         return a == b;
+    }
+    protected void showFirstDialog(){
+
+        final ViewGroup nullParent = null;
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.first_warning, nullParent);
+        CheckBox checkBox = view.findViewById(R.id.checkBox);
+        builder.setView(view);
+        builder.setCancelable(false);
+        builder.setPositiveButton(R.string.close, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which){
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("IsOreoNotified", true);
+                editor.apply();
+                isOreoNotified = sharedPreferences.getBoolean("IsOreoNotified", false);
+                dialog.dismiss();
+            }
+        });
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                }else{
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                }
+            }
+        });
     }
 }

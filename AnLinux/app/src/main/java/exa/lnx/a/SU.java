@@ -33,8 +33,6 @@ public class SU extends Fragment {
     Context context;
     SharedPreferences sharedPreferences;
     boolean isSUNotified;
-    boolean shouldShowAds;
-    InterstitialAd mInterstitialAd;
     Button button;
     Button button2;
 
@@ -49,14 +47,6 @@ public class SU extends Fragment {
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
         isSUNotified = sharedPreferences.getBoolean("IsSUNotified", false);
 
-        mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/8873285688");
-
-        if(!donationInstalled() && !isVideoAdsWatched()){
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            shouldShowAds = true;
-        }
-
         button = view.findViewById(R.id.button);
         button2 = view.findViewById(R.id.button2);
 
@@ -69,12 +59,6 @@ public class SU extends Fragment {
                 Toast.makeText(context, getString(R.string.command_copied), Toast.LENGTH_SHORT).show();
                 if(!isSUNotified){
                     showSUDialog();
-                }
-                if(mInterstitialAd != null && mInterstitialAd.isLoaded() && shouldShowAds){
-                    if(!donationInstalled() && !isVideoAdsWatched()){
-                        mInterstitialAd.show();
-                    }
-                    shouldShowAds = false;
                 }
             }
         });
@@ -171,17 +155,5 @@ public class SU extends Fragment {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
-    }
-    private boolean donationInstalled() {
-        PackageManager packageManager = context.getPackageManager();
-        return packageManager.checkSignatures(context.getPackageName(), "exa.lnx.d") == PackageManager.SIGNATURE_MATCH;
-    }
-    private boolean isVideoAdsWatched(){
-        Calendar cal = Calendar.getInstance();
-        Date date = cal.getTime();
-        cal.setTime(date);
-        int a =  cal.get(Calendar.DAY_OF_MONTH);
-        int b = sharedPreferences.getInt("VideoAds", 0);
-        return a == b;
     }
 }
