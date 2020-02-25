@@ -380,6 +380,10 @@ public class Uninstaller extends Fragment{
             checkBox11.setText(R.string.not_Supported);
             checkBox12.setText(R.string.not_Supported);
         }else{
+            if(s.contains("arm")){
+                checkBox5.setEnabled(false);
+                checkBox5.setText(R.string.not_Supported);
+            }
             checkBox12.setEnabled(false);
             checkBox12.setText(R.string.same_arch_linux);
         }
