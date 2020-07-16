@@ -92,7 +92,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         relativeLayout = findViewById(R.id.fragmentHolder);
         isOreoNotified = sharedPreferences.getBoolean("IsOreoNotified", false);
 
-
         mAdView = findViewById(R.id.adView);
 
         if(!donationInstalled() && !isVideoAdsWatched()){
