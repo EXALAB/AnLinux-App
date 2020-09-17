@@ -21,6 +21,10 @@
                 android:icon="@drawable/ic_desktop"
                 android:title="@string/desktop_environment" />
             <item
+                android:id="@+id/hgui"
+                android:icon="@drawable/ic_heavydesktop"
+                android:title="@string/heavy_de" />
+            <item
                 android:id="@+id/wm"
                 android:icon="@drawable/ic_windowmanager"
                 android:title="@string/window_manager"/>

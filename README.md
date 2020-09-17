@@ -29,6 +29,7 @@ Supported Desktop Environments:
 2. [Mate](https://mate-desktop.org)
 3. [LXQt](https://lxqt.org)
 4. [LXDE](https://lxde.org)
+5. [KDE](https://kde.org)
 
 
 
@@ -68,7 +69,7 @@ If you have any tweak, suggestion, recommendation, please open an issue on Githu
 
 3. Currently supported distros:
 
-   [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Kali Nethunter](https://www.kali.org/kali-linux-nethunter/), [Parrot Security OS](https://www.parrotsec.org/), [BackBox](https://www.backbox.org/), [Fedora](https://getfedora.org/), [CentOS](https://www.centos.org/), [openSUSE Leap](https://www.opensuse.org/), [openSUSE Tumbleweed](https://www.opensuse.org/), [Arch Linux](https://www.archlinux.org/), [BlackArch](https://blackarch.org/), [Alpine](https://alpinelinux.org/)
+   [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Kali Nethunter](https://www.kali.org/kali-linux-nethunter/), [Parrot Security OS](https://www.parrotsec.org/), [BackBox](https://www.backbox.org/), [Fedora](https://getfedora.org/), [CentOS](https://www.centos.org/), [openSUSE Leap](https://www.opensuse.org/), [openSUSE Tumbleweed](https://www.opensuse.org/), [Arch Linux](https://www.archlinux.org/), [BlackArch](https://blackarch.org/), [Alpine](https://alpinelinux.org/), [Void](https://voidlinux.org/)
 
 4. For any suggestion or issue, please open an issue on Github.
 

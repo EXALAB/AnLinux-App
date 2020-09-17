@@ -2,14 +2,12 @@ package exa.lnx.a;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -25,7 +23,6 @@ import android.widget.Toast;
 public class DesktopEnvironment extends Fragment {
 
     Context context;
-    SharedPreferences sharedPreferences;
     Button button;
     Button button2;
     Button button3;
@@ -36,7 +33,6 @@ public class DesktopEnvironment extends Fragment {
     String distro;
     String desktop;
     String s;
-    boolean isDeviceSpaceNotified;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         getActivity().setTitle(R.string.desktop_title);
@@ -49,9 +45,6 @@ public class DesktopEnvironment extends Fragment {
         desktop = "Nothing";
 
         s = Build.SUPPORTED_ABIS[0];
-
-        sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
-        isDeviceSpaceNotified = sharedPreferences.getBoolean("IsDeviceSpaceNotified", false);
 
         button = view.findViewById(R.id.button);
         button2 = view.findViewById(R.id.button2);
@@ -153,9 +146,6 @@ public class DesktopEnvironment extends Fragment {
                 }
             }
         });
-        if(!isDeviceSpaceNotified){
-            notifyUserForDeviceSpace();
-        }
 
         return view;
     }
@@ -599,36 +589,6 @@ public class DesktopEnvironment extends Fragment {
         });
         alertDialog.show();
         textView.setText(R.string.termux_not_Installed);
-    }
-    public void notifyUserForDeviceSpace(){
-        final ViewGroup nullParent = null;
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-        View view = layoutInflater.inflate(R.layout.notify1, nullParent);
-        TextView textView = view.findViewById(R.id.textView);
-
-        alertDialog.setView(view);
-        alertDialog.setCancelable(false);
-        alertDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean("IsDeviceSpaceNotified", true);
-                editor.apply();
-                dialog.dismiss();
-            }
-        });
-        alertDialog.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                Fragment fragment = new DashBoard();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                dialog.dismiss();
-            }
-        });
-        alertDialog.show();
-        textView.setText(R.string.de_notify_space);
     }
     private boolean isPackageInstalled(String packageName, PackageManager packageManager) {
         try {

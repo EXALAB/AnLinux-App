@@ -12,7 +12,7 @@
             android:id="@+id/checkBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="7dp"
+            android:layout_margin="10dp"
             android:text="@string/ubuntu_beginner"/>
 
         <CheckBox
@@ -102,6 +102,7 @@
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox11"
             android:text="Black Arch"/>
+
         <CheckBox
             android:id="@+id/checkBox13"
             android:layout_width="match_parent"
@@ -109,6 +110,14 @@
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox12"
             android:text="Alpine"/>
+
+        <CheckBox
+            android:id="@+id/checkBox14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_below="@id/checkBox13"
+            android:text="Void Linux"/>
 
     </RelativeLayout>
 

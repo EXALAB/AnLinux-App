@@ -12,14 +12,14 @@
             android:id="@+id/checkBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="7dp"
+            android:layout_margin="10dp"
             android:text="Ashmem"/>
 
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="7dp"
+            android:layout_margin="10dp"
             android:layout_below="@id/checkBox"
             android:text="SECCOMP"/>
 
