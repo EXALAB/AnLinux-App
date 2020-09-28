@@ -112,6 +112,9 @@ public class Uninstaller extends Fragment{
                 }else if(distro.equals("Alpine")){
                     ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Alpine/UNI-alpine.sh && bash UNI-alpine.sh");
                     clipboard.setPrimaryClip(clip);
+                }else if(distro.equals("Void")){
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Void/UNI-void.sh && bash UNI-void.sh");
+                    clipboard.setPrimaryClip(clip);
                 }
                 Toast.makeText(context, getString(R.string.command_copied), Toast.LENGTH_SHORT).show();
             }
@@ -148,6 +151,7 @@ public class Uninstaller extends Fragment{
         final CheckBox checkBox11 = view.findViewById(R.id.checkBox11);
         final CheckBox checkBox12 = view.findViewById(R.id.checkBox12);
         final CheckBox checkBox13 = view.findViewById(R.id.checkBox13);
+        final CheckBox checkBox14 = view.findViewById(R.id.checkBox14);
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
@@ -174,8 +178,12 @@ public class Uninstaller extends Fragment{
             checkBox10.setChecked(true);
         }else if(distro.equals("Arch")){
             checkBox11.setChecked(true);
+        }else if(distro.equals("BlackArch")){
+            checkBox12.setChecked(true);
         }else if(distro.equals("Alpine")){
             checkBox13.setChecked(true);
+        }else if(distro.equals("Void")){
+            checkBox14.setChecked(true);
         }
 
         checkBox.setOnClickListener(new View.OnClickListener() {
@@ -191,7 +199,9 @@ public class Uninstaller extends Fragment{
                 checkBox9.setChecked(false);
                 checkBox10.setChecked(false);
                 checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
                 checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
             }
         });
         checkBox2.setOnClickListener(new View.OnClickListener() {
@@ -207,7 +217,9 @@ public class Uninstaller extends Fragment{
                 checkBox9.setChecked(false);
                 checkBox10.setChecked(false);
                 checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
                 checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
             }
         });
         checkBox3.setOnClickListener(new View.OnClickListener() {
@@ -223,7 +235,9 @@ public class Uninstaller extends Fragment{
                 checkBox9.setChecked(false);
                 checkBox10.setChecked(false);
                 checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
                 checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
             }
         });
         checkBox4.setOnClickListener(new View.OnClickListener() {
@@ -239,7 +253,9 @@ public class Uninstaller extends Fragment{
                 checkBox9.setChecked(false);
                 checkBox10.setChecked(false);
                 checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
                 checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
             }
         });
         checkBox5.setOnClickListener(new View.OnClickListener() {
@@ -255,7 +271,9 @@ public class Uninstaller extends Fragment{
                 checkBox9.setChecked(false);
                 checkBox10.setChecked(false);
                 checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
                 checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
             }
         });
         checkBox6.setOnClickListener(new View.OnClickListener() {
@@ -271,7 +289,9 @@ public class Uninstaller extends Fragment{
                 checkBox9.setChecked(false);
                 checkBox10.setChecked(false);
                 checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
                 checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
             }
         });
         checkBox7.setOnClickListener(new View.OnClickListener() {
@@ -287,7 +307,9 @@ public class Uninstaller extends Fragment{
                 checkBox9.setChecked(false);
                 checkBox10.setChecked(false);
                 checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
                 checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
             }
         });
         checkBox8.setOnClickListener(new View.OnClickListener() {
@@ -303,7 +325,9 @@ public class Uninstaller extends Fragment{
                 checkBox9.setChecked(false);
                 checkBox10.setChecked(false);
                 checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
                 checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
             }
         });
         checkBox9.setOnClickListener(new View.OnClickListener() {
@@ -319,7 +343,9 @@ public class Uninstaller extends Fragment{
                 checkBox8.setChecked(false);
                 checkBox10.setChecked(false);
                 checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
                 checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
             }
         });
         checkBox10.setOnClickListener(new View.OnClickListener() {
@@ -335,10 +361,12 @@ public class Uninstaller extends Fragment{
                 checkBox8.setChecked(false);
                 checkBox9.setChecked(false);
                 checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
                 checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
             }
         });
-        checkBox13.setOnClickListener(new View.OnClickListener() {
+        checkBox11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkBox.setChecked(false);
@@ -351,7 +379,27 @@ public class Uninstaller extends Fragment{
                 checkBox8.setChecked(false);
                 checkBox9.setChecked(false);
                 checkBox10.setChecked(false);
+                checkBox12.setChecked(false);
                 checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
+            }
+        });
+        checkBox12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
+                checkBox9.setChecked(false);
+                checkBox10.setChecked(false);
+                checkBox11.setChecked(false);
+                checkBox13.setChecked(false);
+                checkBox14.setChecked(false);
             }
         });
         checkBox13.setOnClickListener(new View.OnClickListener() {
@@ -368,6 +416,26 @@ public class Uninstaller extends Fragment{
                 checkBox9.setChecked(false);
                 checkBox10.setChecked(false);
                 checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
+                checkBox14.setChecked(false);
+            }
+        });
+        checkBox14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+                checkBox7.setChecked(false);
+                checkBox8.setChecked(false);
+                checkBox9.setChecked(false);
+                checkBox10.setChecked(false);
+                checkBox11.setChecked(false);
+                checkBox12.setChecked(false);
+                checkBox13.setChecked(false);
             }
         });
         if(s.equals("i386")){
@@ -379,13 +447,9 @@ public class Uninstaller extends Fragment{
             checkBox9.setText(R.string.not_Supported);
             checkBox11.setText(R.string.not_Supported);
             checkBox12.setText(R.string.not_Supported);
-        }else{
-            if(s.contains("arm")){
-                checkBox5.setEnabled(false);
-                checkBox5.setText(R.string.not_Supported);
-            }
-            checkBox12.setEnabled(false);
-            checkBox12.setText(R.string.same_arch_linux);
+        }else if(s.contains("arm")){
+            checkBox5.setEnabled(false);
+            checkBox5.setText(R.string.not_Supported);
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -455,9 +519,21 @@ public class Uninstaller extends Fragment{
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
+                }else if(checkBox12.isChecked()){
+                    if(!distro.equals("BlackArch")){
+                        distro = "BlackArch";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
+                    }
                 }else if(checkBox13.isChecked()){
                     if(!distro.equals("Alpine")){
                         distro = "Alpine";
+                        button2.setEnabled(true);
+                        button3.setEnabled(true);
+                    }
+                }else if(checkBox14.isChecked()){
+                    if(!distro.equals("Void")){
+                        distro = "Void";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
@@ -497,6 +573,9 @@ public class Uninstaller extends Fragment{
                     textView3.setText(R.string.uninstall_step3);
                 }else if(distro.equals("Alpine")){
                     textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Alpine/UNI-alpine.sh && bash UNI-alpine.sh", "Alpine"));
+                    textView3.setText(R.string.uninstall_step3);
+                }else if(distro.equals("Void")){
+                    textView2.setText(getString(R.string.uninstall_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Uninstaller/Void/UNI-void.sh && bash UNI-void.sh", "Void Linux"));
                     textView3.setText(R.string.uninstall_step3);
                 }
                 dialog.dismiss();
