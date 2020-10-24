@@ -74,15 +74,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
         editor = sharedPreferences.edit();
 
-        mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
-
         mAdView = findViewById(R.id.adView);
 
         if(!donationInstalled() && !isVideoAdsWatched()){
+            mInterstitialAd = new InterstitialAd(context);
+            mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            shouldShowAds = true;
             mAdView.loadAd(new AdRequest.Builder().build());
+            shouldShowAds = true;
         }else if(donationInstalled()){
             mAdView.setVisibility(View.GONE);
         }
