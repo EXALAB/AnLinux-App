@@ -76,10 +76,11 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
         mAdView = findViewById(R.id.adView);
 
+        mInterstitialAd = new InterstitialAd(context);
+        mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
         if(!donationInstalled() && !isVideoAdsWatched()){
-            mInterstitialAd = new InterstitialAd(context);
-            mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
             mAdView.loadAd(new AdRequest.Builder().build());
             shouldShowAds = true;
         }else if(donationInstalled()){
