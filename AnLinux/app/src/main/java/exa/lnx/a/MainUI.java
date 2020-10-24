@@ -77,9 +77,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         mInterstitialAd = new InterstitialAd(context);
         mInterstitialAd.setAdUnitId("ca-app-pub-5748356089815497/3581271493");
 
+        mAdView = findViewById(R.id.adView);
+
         if(!donationInstalled() && !isVideoAdsWatched()){
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
             shouldShowAds = true;
+            mAdView.loadAd(new AdRequest.Builder().build());
+        }else if(donationInstalled()){
+            mAdView.setVisibility(View.GONE);
         }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -94,12 +99,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
         relativeLayout = findViewById(R.id.fragmentHolder);
         isOreoNotified = sharedPreferences.getBoolean("IsOreoNotified", false);
-
-        mAdView = findViewById(R.id.adView);
-
-        if(!donationInstalled() && !isVideoAdsWatched()){
-            mAdView.loadAd(new AdRequest.Builder().build());
-        }
 
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -720,7 +719,12 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
     }
     private boolean donationInstalled() {
         PackageManager packageManager = context.getPackageManager();
-        return packageManager.checkSignatures(context.getPackageName(), "exa.lnx.d") == PackageManager.SIGNATURE_MATCH;
+        try {
+            packageManager.getPackageInfo("exa.lnx.d", 0);
+            return true;
+        }catch(PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
     private boolean isVideoAdsWatched(){
         Calendar cal = Calendar.getInstance();
