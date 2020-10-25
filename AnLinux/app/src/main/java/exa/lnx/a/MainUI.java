@@ -83,7 +83,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         if(!donationInstalled() && !isVideoAdsWatched()){
             mAdView.loadAd(new AdRequest.Builder().build());
             shouldShowAds = true;
-        }else if(donationInstalled()){
+        }else{
             mAdView.setVisibility(View.GONE);
         }
 
@@ -226,14 +226,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setChecked(true);
             if(!(fragment instanceof DashBoard)){
                 if (i == 0) {
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 1;
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 0;
@@ -259,14 +259,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setChecked(true);
             if(!(fragment instanceof DesktopEnvironment)){
                 if (i == 0) {
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 1;
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 0;
@@ -279,14 +279,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setChecked(true);
             if(!(fragment instanceof HeavyDE)){
                 if (i == 0) {
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 1;
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 0;
@@ -301,14 +301,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setChecked(true);
             if(!(fragment instanceof WindowManager)){
                 if (i == 0) {
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 1;
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 0;
@@ -321,14 +321,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setChecked(true);
             if(!(fragment instanceof Uninstaller)){
                 if (i == 0) {
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 1;
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 0;
@@ -341,14 +341,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setChecked(true);
             if(!(fragment instanceof SSH)){
                 if (i == 0) {
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 1;
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 0;
@@ -361,14 +361,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setChecked(true);
             if(!(fragment instanceof Patches)){
                 if (i == 0) {
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 1;
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 0;
@@ -383,14 +383,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             selected.setChecked(true);
             if(!(fragment instanceof SU)){
                 if (i == 0) {
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 1;
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd.isLoaded()){
+                    if(mInterstitialAd.isLoaded() && shouldShowAds){
                         mInterstitialAd.show();
                     }
                     i = 0;
