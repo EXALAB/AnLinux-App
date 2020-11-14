@@ -19,7 +19,7 @@
     <string name="donation">Donation</string>
     <string name="_continue">Continue</string>
     <string name="report">Report Error</string>
-    <string name="ssh">SSH</string>
+    <string name="ssh" translatable="false">SSH</string>
     <string name="patches">Patches</string>
     <string name="documentation">Documentation</string>
     <string name="step0">Please scroll down to see all steps if your device screen is small.</string>
