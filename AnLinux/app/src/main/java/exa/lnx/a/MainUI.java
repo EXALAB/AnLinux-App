@@ -9,10 +9,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 
 import androidx.annotation.NonNull;
@@ -74,6 +76,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
         editor = sharedPreferences.edit();
 
+        relativeLayout = findViewById(R.id.fragmentHolder);
+
         mAdView = findViewById(R.id.adView);
 
         mInterstitialAd = new InterstitialAd(context);
@@ -84,7 +88,11 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             mAdView.loadAd(new AdRequest.Builder().build());
             shouldShowAds = true;
         }else{
+            mAdView.pause();
+            mAdView.destroy();
             mAdView.setVisibility(View.GONE);
+            relativeLayout.removeView(mAdView);
+            shouldShowAds = false;
         }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -97,7 +105,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        relativeLayout = findViewById(R.id.fragmentHolder);
         isOreoNotified = sharedPreferences.getBoolean("IsOreoNotified", false);
 
         navigationView = findViewById(R.id.nav_view);
@@ -579,9 +586,14 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                                 int a =  cal.get(Calendar.DAY_OF_MONTH);
                                 int b = sharedPreferences.getInt("VideoAds", 0);
                                 if(a != b){
+                                    if(!donationInstalled() && !isVideoAdsWatched()){
+                                        mAdView.pause();
+                                        mAdView.destroy();
+                                        mAdView.setVisibility(View.GONE);
+                                        relativeLayout.removeView(mAdView);
+                                    }
                                     editor.putInt("VideoAds", a);
                                     editor.apply();
-                                    relativeLayout.removeView(mAdView);
                                     Toast.makeText(context, R.string.ads_removed_temp, Toast.LENGTH_LONG).show();
                                 }
                             }
@@ -718,7 +730,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         textView.setText(R.string.bug_encounter);
     }
     private boolean donationInstalled() {
-        PackageManager packageManager = context.getPackageManager();
+        PackageManager packageManager = getPackageManager();
         try {
             packageManager.getPackageInfo("exa.lnx.d", 0);
             return true;
