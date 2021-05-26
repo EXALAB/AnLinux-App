@@ -33,7 +33,7 @@ Supported Desktop Environments:
 
 
 
-## Window Manager
+### Window Manager
 
 We currently support 2 Desktop Environments, and only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/) distros are supported.
 
