@@ -12,6 +12,10 @@ jobs:
         with:
           java-version: 1.8
 
+      - name: Make Gradle executable
+        working-directory: ./AnLinux
+        run: chmod +x ./gradlew
+
       # Execute unit tests
       - name: Unit Test
         working-directory: ./AnLinux
