@@ -1,11 +1,11 @@
-这里是主程序使用的库。如果你在找程序中使用的图片或脚本，请点击[这里](https://github.com/EXALAB/AnLinux-Resources)
+这是主应用程序的仓库。 如果您正在寻找此应用程序中使用的图像和脚本，请访问 [这里](https://github.com/EXALAB/AnLinux-Resources)
 
 # AnLinux
-AnLinux允许你在安卓系统中免root运行Linux系统。感谢[Termux](https://github.com/termux/termux-app)和[PRoot](https://github.com/proot-me/PRoot)让这个项目成为可能。
+在没有 Root 访问权限的情况下在 Android 上运行 Linux，感谢 [Termux](https://github.com/termux/termux-app) 和 [PRoot](https://github.com/proot-me/PRoot)，使这个项目成为可能。
 
 在Google Play上下载
 
-<a href='https://play.google.com/store/apps/details?id=exa.lnx.a'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="100"/></a>
+<a href='https://play.google.com/store/apps/details?id=exa.lnx.a'><img alt='Get it on Google Play' src='/en_badge_web_generic.png' height="100"/></a>
 
 （中国大陆不能使用）
 
@@ -17,13 +17,13 @@ AnLinux允许你在安卓系统中免root运行Linux系统。感谢[Termux](http
 
 如果你不能访问Google Play。
 
-注意：使用该软件需要连接到raw.github.com并下载文件。从Github上下载安装并不意味着你不需要梯子或其他手段就可以正常使用该软件。
+注意：下载、使用该软件需要连接到 raw.github.com 等网址并下载文件。从Github上下载安装并不意味着你不需要梯子或其他手段就可以正常使用该软件。
 
 
 
-## 它怎么工作？
+## 它如何工作？
 
-bash脚本从网上下载系统镜像，然后解压并用[PRoot](https://github.com/proot-me/PRoot)挂载它。
+使用 bash 脚本通过 Internet 下载图像，然后解压缩图像，然后使用 [PRoot](https://github.com/proot-me/PRoot) 挂载它。
 
 
 
@@ -54,10 +54,10 @@ bash脚本从网上下载系统镜像，然后解压并用[PRoot](https://github
 
 ## 未来的目标：
 
-1. KDE和GNOME的系统环境支持(也许还会测试其他不可用的桌面)。
+1. KDE 和 GNOME 的桌面环境支持 (也可能重新测试其他列入“黑名单” (也就是不可用) 的桌面环境) 。
 2. 音频支持。
-3. 修复PRoot的错误。
-4. 可能考虑BSD发行版的支持。
+3. 修复 PRoot 的错误。
+4. 可能考虑 BSD 发行版的支持。
 
 
 
@@ -67,11 +67,11 @@ bash脚本从网上下载系统镜像，然后解压并用[PRoot](https://github
 
 ## 注意
 
-1. 这个应用需要[Termux](https://github.com/termux/termux-app)的支持，你可以从Google Play（中国大陆不能使用）或者[F-Droid](https://f-droid.org)下载它。
+1. 这个应用需要 [Termux](https://github.com/termux/termux-app) 的支持，你可以从 Google Play（中国大陆不能使用）或者 [F-Droid](https://f-droid.org) 下载它。
 
 2. 设备需求：
 
-   安卓5或以上
+   安卓 5.0 或以上
 
    系统架构：armv7, arm64, x86, x86_64
 
@@ -81,13 +81,13 @@ bash脚本从网上下载系统镜像，然后解压并用[PRoot](https://github
 
 4. 有任何问题或建议，请在Github上发issue。
 
-5. 由于找不到/dev/tty0的错误，窗口管理器已经被移除。
+5. 由于找不到 /dev/tty0 的错误，窗口管理器已经被移除。
 
 
 
 ## 其他许可
 
-应用图标的作者是[Alpár-Etele Méder](https://www.iconfinder.com/pocike)
+应用图标的作者是 [Alpár-Etele Méder](https://www.iconfinder.com/pocike) 
 
 程序中用到的Ashmem库：[android-shmem](https://github.com/pelya/android-shmem)
 
