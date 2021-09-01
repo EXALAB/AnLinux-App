@@ -23,6 +23,7 @@
         android:value="ca-app-pub-5748356089815497~5704037803"/>
     <activity
         android:name=".MainUI"
+        android:exported="true"
         android:screenOrientation="portrait"
         android:label="@string/app_name"
         android:theme="@style/AppTheme.NoActionBar">

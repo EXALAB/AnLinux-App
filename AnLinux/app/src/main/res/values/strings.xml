@@ -102,9 +102,10 @@
     <string name="patches_step2_choose_first">Step 2: Please choose a Patches first</string>
     <string name="patches_step3_choose_first">Step 3: Please choose a Patches first</string>
     <string name="heavy_de">Heavy DE</string>
-    <string name="heavy_de_note">Heavy Desktop Environment was a feature that let you install Desktop Environment that are very beautiful and popular among desktop Linux users. But they require lots of space, resource and ram to work.\n\nSo before installing, please make sure you have at lease:\n\n7GB of space\n4GB ram</string>
+    <string name="heavy_de_note">Heavy Desktop Environment was a feature that let you install Desktop Environment that are very beautiful and popular among desktop Linux users. But they require lots of space, resource and ram to work.\n\nSo before installing, please make sure you have at lease:\n\n5GB of space\n4GB ram</string>
     <string name="heavy_de_step1">Step 1 : Please choose a Desktop Environment</string>
     <string name="heavy_de_step2_choose_first">Step 2: Please choose a Distro</string>
     <string name="heavy_de_step3_choose_first">Step 3: Please choose a Distro first</string>
     <string name="heavy_de_step4_choose_first">Step 4: Please choose a Distro first</string>
+    <string name="heavy_de_step0">Please scroll down to see all steps if your device screen is small.\n\nWARNING: Only run this command inside the Linux System and not in Termux, otherwise it will not work!!!</string>
 </resources>

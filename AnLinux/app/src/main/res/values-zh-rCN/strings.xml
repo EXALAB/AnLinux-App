@@ -102,9 +102,10 @@
     <string name="patches_step2_choose_first">第二步：请先选择一个补丁</string>
     <string name="patches_step3_choose_first">第三步：请先选择一个补丁</string>
     <string name="heavy_de">重量级桌面</string>
-    <string name="heavy_de_note">重量级桌面是一个让您安装在电脑上美观并常用的桌面系统的功能。但是它们会消耗非常多的资源和内存。\n\n所以在安装前，请确认您有至少:\n\n7GB 空间\n4Gb 内存</string>
+    <string name="heavy_de_note">重量级桌面是一个让您安装在电脑上美观并常用的桌面系统的功能。但是它们会消耗非常多的资源和内存。\n\n所以在安装前，请确认您有至少:\n\n5GB 空间\n4Gb 内存</string>
     <string name="heavy_de_step1">第一步：请先选择一个桌面</string>
     <string name="heavy_de_step2_choose_first">第二步：请选择一个Linux系统</string>
     <string name="heavy_de_step3_choose_first">第三步：请先完成上一个选项</string>
     <string name="heavy_de_step4_choose_first">第四步：请先完成上一个选项</string>
+    <string name="heavy_de_step0">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n警告：请在Linux终端中执行此指令，而不是Termux终端，否则此指令将失效！</string>
 </resources>

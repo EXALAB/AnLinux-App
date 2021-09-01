@@ -281,7 +281,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 newFragment(2);
             }
         }else if(id == R.id.hgui){
-            /*MenuItem selected = navigationView.getMenu().findItem(R.id.hgui);
+            MenuItem selected = navigationView.getMenu().findItem(R.id.hgui);
             selected.setCheckable(true);
             selected.setChecked(true);
             if(!(fragment instanceof HeavyDE)){
@@ -299,9 +299,9 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                     i = 0;
                 }
                 newFragment(9);
-            }*/
-            //Temporary Code
-            notifyUserForTemporary();
+            }
+            //Temporary Code, will be back later if any error in the future
+            //notifyUserForTemporary();
         }else if(id == R.id.wm){
             MenuItem selected = navigationView.getMenu().findItem(R.id.wm);
             selected.setCheckable(true);
@@ -781,8 +781,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             }
         });
     }
-    //Temporary Code
-    public void notifyUserForTemporary(){
+    //Temporary Code, will be back later if any error in the future
+    /*public void notifyUserForTemporary(){
         final ViewGroup nullParent = null;
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainUI.this);
         LayoutInflater layoutInflater = LayoutInflater.from(MainUI.this);
@@ -806,5 +806,5 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         });
         alertDialog.show();
         textView.setText("This feature originally enable user to install KDE on Ubuntu, which work perfectly on Ubuntu 18 (Bionic), however the same code failed for Ubuntu 20 (Focal), if you have any code that work correctly on Ubuntu Focal to contribute or want to know more about this, please go to the Github issue page.\n\nDo you want to go there now?");
-    }
+    }*/
 }

@@ -23,7 +23,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
-                android:text="@string/gui_step0" />
+                android:text="@string/heavy_de_step0" />
 
             <TextView
                 android:id="@+id/textView1"
