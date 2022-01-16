@@ -8,10 +8,12 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,7 +115,7 @@ public class WindowManager extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = context.getPackageManager().getLaunchIntentForPackage("com.termux");
-                if(isPackageInstalled("com.termux", context.getPackageManager())){
+                if(isPackageInstalled("com.termux", context.getPackageManager()) && termuxVersionCode() >= 118){
                     startActivity(intent);
                 }else{
                     notifyUserForInstallTerminal();
@@ -415,7 +417,7 @@ public class WindowManager extends Fragment {
         alertDialog.setCancelable(false);
         alertDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                Uri uri = Uri.parse("market://details?id=com.termux");
+                Uri uri = Uri.parse("https://f-droid.org/en/packages/com.termux/");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 if(Build.VERSION.SDK_INT >= 21){
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
@@ -423,7 +425,7 @@ public class WindowManager extends Fragment {
                 try{
                     startActivity(intent);
                 }catch(ActivityNotFoundException e){
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=com.termux")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://f-droid.org/en/packages/com.termux/")));
                 }
                 dialog.dismiss();
             }
@@ -434,7 +436,21 @@ public class WindowManager extends Fragment {
             }
         });
         alertDialog.show();
-        textView.setText(R.string.termux_not_Installed);
+        if(termuxVersionCode() == 0){
+            textView.setText(R.string.termux_not_Installed);
+        }else if(termuxVersionCode() < 118){
+            textView.setText(R.string.termux_not_fdroid);
+        }
+    }
+    private int termuxVersionCode(){
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pInfo = pm.getPackageInfo("com.termux", 0);
+            return pInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e("error", "Package not found");
+            return 0;
+        }
     }
     private boolean isPackageInstalled(String packageName, PackageManager packageManager) {
         try {

@@ -47,7 +47,8 @@
     <string name="not_Supported">不支持</string>
     <string name="not_available">不提供</string>
     <string name="same_arch_linux">Black Arch（和Arch Linux一樣）</string>
-    <string name="termux_not_Installed">Termux並未安裝，請問是否要現在安裝？ </string>
+    <string name="termux_not_Installed">看來您尚未安裝Termux，但AnLinux只能在v0.118.0以上的Termux運行。 \n\n重要消息：Play商店中的Termux已經被停止維護並且在未來將永久性停止更新，新的Termux安裝包將只會在F-Droid發布，請問您是否要立刻前往F-Droid下載？ （進入頁面後往下滑並點擊 Download APK)</string>
+    <string name="termux_not_fdroid">看來您尚未安裝最新版本的Termux，但AnLinux只能在v0.118.0以上的Termux運行。 \n\n重要消息：Play商店中的Termux已經被停止維護並且在未來將永久性停止更新，新的Termux安裝包將只會在F-Droid發布，請問您是否要立刻前往F-Droid下載？ （進入頁面後往下滑並點擊 Download APK)</string>
     <string name="uninstall_step2">第二步：請複制此指令：%1$s \n\n這將會把 %2$s 從Termux移除。</string>
     <string name="uninstall_step3">第三步：啟動Termux，貼上並輸入指令以解除安裝。注意：請在Termux終端中執行此指令，而不是Linux終端。</string>
     <string name="ashmem_step1">如果您的設備螢幕較小，請往下滑以使用其他步驟。\n\n警告：請確定在執行此操作前Linux系統已安裝wget，同時請在Linux終端中執行此指令，而不是Termux終端，否則此指令將失效！ \n\n關於 Ashmem: 安卓上的 系統V shared memory 模擬, 使用 ashmem。包掛了 shmget, shmat, shmdt 和 shmctl 的功能. 它並不使用 Binder service, 同時也不關聯任何 Java libraries. 它使用了 Linux 的 sendmsg/recvmsg API 來進行傳輸。\n\n作用: 當您在執行某些GUI程式時出現問題，安裝此補丁有可能可以解決問題。\n\n使用方法: env LD_PRELOAD="/usr/local/lib/libandroid-shmem.so" 指令"</string>
