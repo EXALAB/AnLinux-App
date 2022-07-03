@@ -452,16 +452,11 @@ public class DashBoard extends Fragment {
         });
         if(s.equals("i386")){
             checkBox7.setEnabled(false);
-            checkBox9.setEnabled(false);
             checkBox11.setEnabled(false);
             checkBox12.setEnabled(false);
             checkBox7.setText(R.string.not_Supported);
-            checkBox9.setText(R.string.not_Supported);
             checkBox11.setText(R.string.not_Supported);
             checkBox12.setText(R.string.not_Supported);
-        }else if(s.contains("arm")){
-            checkBox5.setEnabled(false);
-            checkBox5.setText(R.string.not_Supported);
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {

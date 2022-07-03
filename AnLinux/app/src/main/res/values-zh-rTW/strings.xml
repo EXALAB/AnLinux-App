@@ -40,7 +40,7 @@
     <string name="Launch">啟動</string>
     <string name="ubuntu_beginner">Ubuntu (推薦給初學者)</string>
     <string name="xfce4_recommended">Xfce4 (推薦)</string>
-    <string name="first_warning_content">首先，非常感謝您下載AnLinux，以下是重要的內容，請仔細閱讀。 \n\n1. 為了讓安裝更為方便和簡易，除了Arch Linux 和Kali Nethunter 都是非常簡易的rootfs(基礎系統)，這表示系統中有許多功能還未被安裝/測試，您可以根據需求安裝他們，但其不穩定性需要由使用者承擔。 \n\n2. 所有安裝的系統都在此目錄： /data/data/com.termux/files/home ，請在安裝功能之前確認您的設備有足夠的空間，同時不要抱怨應用佔用了你的空間，因為一切都是由您在控制。 \n\n3. 有些系統會因為您的設備架構關係而無使用。 \n\n4. 當前，所有除了mips以外的設備都能運行此應用，如果您遇到類似Proot signal 6, or function not implemented的問題，請至應用內的補丁功能使用SECCOMP補丁。 \n\n5. Parrot Security OS的維護者似乎已經決定不再支持arm設備了，所以在他們決定重新支持之前，接下來將不會再有arm設備的Parrot Security OS鏡像，請使用Kali或BlackArch等來進行代替。 \n\n6. 千萬不要同時安裝兩個不同的桌面或同時間安裝桌面和窗口管理器，如果您要安裝其他的桌面，請先重新安裝Linux系統。要完成此操作，請先使用 “刪除系統” 功能， 並從儀表板進行安裝。\n\n\n感謝您的閱讀，祝您有個快樂的一天 ：)</string>
+    <string name="first_warning_content">首先，非常感謝您下載AnLinux，以下是重要的內容，請仔細閱讀。 \n\n1. 為了讓安裝更為方便和簡易，除了Arch Linux 和Kali Nethunter 都是非常簡易的rootfs(基礎系統)，這表示系統中有許多功能還未被安裝/測試，您可以根據需求安裝他們，但其不穩定性需要由使用者承擔。 \n\n2. 所有安裝的系統都在此目錄： /data/data/com.termux/files/home ，請在安裝功能之前確認您的設備有足夠的空間，同時不要抱怨應用佔用了你的空間，因為一切都是由您在控制。 \n\n3. 有些系統會因為您的設備架構關係而無使用。 \n\n4. 當前，所有除了mips以外的設備都能運行此應用，如果您遇到類似Proot signal 6, or function not implemented的問題，請至應用內的補丁功能使用SECCOMP補丁。 \n\n5. 千萬不要同時安裝兩個不同的桌面或同時間安裝桌面和窗口管理器，如果您要安裝其他的桌面，請先重新安裝Linux系統。要完成此操作，請先使用 “刪除系統” 功能， 並從儀表板進行安裝。\n\n\n感謝您的閱讀，祝您有個快樂的一天 ：)</string>
     <string name="i_understand">我了解</string>
     <string name="step2_cd">第二步：請先完成上一個選項</string>
     <string name="step3_cd">第三步：請先完成上一個選項</string>
