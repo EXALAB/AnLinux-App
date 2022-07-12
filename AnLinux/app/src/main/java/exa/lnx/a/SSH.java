@@ -259,9 +259,6 @@ public class SSH extends Fragment {
             checkBox6.setText(R.string.not_Supported);
             checkBox8.setEnabled(false);
             checkBox8.setText(R.string.not_Supported);
-        }else if(s.contains("arm")){
-            checkBox4.setEnabled(false);
-            checkBox4.setText(R.string.not_Supported);
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {

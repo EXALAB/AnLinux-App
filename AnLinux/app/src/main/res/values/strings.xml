@@ -69,8 +69,8 @@
     <string name="de_step2_choose_first">Step 2: Please choose a Desktop Environment</string>
     <string name="de_step3_choose_first">Step 3: Please choose a Desktop Environment first</string>
     <string name="de_step4_choose_first">Step 4: Please choose a Desktop Environment first</string>
-    <string name="gui_step2">Step 2 : Copy the command to clipboard : %1$s \n\nThis should setup %2$s and Tiger VNC on the Linux System.</string>
-    <string name="gui_step3">Step 3 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run %1$s to run the Linux System before using this command.</string>
+    <string name="gui_step2">Step 3 : Copy the command to clipboard : %1$s \n\nThis should setup %2$s and Tiger VNC on the Linux System.</string>
+    <string name="gui_step3">Step 4 : Start Termux, paste and enter the command to install the desktop environment. Remember: you will need to run %1$s to run the Linux System before using this command.</string>
     <string name="dashboard_step2">Step 2 : Copy the command to clipboard : %1$s \n\nThis should install %2$s on your system, you can then run %3$s to run the command line.</string>
     <string name="dashboard_step3">Step 3 : Start Termux, paste and enter the command to install distro. Remember: you will need to run %1$s to run the command line.</string>
     <string name="dashboard_step2_arch">Step 2 : Copy the command to clipboard : %1$s \n\nThis should install %2$s on your system, you can then run %3$s to run the command line.\n\nAfter that, you will need to run: chmod 755 additional.sh &amp;&amp; ./additional.sh to setup resolv.conf and pacman-key, otherwise network connection and pacman wont work!!! (First time only)</string>

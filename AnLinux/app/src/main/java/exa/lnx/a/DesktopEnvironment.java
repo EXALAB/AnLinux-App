@@ -175,7 +175,7 @@ public class DesktopEnvironment extends Fragment {
             checkBox3.setChecked(true);
         }else if(distro.equals("Parrot")){
             checkBox4.setChecked(true);
-        }else if(distro.equals("BackVox")){
+        }else if(distro.equals("BackBox")){
             checkBox5.setChecked(true);
         }else if(distro.equals("Fedora")){
             checkBox6.setChecked(true);
@@ -265,9 +265,6 @@ public class DesktopEnvironment extends Fragment {
             checkBox6.setText(R.string.not_Supported);
             checkBox7.setEnabled(false);
             checkBox7.setText(R.string.not_Supported);
-        }else if(s.contains("arm")){
-            checkBox4.setEnabled(false);
-            checkBox4.setText(R.string.not_Supported);
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
