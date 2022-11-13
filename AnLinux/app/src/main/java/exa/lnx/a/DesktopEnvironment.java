@@ -82,54 +82,54 @@ public class DesktopEnvironment extends Fragment {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
                 if(distro.equals("Ubuntu") | distro.equals("Debian") | distro.equals("Kali") | distro.equals("Parrot") | distro.equals("BackBox")){
                     if(desktop.equals("Xfce4")){
-                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh --no-check-certificate && bash de-apt-xfce4.sh");
                         clipboard.setPrimaryClip(clip);
                     }else if(desktop.equals("Mate")){
-                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh && bash de-apt-mate.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh --no-check-certificate && bash de-apt-mate.sh");
                         clipboard.setPrimaryClip(clip);
                     }else if(desktop.equals("LXQt")){
-                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh --no-check-certificate && bash de-apt-lxqt.sh");
                         clipboard.setPrimaryClip(clip);
                     }else if(desktop.equals("LXDE")){
-                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh --no-check-certificate && bash de-apt-lxde.sh");
                         clipboard.setPrimaryClip(clip);
                     }
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
                         if(desktop.equals("Xfce4")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Xfce4/de-yum-xfce4.sh && bash de-yum-xfce4.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Xfce4/de-yum-xfce4.sh --no-check-certificate && bash de-yum-xfce4.sh");
                             clipboard.setPrimaryClip(clip);
                         }else if(desktop.equals("Mate")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Mate/de-yum-mate.sh && bash de-yum-mate.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Mate/de-yum-mate.sh --no-check-certificate && bash de-yum-mate.sh");
                             clipboard.setPrimaryClip(clip);
                         }else if(desktop.equals("LXQt")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXQt/de-yum-lxqt.sh && bash de-yum-lxqt.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXQt/de-yum-lxqt.sh --no-check-certificate && bash de-yum-lxqt.sh");
                             clipboard.setPrimaryClip(clip);
                         }else if(desktop.equals("LXDE")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXDE/de-yum-lxde.sh && bash de-yum-lxde.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXDE/de-yum-lxde.sh --no-check-certificate && bash de-yum-lxde.sh");
                             clipboard.setPrimaryClip(clip);
                         }
                     }else{
                         if(desktop.equals("Xfce4")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Xfce4/de-yum-xfce4.sh && bash de-yum-xfce4.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Xfce4/de-yum-xfce4.sh --no-check-certificate && bash de-yum-xfce4.sh");
                             clipboard.setPrimaryClip(clip);
                         }else if(desktop.equals("Mate")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Mate/de-yum-mate.sh && bash de-yum-mate.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Mate/de-yum-mate.sh --no-check-certificate && bash de-yum-mate.sh");
                             clipboard.setPrimaryClip(clip);
                         }else if(desktop.equals("LXQt")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXQt/de-yum-lxqt.sh && bash de-yum-lxqt.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXQt/de-yum-lxqt.sh --no-check-certificate && bash de-yum-lxqt.sh");
                             clipboard.setPrimaryClip(clip);
                         }else if(desktop.equals("LXDE")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXDE/de-yum-lxde.sh && bash de-yum-lxde.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXDE/de-yum-lxde.sh --no-check-certificate && bash de-yum-lxde.sh");
                             clipboard.setPrimaryClip(clip);
                         }
                     }
                 }else if(distro.equals("Arch")){
                     if(s.contains("arm")){
-                        ClipData clip = ClipData.newPlainText("Command", "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh --no-check-certificate && bash de-pac.sh");
                         clipboard.setPrimaryClip(clip);
                     }else{
-                        ClipData clip = ClipData.newPlainText("Command", "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh --no-check-certificate && bash de-pac.sh");
                         clipboard.setPrimaryClip(clip);
                     }
                 }
@@ -454,96 +454,96 @@ public class DesktopEnvironment extends Fragment {
                 }
                 if(distro.equals("Ubuntu")){
                     if(desktop.equals("Xfce4")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh", "Xfce"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh --no-check-certificate && bash de-apt-xfce4.sh", "Xfce"));
                         textView4.setText(getString(R.string.gui_step3, "./start-ubuntu.sh"));
                     }else if(desktop.equals("Mate")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh && bash de-apt-mate.sh", "Mate"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh --no-check-certificate && bash de-apt-mate.sh", "Mate"));
                         textView4.setText(getString(R.string.gui_step3, "./start-ubuntu.sh"));
                     }else if(desktop.equals("LXQt")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh", "LXQt"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh --no-check-certificate && bash de-apt-lxqt.sh", "LXQt"));
                         textView4.setText(getString(R.string.gui_step3, "./start-ubuntu.sh"));
                     }else if(desktop.equals("LXDE")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh", "LXDE"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh --no-check-certificate && bash de-apt-lxde.sh", "LXDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-ubuntu.sh"));
                     };
                 }else if(distro.equals("Debian")){
                     if(desktop.equals("Xfce4")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh", "Xfce"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh --no-check-certificate && bash de-apt-xfce4.sh", "Xfce"));
                         textView4.setText(getString(R.string.gui_step3, "./start-debian.sh"));
                     }else if(desktop.equals("Mate")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh && bash de-apt-mate.sh", "Mate"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh --no-check-certificate && bash de-apt-mate.sh", "Mate"));
                         textView4.setText(getString(R.string.gui_step3, "./start-debian.sh"));
                     }else if(desktop.equals("LXQt")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh", "LXQt"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh --no-check-certificate && bash de-apt-lxqt.sh", "LXQt"));
                         textView4.setText(getString(R.string.gui_step3, "./start-debian.sh"));
                     }else if(desktop.equals("LXDE")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh", "LXDE"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh --no-check-certificate && bash de-apt-lxde.sh", "LXDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-debian.sh"));
                     }
                 }else if(distro.equals("Kali")){
                     if(desktop.equals("Xfce4")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh", "Xfce"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh --no-check-certificate && bash de-apt-xfce4.sh", "Xfce"));
                         textView4.setText(getString(R.string.gui_step3, "./start-kali.sh"));
                     }else if(desktop.equals("Mate")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh && bash de-apt-mate.sh", "Mate"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh --no-check-certificate && bash de-apt-mate.sh", "Mate"));
                         textView4.setText(getString(R.string.gui_step3, "./start-kali.sh"));
                     }else if(desktop.equals("LXQt")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh", "LXQt"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh --no-check-certificate && bash de-apt-lxqt.sh", "LXQt"));
                         textView4.setText(getString(R.string.gui_step3, "./start-kali.sh"));
                     }else if(desktop.equals("LXDE")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh", "LXDE"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh --no-check-certificate && bash de-apt-lxde.sh", "LXDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-kali.sh"));
                     }
                 }else if(distro.equals("Parrot")){
                     if(desktop.equals("Xfce4")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh && bash de-apt-xfce4.sh", "Xfce"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/de-apt-xfce4.sh --no-check-certificate && bash de-apt-xfce4.sh", "Xfce"));
                         textView4.setText(getString(R.string.gui_step3, "./start-parrot.sh"));
                     }else if(desktop.equals("Mate")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh && bash de-apt-mate.sh", "Mate"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/de-apt-mate.sh --no-check-certificate && bash de-apt-mate.sh", "Mate"));
                         textView4.setText(getString(R.string.gui_step3, "./start-parrot.sh"));
                     }else if(desktop.equals("LXQt")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh && bash de-apt-lxqt.sh", "LXQt"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/de-apt-lxqt.sh --no-check-certificate && bash de-apt-lxqt.sh", "LXQt"));
                         textView4.setText(getString(R.string.gui_step3, "./start-parrot.sh"));
                     }else if(desktop.equals("LXDE")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh && bash de-apt-lxde.sh", "LXDE"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXDE/de-apt-lxde.sh --no-check-certificate && bash de-apt-lxde.sh", "LXDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-parrot.sh"));
                     }
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
                         if(desktop.equals("Xfce4")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Xfce4/de-yum-xfce4.sh && bash de-yum-xfce4.sh", "Xfce"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Xfce4/de-yum-xfce4.sh --no-check-certificate && bash de-yum-xfce4.sh", "Xfce"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }else if(desktop.equals("Mate")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Mate/de-yum-mate.sh && bash de-yum-mate.sh", "Mate"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/Mate/de-yum-mate.sh --no-check-certificate && bash de-yum-mate.sh", "Mate"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }else if(desktop.equals("LXQt")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXQt/de-yum-lxqt.sh && bash de-yum-lxqt.sh", "LXQt"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXQt/de-yum-lxqt.sh --no-check-certificate && bash de-yum-lxqt.sh", "LXQt"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }else if(desktop.equals("LXDE")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXDE/de-yum-lxde.sh && bash de-yum-lxde.sh", "LXDE"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/arm/LXDE/de-yum-lxde.sh --no-check-certificate && bash de-yum-lxde.sh", "LXDE"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }
                     }else{
                         if(desktop.equals("Xfce4")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Xfce4/de-yum-xfce4.sh && bash de-yum-xfce4.sh", "Xfce"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Xfce4/de-yum-xfce4.sh --no-check-certificate && bash de-yum-xfce4.sh", "Xfce"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }else if(desktop.equals("Mate")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Mate/de-yum-mate.sh && bash de-yum-mate.sh", "Mate"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/Mate/de-yum-mate.sh --no-check-certificate && bash de-yum-mate.sh", "Mate"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }else if(desktop.equals("LXQt")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXQt/de-yum-lxqt.sh && bash de-yum-lxqt.sh", "LXQt"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXQt/de-yum-lxqt.sh --no-check-certificate && bash de-yum-lxqt.sh", "LXQt"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }else if(desktop.equals("LXDE")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXDE/de-yum-lxde.sh && bash de-yum-lxde.sh", "LXDE"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Yum/Fedora/LXDE/de-yum-lxde.sh --no-check-certificate && bash de-yum-lxde.sh", "LXDE"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }
                     }
                 }else if(distro.equals("Arch")){
                     if(s.contains("arm")){
-                        textView3.setText(getString(R.string.gui_step2, "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh", "LXDE"));
+                        textView3.setText(getString(R.string.gui_step2, "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh --no-check-certificate && bash de-pac.sh", "LXDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-arch.sh"));
                     }else{
-                        textView3.setText(getString(R.string.gui_step2, "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh && bash de-pac.sh", "LXDE"));
+                        textView3.setText(getString(R.string.gui_step2, "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/de-pac.sh --no-check-certificate && bash de-pac.sh", "LXDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-arch.sh"));
                     }
                 }

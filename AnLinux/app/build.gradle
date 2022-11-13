@@ -6,8 +6,8 @@ android {
         applicationId "exa.lnx.a"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 645
-        versionName "6.45 Stable"
+        versionCode 650
+        versionName "6.50 Stable"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -21,13 +21,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.work:work-runtime:2.8.0-alpha02'
-    implementation 'androidx.annotation:annotation:1.4.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.work:work-runtime:2.8.0-beta02'
+    implementation 'androidx.annotation:annotation:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'com.google.android.gms:play-services-ads:21.0.0'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'com.google.android.gms:play-services-ads:21.3.0'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test:runner:1.4.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:runner:1.5.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 }

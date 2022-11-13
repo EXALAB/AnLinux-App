@@ -8,6 +8,17 @@
             <PersistentState>
               <option name="children">
                 <map>
+                  <entry key="confirmationStep">
+                    <value>
+                      <PersistentState>
+                        <option name="values">
+                          <map>
+                            <entry key="resourceDirectory" value="main" />
+                          </map>
+                        </option>
+                      </PersistentState>
+                    </value>
+                  </entry>
                   <entry key="imageAssetPanel">
                     <value>
                       <PersistentState>
@@ -24,7 +35,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\TERMINATOR\AppData\Local\Temp\baseline_dashboard_24.xml" />
+                                                <entry key="imagePath" value="/tmp/baseline_menu_book_24.xml" />
                                                 <entry key="opacityPercent" value="60" />
                                               </map>
                                             </option>
@@ -36,7 +47,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/dashboard/baseline_dashboard_24.xml" />
+                                                <entry key="url" value="file:$PROJECT_DIR$/../../../SDK/Android/icons/material/materialicons/menu_book/baseline_menu_book_24.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -68,7 +79,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="ic_dashboard" />
+                                      <entry key="outputName" value="ic_wiki" />
                                       <entry key="themeColor" value="ffffff" />
                                     </map>
                                   </option>
@@ -85,7 +96,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="C:\Users\TERMINATOR\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="/tmp/ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -140,7 +151,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\TERMINATOR\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="/tmp/ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -184,7 +195,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\TERMINATOR\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="/tmp/ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -248,7 +259,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="C:\Users\TERMINATOR\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="/tmp/ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>

@@ -71,6 +71,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
     int i = 0;
     boolean shouldShowAds = false;
     boolean isOreoNotified;
+    boolean isFirstBugNotified;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +119,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         toggle.syncState();
 
         isOreoNotified = sharedPreferences.getBoolean("IsOreoNotified", false);
+        isFirstBugNotified = sharedPreferences.getBoolean("IsFirstBugNotified", false);
 
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -219,6 +221,11 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+            }else if(fragment instanceof Wiki){
+                fragment = new DashBoard();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         }
         return false;
@@ -261,7 +268,11 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 notifyUserForSupportAfterDonation();
             }
         }else if(id == R.id.report){
-            notifyUserToReportError();
+            if(isFirstBugNotified){
+                notifyUserToReportError();
+            }else{
+                showFirstReportBugDialog();
+            }
         }else if(id == R.id.gui){
             MenuItem selected = navigationView.getMenu().findItem(R.id.gui);
             selected.setCheckable(true);
@@ -410,7 +421,42 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
             MenuItem selected = navigationView.getMenu().findItem(R.id.rootfs_download);
             selected.setCheckable(true);
             selected.setChecked(true);
-            newFragment(8);
+            if(!(fragment instanceof Patches)){
+                if (i == 0) {
+                    if(mInterstitialAd != null && shouldShowAds){
+                        mInterstitialAd.show(MainUI.this);
+                    }
+                    i = 1;
+                }else if(i == 1){
+                    i = 2;
+                }else if(i == 2){
+                    if(mInterstitialAd != null && shouldShowAds){
+                        mInterstitialAd.show(MainUI.this);
+                    }
+                    i = 0;
+                }
+                newFragment(8);
+            }
+        }else if(id == R.id.wiki){
+            MenuItem selected = navigationView.getMenu().findItem(R.id.wiki);
+            selected.setCheckable(true);
+            selected.setChecked(true);
+            if(!(fragment instanceof Patches)){
+                if (i == 0) {
+                    if(mInterstitialAd != null && shouldShowAds){
+                        mInterstitialAd.show(MainUI.this);
+                    }
+                    i = 1;
+                }else if(i == 1){
+                    i = 2;
+                }else if(i == 2){
+                    if(mInterstitialAd != null && shouldShowAds){
+                        mInterstitialAd.show(MainUI.this);
+                    }
+                    i = 0;
+                }
+                newFragment(10);
+            }
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -489,6 +535,13 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
             case 9:
                 fragment = new HeavyDE();
+                fragmentTransaction.replace(R.id.fragmentHolder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+            case 10:
+                fragment = new Wiki();
                 fragmentTransaction.replace(R.id.fragmentHolder, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
@@ -746,6 +799,48 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                     dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
                 }else{
                     dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                }
+            }
+        });
+    }
+    protected void showFirstReportBugDialog(){
+
+        final ViewGroup nullParent = null;
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View view = layoutInflater.inflate(R.layout.first_reportbug, nullParent);
+        CheckBox checkBox = view.findViewById(R.id.checkBox);
+        builder.setView(view);
+        builder.setCancelable(false);
+        builder.setNegativeButton(R.string.close, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which){
+                dialog.dismiss();
+            }
+        });
+        builder.setPositiveButton(R.string.i_agree, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which){
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("IsFirstBugNotified", true);
+                editor.apply();
+                isOreoNotified = sharedPreferences.getBoolean("IsFirstBugNotified", false);
+                dialog.dismiss();
+            }
+        });
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                    dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(false);
+                }else{
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                    dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setEnabled(true);
                 }
             }
         });

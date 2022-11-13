@@ -44,6 +44,10 @@
                 android:id="@+id/rootfs_download"
                 android:icon="@drawable/ic_rootfsdownload"
                 android:title="@string/rootfs_download" />
+            <item
+                android:id="@+id/wiki"
+                android:icon="@drawable/ic_wiki"
+                android:title="@string/wiki" />
         </menu>
     </item>
 

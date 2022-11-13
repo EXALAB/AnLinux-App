@@ -14,7 +14,7 @@ public class RootfsDownload extends Fragment {
     Button button;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        getActivity().setTitle(R.string.about);
+        getActivity().setTitle(R.string.rootfs_download);
         View view = inflater.inflate(R.layout.rootfs_download, container, false);
 
         button = view.findViewById(R.id.button);

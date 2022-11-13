@@ -82,27 +82,27 @@ public class WindowManager extends Fragment {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
                 if(distro.equals("Ubuntu") | distro.equals("Debian") | distro.equals("Kali") | distro.equals("Parrot") | distro.equals("BackBox")){
                     if(wm.equals("Awesome")){
-                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/Awesome/de-apt-awesome.sh && bash de-apt-awesome.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/Awesome/de-apt-awesome.sh --no-check-certificate && bash de-apt-awesome.sh");
                         clipboard.setPrimaryClip(clip);
                     }else if(wm.equals("IceWM")){
-                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/IceWM/de-apt-icewm.sh && bash de-apt-icewm.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/IceWM/de-apt-icewm.sh --no-check-certificate && bash de-apt-icewm.sh");
                         clipboard.setPrimaryClip(clip);
                     }
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
                         if(wm.equals("Awesome")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/arm/Awesome/de-yum-awesome.sh && bash de-yum-awesome.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/arm/Awesome/de-yum-awesome.sh --no-check-certificate && bash de-yum-awesome.sh");
                             clipboard.setPrimaryClip(clip);
                         }else if(wm.equals("IceWM")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/arm/IceWM/de-yum-icewm.sh && bash de-yum-icewm.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/arm/IceWM/de-yum-icewm.sh --no-check-certificate && bash de-yum-icewm.sh");
                             clipboard.setPrimaryClip(clip);
                         }
                     }else{
                         if(wm.equals("Awesome")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/Awesome/de-yum-awesome.sh && bash de-yum-awesome.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/Awesome/de-yum-awesome.sh --no-check-certificate && bash de-yum-awesome.sh");
                             clipboard.setPrimaryClip(clip);
                         }else if(wm.equals("IceWM")){
-                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/IceWM/de-yum-icewm.sh && bash de-yum-icewm.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/IceWM/de-yum-icewm.sh --no-check-certificate && bash de-yum-icewm.sh");
                             clipboard.setPrimaryClip(clip);
                         }
                     }
@@ -344,51 +344,51 @@ public class WindowManager extends Fragment {
                 }
                 if(distro.equals("Ubuntu")){
                     if(wm.equals("Awesome")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/Awesome/de-apt-awesome.sh && bash de-apt-awesome.sh", "Awesome"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/Awesome/de-apt-awesome.sh --no-check-certificate && bash de-apt-awesome.sh", "Awesome"));
                         textView4.setText(getString(R.string.gui_step3, "./start-ubuntu.sh"));
                     }else if(wm.equals("IceWM")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/IceWM/de-apt-icewm.sh && bash de-apt-icewm.sh", "IceWM"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/IceWM/de-apt-icewm.sh --no-check-certificate && bash de-apt-icewm.sh", "IceWM"));
                         textView4.setText(getString(R.string.gui_step3, "./start-ubuntu.sh"));
                     }
                 }else if(distro.equals("Debian")){
                     if(wm.equals("Awesome")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/Awesome/de-apt-awesome.sh && bash de-apt-awesome.sh", "Awesome"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/Awesome/de-apt-awesome.sh --no-check-certificate && bash de-apt-awesome.sh", "Awesome"));
                         textView4.setText(getString(R.string.gui_step3, "./start-debian.sh"));
                     }else if(wm.equals("IceWM")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/IceWM/de-apt-icewm.sh && bash de-apt-icewm.sh", "IceWM"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/IceWM/de-apt-icewm.sh --no-check-certificate && bash de-apt-icewm.sh", "IceWM"));
                         textView4.setText(getString(R.string.gui_step3, "./start-debian.sh"));
                     }
                 }else if(distro.equals("Kali")){
                     if(wm.equals("Awesome")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/Awesome/de-apt-awesome.sh && bash de-apt-awesome.sh", "Awesome"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/Awesome/de-apt-awesome.sh --no-check-certificate && bash de-apt-awesome.sh", "Awesome"));
                         textView4.setText(getString(R.string.gui_step3, "./start-kali.sh"));
                     }else if(wm.equals("IceWM")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/IceWM/de-apt-icewm.sh && bash de-apt-icewm.sh", "IceWM"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/IceWM/de-apt-icewm.sh --no-check-certificate && bash de-apt-icewm.sh", "IceWM"));
                         textView4.setText(getString(R.string.gui_step3, "./start-kali.sh"));
                     }
                 }else if(distro.equals("Parrot")){
                     if(wm.equals("Awesome")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/Awesome/de-apt-awesome.sh && bash de-apt-awesome.sh", "Awesome"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/Awesome/de-apt-awesome.sh --no-check-certificate && bash de-apt-awesome.sh", "Awesome"));
                         textView4.setText(getString(R.string.gui_step3, "./start-parrot.sh"));
                     }else if(wm.equals("IceWM")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/IceWM/de-apt-icewm.sh && bash de-apt-icewm.sh", "IceWM"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Apt/IceWM/de-apt-icewm.sh --no-check-certificate && bash de-apt-icewm.sh", "IceWM"));
                         textView4.setText(getString(R.string.gui_step3, "./start-parrot.sh"));
                     }
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
                         if(wm.equals("Awesome")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/arm/Awesome/de-yum-awesome.sh && bash de-yum-awesome.sh", "Awesome"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/arm/Awesome/de-yum-awesome.sh --no-check-certificate && bash de-yum-awesome.sh", "Awesome"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }else if(wm.equals("Parrot")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/arm/IceWM/de-yum-icewm.sh && bash de-yum-icewm.sh", "IceWM"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/arm/IceWM/de-yum-icewm.sh --no-check-certificate && bash de-yum-icewm.sh", "IceWM"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }
                     }else{
                         if(wm.equals("Awesome")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/Awesome/de-yum-awesome.sh && bash de-yum-awesome.sh", "Awesome"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/Awesome/de-yum-awesome.sh --no-check-certificate && bash de-yum-awesome.sh", "Awesome"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }else if(wm.equals("Parrot")){
-                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/IceWM/de-yum-icewm.sh && bash de-yum-icewm.sh", "IceWM"));
+                            textView3.setText(getString(R.string.gui_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/WindowManager/Yum/IceWM/de-yum-icewm.sh --no-check-certificate && bash de-yum-icewm.sh", "IceWM"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }
                     }

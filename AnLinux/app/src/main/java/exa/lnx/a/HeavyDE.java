@@ -82,18 +82,18 @@ public class HeavyDE extends Fragment {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
                 if(desktop.equals("KDE")){
                     if(distro.equals("Ubuntu") | distro.equals("BackBox")){
-                        ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/de-ubuntu-kde.sh && bash de-ubuntu-kde.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/de-ubuntu-kde.sh --no-check-certificate && bash de-ubuntu-kde.sh");
                         clipboard.setPrimaryClip(clip);
                     }else if(distro.equals("Fedora")){
                         if(s.contains("arm") && !s.equals("arm64-v8a")){
-                            ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/de-yum-kde.sh && bash de-yum-kde.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/de-yum-kde.sh --no-check-certificate && bash de-yum-kde.sh");
                             clipboard.setPrimaryClip(clip);
                         }else{
-                            ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/de-yum-kde.sh && bash de-yum-kde.sh");
+                            ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/de-yum-kde.sh --no-check-certificate && bash de-yum-kde.sh");
                             clipboard.setPrimaryClip(clip);
                         }
                     } else{
-                        ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh && bash de-apt-kde.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh --no-check-certificate && bash de-apt-kde.sh");
                         clipboard.setPrimaryClip(clip);
                     }
                 }
@@ -288,26 +288,26 @@ public class HeavyDE extends Fragment {
                 }
                 if(desktop.equals("KDE")){
                     if(distro.equals("Ubuntu")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/de-ubuntu-kde.sh && bash de-ubuntu-kde.sh", "KDE"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/de-ubuntu-kde.sh --no-check-certificate && bash de-ubuntu-kde.sh", "KDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-ubuntu.sh"));
                     }else if(distro.equals("Debian")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh && bash de-apt-kde.sh", "KDE"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh --no-check-certificate && bash de-apt-kde.sh", "KDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-debian.sh"));
                     }else if(distro.equals("Kali")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh && bash de-apt-kde.sh", "KDE"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh --no-check-certificate && bash de-apt-kde.sh", "KDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-kali.sh"));
                     }else if(distro.equals("Parrot")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh && bash de-apt-kde.sh", "KDE"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh --no-check-certificate && bash de-apt-kde.sh", "KDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-parrot.sh"));
                     }else if(distro.equals("BackBox")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/de-ubuntu-kde.sh && bash de-ubuntu-kde.sh", "KDE"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/de-ubuntu-kde.sh --no-check-certificate && bash de-ubuntu-kde.sh", "KDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-backbox.sh"));
                     }else if(distro.equals("Fedora")){
                         if(s.contains("arm") && !s.equals("arm64-v8a")){
-                            textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/de-yum-kde.sh && bash de-yum-kde.sh", "KDE"));
+                            textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/de-yum-kde.sh --no-check-certificate && bash de-yum-kde.sh", "KDE"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }else{
-                            textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/de-yum-kde.sh && bash de-yum-kde.sh", "KDE"));
+                            textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/de-yum-kde.sh --no-check-certificate && bash de-yum-kde.sh", "KDE"));
                             textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
                         }
                     }

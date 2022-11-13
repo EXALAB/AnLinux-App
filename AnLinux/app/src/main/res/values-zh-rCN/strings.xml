@@ -40,7 +40,7 @@
     <string name="Launch">启动</string>
     <string name="ubuntu_beginner">Ubuntu (Recommended for Beginner)</string>
     <string name="xfce4_recommended">Xfce4 (Recommended)</string>
-    <string name="first_warning_content">首先，非常感谢您下载AnLinux，以下是重要的内容，请仔细阅读。\n\n1. 为了让安装更为方便和简易，除了Arch Linux 和 Kali Nethunter 都是非常简易的rootfs(基础系统)，这表示系统中有许多功能还未被安装/測試，您可以根据需求安装他们，但其不稳定性需要由使用者承担。\n\n2. 所有安装的系统都在此目录： /data/data/com.termux/files/home ，请在安装功能之前确认您的设备有足够的空间，同时不要抱怨应用占用了你的空间，因为一切都是由您在控制。\n\n3. 有些系统会因为您的设备架构关系而无使用。\n\n4. 当前，所有除了mips以外的设备都能运行此应用，如果您遇到类似Proot signal 6, or function not implemented的问题，请至应用内的补丁功能使用SECCOMP补丁。\n\n5. 千万不要同时安装两个不同的桌面或同时间安装桌面和窗口管理器，如果您要安装其他的桌面，请先重新安装Linux系统。要完成此操作，请先使用 “删除系统” 功能， 并从仪表板进行安装。\n\n\n感谢您的阅读，祝您有个快乐的一天 ：)</string>
+    <string name="first_warning_content">首先，非常感谢您下载AnLinux，以下是重要的内容，请仔细阅读。\n\n1. 为了让安装更为方便和简易，除了Arch Linux 和 Kali Nethunter 都是非常简易的rootfs(基础系统)，这表示系统中有许多功能还未被安装/測試，您可以根据需求安装他们，但其不稳定性需要由使用者承担。\n\n2. 所有安装的系统都在此目录： /data/data/com.termux/files/home ，请在安装功能之前确认您的设备有足够的空间，同时不要抱怨应用占用了你的空间，因为一切都是由您在控制。\n\n3. 有些系统会因为您的设备架构关系而无使用。\n\n4. 当前，所有除了mips以外的设备都能运行此应用，如果您遇到类似Proot signal 6, or function not implemented的问题，请至应用内的补丁功能使用SECCOMP补丁。\n\n5. 千万不要同时安装两个不同的桌面或同时间安装桌面和窗口管理器，如果您要安装其他的桌面，请先重新安装Linux系统。要完成此操作，请先使用 “删除系统” 功能， 并从仪表板进行安装。\n\n6. 请不要回报关于 vncserver-start: command not found 的问题， 这不是bug，这个问题的出现主要是因为您没有完全根据指示操作，或是网络问题导致安装包无法下载。\n\n\n感谢您的阅读，祝您有个快乐的一天 ：)</string>
     <string name="i_understand">我了解</string>
     <string name="step2_cd">第二步：请先完成上一个选项</string>
     <string name="step3_cd">第三步：请先完成上一个选项</string>
@@ -89,8 +89,8 @@
     <string name="seccomp_step1">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n注意：仅在您遇到类似Proot signal 6, or function not implemented才使用此补丁。</string>
     <string name="seccomp_step2">第二步：请复制此指令：echo "export PROOT_NO_SECCOMP=1" >> .bashrc &amp;&amp; hash -r</string>
     <string name="seccomp_step3">第三步：启动Termux，贴上并输入指令以安装补丁。警告：您必须直接在Termux中执行此指令，而不是在Linux系统中，否则此指令将失效！</string>
-    <string name="rootfs_download">下载Rootfs(离线用途)</string>
-    <string name="rootfs_download_content">此功能是为了下载rootfs(或被称为基础系统)作为离线用途，如果您想要普通的安装Linux系统，请使用"仪表板"，而不是此功能。\n\n有些用户可能想下载rootfs作为研究或学习用途，因此我们提供下载连结好让用户更轻易的找到它。\n\n点击以下按钮将直接跳转到Github\n(rootfs存放的地方)\n\nhttps://github.com/EXALAB/AnLinux-Resources/tree/master/Rootfs\n\n并不给予进一步的协助。</string>
+    <string name="rootfs_download">下载Rootfs</string>
+    <string name="rootfs_download_content">此功能是为了下载rootfs(或被称为基础系统)作为离线用途，如果您想要普通的安装Linux系统，请使用"仪表板"，而不是此功能。\n\n有些用户可能想下载rootfs作为研究或学习用途，因此我们提供下载连结好让用户更轻易的找到它。\n\n点击以下按钮将直接跳转到Github\n(rootfs存放的地方)\n\nhttps://github.com/EXALAB/AnLinux-Resources/tree/master/Rootfs\n\n并不给予进一步的询问。</string>
     <string name="view">查看</string>
     <string name="uninstall_step1">第一步：选择您要删除的Linux系统，系统一但被删除便无法复原</string>
     <string name="window_manager">窗口管理器</string>
@@ -109,4 +109,7 @@
     <string name="heavy_de_step3_choose_first">第三步：请先完成上一个选项</string>
     <string name="heavy_de_step4_choose_first">第四步：请先完成上一个选项</string>
     <string name="heavy_de_step0">如果您的设备屏幕较小，请往下滑以使用其他步骤。\n\n警告：请在Linux终端中执行此指令，而不是Termux终端，否则此指令将失效！</string>
+    <string name="first_reportbug_warning">感谢您想要回报Bug的意愿， 但在回报bug之前，请详细了解以下事项：\n\n1. Github issue和开发者支援仅限于bug处理，不是提供于解决Linux新手问题（像是如何修改sources.list等等），这些问题在网络上搜索就能得到解答。\n\n2. vncserver-start: command not found 不是BUG！！！，造成这个的原因主要是用户没有在Linux系统里面执行安装脚本，或是网络问题导致安装包和脚本无法下载。现在开始回报此bug将不会得到任何回应。\n\n点击我明白和我同意代表您同意以上规则。</string>
+    <string name="wiki">维基</string>
+    <string name="wiki_content">AnLinux维基提供对于遇到的普遍问题的解决方法，像是如何启动或停止系统，如何链接到VNC服务器，vncserver-start:command如何解决等等。\n\nAnLinux维基只有英文版本\n\n点击以下按钮将直接跳转到Github的AnLinux维基\n\nhttps://github.com/EXALAB/AnLinux-App/wiki\n\n并不给予进一步的询问。</string>
 </resources>

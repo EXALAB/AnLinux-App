@@ -71,37 +71,37 @@ public class SSH extends Fragment {
             public void onClick(View view) {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
                 if(distro.equals("Ubuntu")){
-                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh --no-check-certificate && bash ssh-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Debian")){
-                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh --no-check-certificate && bash ssh-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Kali")){
-                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh --no-check-certificate && bash ssh-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Parrot")){
-                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh --no-check-certificate && bash ssh-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("BackBox")){
-                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh --no-check-certificate && bash ssh-apt.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
-                        ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh --no-check-certificate && bash ssh-yum.sh");
                         clipboard.setPrimaryClip(clip);
                     }else{
-                        ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh --no-check-certificate && bash ssh-yum.sh");
                         clipboard.setPrimaryClip(clip);
                     }
                 }else if(distro.equals("CentOS")){
-                    ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh");
+                    ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh --no-check-certificate && bash ssh-yum.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Arch")){
                     if(s.contains("arm")){
-                        ClipData clip = ClipData.newPlainText("Command", "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh && bash ssh-pac.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh --no-check-certificate && bash ssh-pac.sh");
                         clipboard.setPrimaryClip(clip);
                     }else{
-                        ClipData clip = ClipData.newPlainText("Command", "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh && bash ssh-pac.sh");
+                        ClipData clip = ClipData.newPlainText("Command", "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh --no-check-certificate && bash ssh-pac.sh");
                         clipboard.setPrimaryClip(clip);
                     }
                 }
@@ -312,37 +312,37 @@ public class SSH extends Fragment {
                     }
                 }
                 if(distro.equals("Ubuntu")){
-                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh"));
+                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh --no-check-certificate && bash ssh-apt.sh"));
                     textView3.setText(getString(R.string.ssh_step3, "./start-ubuntu.sh"));
                 }else if(distro.equals("Debian")){
-                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh"));
+                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh --no-check-certificate && bash ssh-apt.sh"));
                     textView3.setText(getString(R.string.ssh_step3, "./start-debian.sh"));
                 }else if(distro.equals("Kali")){
-                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh"));
+                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh --no-check-certificate && bash ssh-apt.sh"));
                     textView3.setText(getString(R.string.ssh_step3, "./start-kali.sh"));
                 }else if(distro.equals("Parrot")){
-                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh"));
+                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh --no-check-certificate && bash ssh-apt.sh"));
                     textView3.setText(getString(R.string.ssh_step3, "./start-parrot.sh"));
                 }else if(distro.equals("BackBox")){
-                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh && bash ssh-apt.sh"));
+                    textView2.setText(getString(R.string.ssh_step2, "wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/ssh-apt.sh --no-check-certificate && bash ssh-apt.sh"));
                     textView3.setText(getString(R.string.ssh_step3, "./start-backbox.sh"));
                 }else if(distro.equals("Fedora")){
                     if(s.contains("arm") && !s.equals("arm64-v8a")){
-                        textView2.setText(getString(R.string.ssh_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/arm/ssh-yum.sh && bash ssh-yum.sh"));
+                        textView2.setText(getString(R.string.ssh_step2, "yum install wget --forcearch=armv7hl -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/arm/ssh-yum.sh --no-check-certificate && bash ssh-yum.sh"));
                         textView3.setText(getString(R.string.ssh_step3, "./start-fedora.sh"));
                     }else{
-                        textView2.setText(getString(R.string.ssh_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh"));
+                        textView2.setText(getString(R.string.ssh_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh --no-check-certificate && bash ssh-yum.sh"));
                         textView3.setText(getString(R.string.ssh_step3, "./start-fedora.sh"));
                     }
                 }else if(distro.equals("CentOS")){
-                    textView2.setText(getString(R.string.ssh_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh && bash ssh-yum.sh"));
+                    textView2.setText(getString(R.string.ssh_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh --no-check-certificate && bash ssh-yum.sh"));
                     textView3.setText(getString(R.string.ssh_step3, "./start-centos.sh"));
                 }else if(distro.equals("Arch")){
                     if(s.contains("arm")){
-                        textView2.setText(getString(R.string.ssh_step2, "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh && bash ssh-pac.sh"));
+                        textView2.setText(getString(R.string.ssh_step2, "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh --no-check-certificate && bash ssh-pac.sh"));
                         textView3.setText(getString(R.string.ssh_step3, "./start-arch.sh"));
                     }else{
-                        textView2.setText(getString(R.string.ssh_step2, "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh && bash ssh-pac.sh"));
+                        textView2.setText(getString(R.string.ssh_step2, "pacman -Sy --noconfirm wget && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/ssh-pac.sh --no-check-certificate && bash ssh-pac.sh"));
                         textView3.setText(getString(R.string.ssh_step3, "./start-arch.sh"));
                     }
                 }
