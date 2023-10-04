@@ -8,10 +8,12 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,8 +81,19 @@ public class HeavyDE extends Fragment {
             public void onClick(View view) {
                 ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
                 if(desktop.equals("KDE")){
-                    if(distro.equals("Ubuntu")){
-                        ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/de-ubuntu-kde.sh && bash de-ubuntu-kde.sh");
+                    if(distro.equals("Ubuntu") | distro.equals("BackBox")){
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/de-ubuntu-kde.sh --no-check-certificate && bash de-ubuntu-kde.sh");
+                        clipboard.setPrimaryClip(clip);
+                    }else if(distro.equals("Fedora")){
+                        if(s.contains("arm") && !s.equals("arm64-v8a")){
+                            ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/de-yum-kde.sh --no-check-certificate && bash de-yum-kde.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }else{
+                            ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/de-yum-kde.sh --no-check-certificate && bash de-yum-kde.sh");
+                            clipboard.setPrimaryClip(clip);
+                        }
+                    } else{
+                        ClipData clip = ClipData.newPlainText("Command", "wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh --no-check-certificate && bash de-apt-kde.sh");
                         clipboard.setPrimaryClip(clip);
                     }
                 }
@@ -92,7 +105,7 @@ public class HeavyDE extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = context.getPackageManager().getLaunchIntentForPackage("com.termux");
-                if(isPackageInstalled("com.termux", context.getPackageManager())){
+                if(isPackageInstalled("com.termux", context.getPackageManager()) && termuxVersionCode() >= 118){
                     startActivity(intent);
                 }else{
                     notifyUserForInstallTerminal();
@@ -150,6 +163,86 @@ public class HeavyDE extends Fragment {
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
         View view = layoutInflater.inflate(R.layout.heavyde_chooser2, nullParent);
         final CheckBox checkBox = view.findViewById(R.id.checkBox);
+        final CheckBox checkBox2 = view.findViewById(R.id.checkBox2);
+        final CheckBox checkBox3 = view.findViewById(R.id.checkBox3);
+        final CheckBox checkBox4 = view.findViewById(R.id.checkBox4);
+        final CheckBox checkBox5 = view.findViewById(R.id.checkBox5);
+        final CheckBox checkBox6 = view.findViewById(R.id.checkBox6);
+
+        if(distro.equals("Ubuntu")){
+            checkBox.setChecked(true);
+        }else if(distro.equals("Debian")){
+            checkBox2.setChecked(true);
+        }else if(distro.equals("Kali")){
+            checkBox3.setChecked(true);
+        }else if(distro.equals("Parrot")){
+            checkBox4.setChecked(true);
+        }else if(distro.equals("BackBox")){
+            checkBox5.setChecked(true);
+        }else if(distro.equals("Fedora")){
+            checkBox6.setChecked(true);
+        }
+
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+            }
+        });
+        checkBox2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+            }
+        });
+        checkBox3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+            }
+        });
+        checkBox4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox5.setChecked(false);
+                checkBox6.setChecked(false);
+            }
+        });
+        checkBox5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox6.setChecked(false);
+            }
+        });
+        checkBox6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkBox.setChecked(false);
+                checkBox2.setChecked(false);
+                checkBox3.setChecked(false);
+                checkBox4.setChecked(false);
+                checkBox5.setChecked(false);
+            }
+        });
 
         alertDialog.setView(view);
         alertDialog.setCancelable(false);
@@ -162,15 +255,61 @@ public class HeavyDE extends Fragment {
                         button3.setEnabled(true);
                         button4.setEnabled(true);
                     }
-                }else{
-                    if(distro.equals("Ubuntu")){
-                        distro = "nothing";
+                }else if(checkBox2.isChecked()){
+                    if(!distro.equals("Debian")){
+                        distro = "Debian";
+                        button3.setEnabled(true);
+                        button4.setEnabled(true);
+                    }
+                }else if(checkBox3.isChecked()){
+                    if(!distro.equals("Kali")){
+                        distro = "Kali";
+                        button3.setEnabled(true);
+                        button4.setEnabled(true);
+                    }
+                }else if(checkBox4.isChecked()){
+                    if(!distro.equals("Parrot")){
+                        distro = "Parrot";
+                        button3.setEnabled(true);
+                        button4.setEnabled(true);
+                    }
+                }else if(checkBox5.isChecked()){
+                    if(!distro.equals("BackBox")){
+                        distro = "BackBox";
+                        button3.setEnabled(true);
+                        button4.setEnabled(true);
+                    }
+                }else if(checkBox6.isChecked()){
+                    if(!distro.equals("Fedora")){
+                        distro = "Fedora";
+                        button3.setEnabled(true);
+                        button4.setEnabled(true);
                     }
                 }
                 if(desktop.equals("KDE")){
                     if(distro.equals("Ubuntu")){
-                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/de-ubuntu-kde.sh && bash de-ubuntu-kde.sh", "KDE"));
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/de-ubuntu-kde.sh --no-check-certificate && bash de-ubuntu-kde.sh", "KDE"));
                         textView4.setText(getString(R.string.gui_step3, "./start-ubuntu.sh"));
+                    }else if(distro.equals("Debian")){
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh --no-check-certificate && bash de-apt-kde.sh", "KDE"));
+                        textView4.setText(getString(R.string.gui_step3, "./start-debian.sh"));
+                    }else if(distro.equals("Kali")){
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh --no-check-certificate && bash de-apt-kde.sh", "KDE"));
+                        textView4.setText(getString(R.string.gui_step3, "./start-kali.sh"));
+                    }else if(distro.equals("Parrot")){
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/de-apt-kde.sh --no-check-certificate && bash de-apt-kde.sh", "KDE"));
+                        textView4.setText(getString(R.string.gui_step3, "./start-parrot.sh"));
+                    }else if(distro.equals("BackBox")){
+                        textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/de-ubuntu-kde.sh --no-check-certificate && bash de-ubuntu-kde.sh", "KDE"));
+                        textView4.setText(getString(R.string.gui_step3, "./start-backbox.sh"));
+                    }else if(distro.equals("Fedora")){
+                        if(s.contains("arm") && !s.equals("arm64-v8a")){
+                            textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/arm/de-yum-kde.sh --no-check-certificate && bash de-yum-kde.sh", "KDE"));
+                            textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
+                        }else{
+                            textView3.setText(getString(R.string.gui_step2, "apt-get update && apt-get install wget -y && wget https://github.com/EXALAB/Anlinux-Resources/raw/master/Scripts/DesktopEnvironment/Heavy/KDE/Yum/de-yum-kde.sh --no-check-certificate && bash de-yum-kde.sh", "KDE"));
+                            textView4.setText(getString(R.string.gui_step3, "./start-fedora.sh"));
+                        }
                     }
                 }
                 dialog.dismiss();
@@ -194,7 +333,7 @@ public class HeavyDE extends Fragment {
         alertDialog.setCancelable(false);
         alertDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                Uri uri = Uri.parse("market://details?id=com.termux");
+                Uri uri = Uri.parse("https://f-droid.org/en/packages/com.termux/");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 if(Build.VERSION.SDK_INT >= 21){
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
@@ -202,7 +341,7 @@ public class HeavyDE extends Fragment {
                 try{
                     startActivity(intent);
                 }catch(ActivityNotFoundException e){
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=com.termux")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://f-droid.org/en/packages/com.termux/")));
                 }
                 dialog.dismiss();
             }
@@ -213,7 +352,21 @@ public class HeavyDE extends Fragment {
             }
         });
         alertDialog.show();
-        textView.setText(R.string.termux_not_Installed);
+        if(termuxVersionCode() == 0){
+            textView.setText(R.string.termux_not_Installed);
+        }else if(termuxVersionCode() < 118){
+            textView.setText(R.string.termux_not_fdroid);
+        }
+    }
+    private int termuxVersionCode(){
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pInfo = pm.getPackageInfo("com.termux", 0);
+            return pInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e("error", "Package not found");
+            return 0;
+        }
     }
     private boolean isPackageInstalled(String packageName, PackageManager packageManager) {
         try {

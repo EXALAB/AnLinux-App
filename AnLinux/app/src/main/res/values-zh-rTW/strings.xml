@@ -40,14 +40,15 @@
     <string name="Launch">啟動</string>
     <string name="ubuntu_beginner">Ubuntu (推薦給初學者)</string>
     <string name="xfce4_recommended">Xfce4 (推薦)</string>
-    <string name="first_warning_content">首先，非常感謝您下載AnLinux，以下是重要的內容，請仔細閱讀。 \n\n1. 為了讓安裝更為方便和簡易，除了Arch Linux 和Kali Nethunter 都是非常簡易的rootfs(基礎系統)，這表示系統中有許多功能還未被安裝/測試，您可以根據需求安裝他們，但其不穩定性需要由使用者承擔。 \n\n2. 所有安裝的系統都在此目錄： /data/data/com.termux/files/home ，請在安裝功能之前確認您的設備有足夠的空間，同時不要抱怨應用佔用了你的空間，因為一切都是由您在控制。 \n\n3. 有些系統會因為您的設備架構關係而無使用。 \n\n4. 當前，所有除了mips以外的設備都能運行此應用，如果您遇到類似Proot signal 6, or function not implemented的問題，請至應用內的補丁功能使用SECCOMP補丁。 \n\n5. Parrot Security OS的維護者似乎已經決定不再支持arm設備了，所以在他們決定重新支持之前，接下來將不會再有arm設備的Parrot Security OS鏡像，請使用Kali或BlackArch等來進行代替。 \n\n6. 千萬不要同時安裝兩個不同的桌面或同時間安裝桌面和窗口管理器，如果您要安裝其他的桌面，請先重新安裝Linux系統。要完成此操作，請先使用 “刪除系統” 功能， 並從儀表板進行安裝。\n\n\n感謝您的閱讀，祝您有個快樂的一天 ：)</string>
+    <string name="first_warning_content">首先，非常感謝您下載AnLinux，以下是重要的內容，請仔細閱讀。 \n\n1. 為了讓安裝更為方便和簡易，除了Arch Linux 和Kali Nethunter 都是非常簡易的rootfs(基礎系統)，這表示系統中有許多功能還未被安裝/測試，您可以根據需求安裝他們，但其不穩定性需要由使用者承擔。 \n\n2. 所有安裝的系統都在此目錄： /data/data/com.termux/files/home ，請在安裝功能之前確認您的設備有足夠的空間，同時不要抱怨應用佔用了你的空間，因為一切都是由您在控制。 \n\n3. 有些系統會因為您的設備架構關係而無使用。 \n\n4. 當前，所有除了mips以外的設備都能運行此應用，如果您遇到類似Proot signal 6, or function not implemented的問題，請至應用內的補丁功能使用SECCOMP補丁。 \n\n5. 千萬不要同時安裝兩個不同的桌面或同時間安裝桌面和窗口管理器，如果您要安裝其他的桌面，請先重新安裝Linux系統。要完成此操作，請先使用 “刪除系統” 功能， 並從儀表板進行安裝。\n\n6. 請不要回報關於 vncserver-start: command not found 的問題， 這不是bug，這個問題的出現主要是因為您沒有完全根據指示操作，或是網絡問題導致安裝包無法下載。\n\n\n感謝您的閱讀，祝您有個快樂的一天 ：)</string>
     <string name="i_understand">我了解</string>
     <string name="step2_cd">第二步：請先完成上一個選項</string>
     <string name="step3_cd">第三步：請先完成上一個選項</string>
     <string name="not_Supported">不支持</string>
     <string name="not_available">不提供</string>
     <string name="same_arch_linux">Black Arch（和Arch Linux一樣）</string>
-    <string name="termux_not_Installed">Termux並未安裝，請問是否要現在安裝？ </string>
+    <string name="termux_not_Installed">看來您尚未安裝Termux，但AnLinux只能在v0.118.0以上的Termux運行。 \n\n重要消息：Play商店中的Termux已經被停止維護並且在未來將永久性停止更新，新的Termux安裝包將只會在F-Droid發布，請問您是否要立刻前往F-Droid下載？ （進入頁面後往下滑並點擊 Download APK)</string>
+    <string name="termux_not_fdroid">看來您尚未安裝最新版本的Termux，但AnLinux只能在v0.118.0以上的Termux運行。 \n\n重要消息：Play商店中的Termux已經被停止維護並且在未來將永久性停止更新，新的Termux安裝包將只會在F-Droid發布，請問您是否要立刻前往F-Droid下載？ （進入頁面後往下滑並點擊 Download APK)</string>
     <string name="uninstall_step2">第二步：請複制此指令：%1$s \n\n這將會把 %2$s 從Termux移除。</string>
     <string name="uninstall_step3">第三步：啟動Termux，貼上並輸入指令以解除安裝。注意：請在Termux終端中執行此指令，而不是Linux終端。</string>
     <string name="ashmem_step1">如果您的設備螢幕較小，請往下滑以使用其他步驟。\n\n警告：請確定在執行此操作前Linux系統已安裝wget，同時請在Linux終端中執行此指令，而不是Termux終端，否則此指令將失效！ \n\n關於 Ashmem: 安卓上的 系統V shared memory 模擬, 使用 ashmem。包掛了 shmget, shmat, shmdt 和 shmctl 的功能. 它並不使用 Binder service, 同時也不關聯任何 Java libraries. 它使用了 Linux 的 sendmsg/recvmsg API 來進行傳輸。\n\n作用: 當您在執行某些GUI程式時出現問題，安裝此補丁有可能可以解決問題。\n\n使用方法: env LD_PRELOAD="/usr/local/lib/libandroid-shmem.so" 指令"</string>
@@ -88,8 +89,8 @@
     <string name="seccomp_step1">如果您的設備螢幕較小，請往下滑以使用其他步驟。\n\n注意：僅在您遇到類似Proot signal 6, or function not implemented才使用此補丁。</string>
     <string name="seccomp_step2">第二步：請複制此指令：echo "export PROOT_NO_SECCOMP=1" >> .bashrc &amp;&amp; hash -r</string>
     <string name="seccomp_step3">第三步：啟動Termux，貼上並輸入指令以安裝補丁。警告：您必須直接在Termux中執行此指令，而不是在Linux系統中，否則此指令將失效！</string>
-    <string name="rootfs_download">下載Rootfs(離線用途)</string>
-    <string name="rootfs_download_content">此功能是為了下載rootfs(或被稱為基本系統)作為離線用途，如果您想要普通的安裝Linux系統，請使用"Linux系統安裝"，而不是此功能。\n\n有些用戶可能想下載rootfs作為研究或學習用途，因此我們提供下載連結好讓用戶更輕易的找到它。\n\n點擊以下按鈕將直接跳轉到Github\n(rootfs存放的地方)\n\nhttps://github.com/EXALAB/AnLinux-Resources/tree/master/Rootfs\n\n並不給予進一步的協助。</string>
+    <string name="rootfs_download">下載Rootfs</string>
+    <string name="rootfs_download_content">此功能是為了下載rootfs(或被稱為基本系統)作為離線用途，如果您想要普通的安裝Linux系統，請使用"Linux系統安裝"，而不是此功能。\n\n有些用戶可能想下載rootfs作為研究或學習用途，因此我們提供下載連結好讓用戶更輕易的找到它。\n\n點擊以下按鈕將直接跳轉到Github\n(rootfs存放的地方)\n\nhttps://github.com/EXALAB/AnLinux-Resources/tree/master/Rootfs\n\n並不給予進一步的詢問。</string>
     <string name="view">查看</string>
     <string name="uninstall_step1">第一步：選擇您要刪除的Linux發行版(系統)，發行版一但被刪除便無法復原</string>
     <string name="window_manager">窗口管理器</string>
@@ -102,9 +103,13 @@
     <string name="patches_step2_choose_first">第二步：請先選擇一個補丁</string>
     <string name="patches_step3_choose_first">第三步：請先選擇一個補丁</string>
     <string name="heavy_de">重量級桌面</string>
-    <string name="heavy_de_note">重量級桌面是一個讓您安裝在電腦上美觀並常用的桌面系統的功能。但是它們會消耗非常多的資源和內存。 \n\n所以在安裝前，請確認您有至少:\n\n7GB 空間\n4Gb 內存</string>
+    <string name="heavy_de_note">重量級桌面是一個讓您安裝在電腦上美觀並常用的桌面系統的功能。但是它們會消耗非常多的資源和內存。 \n\n所以在安裝前，請確認您有至少:\n\n5GB 空間\n4Gb 內存</string>
     <string name="heavy_de_step1">第一步：請先選擇一個桌面</string>
     <string name="heavy_de_step2_choose_first">第二步：請選擇一個Linux系統</string>
     <string name="heavy_de_step3_choose_first">第三步：請先完成上一個選項</string>
     <string name="heavy_de_step4_choose_first">第四步：請先完成上一個選項</string>
+    <string name="heavy_de_step0">如果您的設備螢幕較小，請往下滑以使用其他步驟。\n\n警告：請在啟動Linux系統後的終端機中執行此指令，而不是Termux的，否則此指令將無法執行！</string>
+    <string name="first_reportbug_warning">感謝您想要回報Bug的意願， 但在回報bug之前，請詳細了解以下事項：\n\n1. Github issue和開發者支援僅限於bug處理，不是提供於解決Linux新手問題（像是如何修改sources.list等等），這些問題在網絡上搜索就能得到解答。 \n\n2. vncserver-start: command not found 不是BUG！ ！ ！ ，造成這個的原因主要是用戶沒有在Linux系統裡面執行安裝腳本，或是網絡問題導致安裝包和腳本無法下載。現在開始回報此bug將不會得到任何回應。 \n\n點擊我明白和我同意代表您同意以上規則。</string>
+    <string name="wiki">維基</string>
+    <string name="wiki_content">AnLinux維基提供對於遇到的普遍問題的解決方法，像是如何啟動或停止系統，如何鏈接到VNC服務器，vncserver-start:command如何解決等等。 \n\nAnLinux維基只有英文版本\n\n點擊以下按鈕將直接跳轉到Github的AnLinux維基\n\nhttps://github.com/EXALAB/AnLinux-App/wiki\n\n並不給予進一步的詢問。 </string>
 </resources>
