@@ -98,8 +98,8 @@ public class DashBoard extends Fragment {
                 }else if(distro.equals("Fedora")){
                     ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh");
                     clipboard.setPrimaryClip(clip);
-                }else if(distro.equals("CentOS")){
-                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh");
+                }else if(distro.equals("CentOS Stream")){
+                    ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS_Stream/centos_stream.sh && bash centos_stream.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Leap")){
                     ClipData clip = ClipData.newPlainText("Command", "pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh");
@@ -182,7 +182,7 @@ public class DashBoard extends Fragment {
             checkBox6.setChecked(true);
         }else if(distro.equals("Fedora")){
             checkBox7.setChecked(true);
-        }else if(distro.equals("CentOS")){
+        }else if(distro.equals("CentOS Stream")){
             checkBox8.setChecked(true);
         }else if(distro.equals("Leap")){
             checkBox9.setChecked(true);
@@ -452,11 +452,20 @@ public class DashBoard extends Fragment {
         });
         if(s.equals("i386")){
             checkBox7.setEnabled(false);
+            checkBox8.setEnabled(false);
+            checkBox9.setEnabled(false);
             checkBox11.setEnabled(false);
             checkBox12.setEnabled(false);
             checkBox7.setText(R.string.not_Supported);
+            checkBox8.setText(R.string.not_Supported);
+            checkBox9.setText(R.string.not_Supported);
             checkBox11.setText(R.string.not_Supported);
             checkBox12.setText(R.string.not_Supported);
+        }else if(s.contains("arm") && !s.contains("64")){
+            checkBox7.setEnabled(false);
+            checkBox8.setEnabled(false);
+            checkBox7.setText(R.string.not_Supported);
+            checkBox8.setText(R.string.not_Supported);
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -506,8 +515,8 @@ public class DashBoard extends Fragment {
                         button3.setEnabled(true);
                     }
                 }else if(checkBox8.isChecked()){
-                    if(!distro.equals("CentOS")){
-                        distro = "CentOS";
+                    if(!distro.equals("CentOS Strean")){
+                        distro = "CentOS Stream";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
@@ -569,9 +578,9 @@ public class DashBoard extends Fragment {
                 }else if(distro.equals("Fedora")){
                     textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Fedora/fedora.sh && bash fedora.sh", "Fedora", "./start-fedora.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-fedora.sh"));
-                }else if(distro.equals("CentOS")){
-                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS/centos.sh && bash centos.sh", "CentOS", "./start-centos.sh"));
-                    textView3.setText(getString(R.string.dashboard_step3, "./start-centos.sh"));
+                }else if(distro.equals("CentOS Stream")){
+                    textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/CentOS_Stream/centos_stream.sh && bash centos_stream.sh", "CentOS Stream", "./start-centos_stream.sh"));
+                    textView3.setText(getString(R.string.dashboard_step3, "./start-centos_stream.sh"));
                 }else if(distro.equals("Leap")){
                     textView2.setText(getString(R.string.dashboard_step2, "pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/openSUSE/Leap/opensuse-leap.sh && bash opensuse-leap.sh", "openSUSE Leap", "./start-leap.sh"));
                     textView3.setText(getString(R.string.dashboard_step3, "./start-leap.sh"));

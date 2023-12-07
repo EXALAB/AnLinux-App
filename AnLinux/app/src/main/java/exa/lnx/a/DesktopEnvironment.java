@@ -265,6 +265,9 @@ public class DesktopEnvironment extends Fragment {
             checkBox6.setText(R.string.not_Supported);
             checkBox7.setEnabled(false);
             checkBox7.setText(R.string.not_Supported);
+        }else if(s.contains("arm") && !s.contains("64")){
+            checkBox6.setEnabled(false);
+            checkBox6.setText(R.string.not_Supported);
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {

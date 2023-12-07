@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox6"
-            android:text="CentOS"/>
+            android:text="CentOS Stream"/>
 
         <CheckBox
             android:id="@+id/checkBox8"

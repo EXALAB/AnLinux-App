@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
     defaultConfig {
         applicationId "exa.lnx.a"
         minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 650
-        versionName "6.50 Stable"
+        targetSdkVersion 34
+        versionCode 655
+        versionName "6.55 Stable"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -21,13 +21,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.work:work-runtime:2.8.0-beta02'
-    implementation 'androidx.annotation:annotation:1.5.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.work:work-runtime:2.9.0'
+    implementation 'androidx.annotation:annotation:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.android.material:material:1.7.0'
-    implementation 'com.google.android.gms:play-services-ads:21.3.0'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'com.google.android.gms:play-services-ads:22.5.0'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test:runner:1.5.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }

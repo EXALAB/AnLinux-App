@@ -93,7 +93,7 @@ public class SSH extends Fragment {
                         ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh --no-check-certificate && bash ssh-yum.sh");
                         clipboard.setPrimaryClip(clip);
                     }
-                }else if(distro.equals("CentOS")){
+                }else if(distro.equals("CentOS Stream")){
                     ClipData clip = ClipData.newPlainText("Command", "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh --no-check-certificate && bash ssh-yum.sh");
                     clipboard.setPrimaryClip(clip);
                 }else if(distro.equals("Arch")){
@@ -152,7 +152,7 @@ public class SSH extends Fragment {
             checkBox5.setChecked(true);
         }else if(distro.equals("Fedora")){
             checkBox6.setChecked(true);
-        }else if(distro.equals("CentOS")){
+        }else if(distro.equals("CentOS Stream")){
             checkBox7.setChecked(true);
         }else if(distro.equals("Arch")){
             checkBox8.setChecked(true);
@@ -257,8 +257,15 @@ public class SSH extends Fragment {
         if(s.equals("i386")){
             checkBox6.setEnabled(false);
             checkBox6.setText(R.string.not_Supported);
+            checkBox7.setEnabled(false);
+            checkBox7.setText(R.string.not_Supported);
             checkBox8.setEnabled(false);
             checkBox8.setText(R.string.not_Supported);
+        }else if(s.contains("arm") && !s.contains("64")){
+            checkBox6.setEnabled(false);
+            checkBox6.setText(R.string.not_Supported);
+            checkBox7.setEnabled(false);
+            checkBox7.setText(R.string.not_Supported);
         }
         alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -299,8 +306,8 @@ public class SSH extends Fragment {
                         button3.setEnabled(true);
                     }
                 }else if(checkBox7.isChecked()){
-                    if(!distro.equals("CentOS")){
-                        distro = "CentOS";
+                    if(!distro.equals("CentOS Stream")){
+                        distro = "CentOS Stream";
                         button2.setEnabled(true);
                         button3.setEnabled(true);
                     }
@@ -334,7 +341,7 @@ public class SSH extends Fragment {
                         textView2.setText(getString(R.string.ssh_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh --no-check-certificate && bash ssh-yum.sh"));
                         textView3.setText(getString(R.string.ssh_step3, "./start-fedora.sh"));
                     }
-                }else if(distro.equals("CentOS")){
+                }else if(distro.equals("CentOS Stream")){
                     textView2.setText(getString(R.string.ssh_step2, "yum install wget -y && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/ssh-yum.sh --no-check-certificate && bash ssh-yum.sh"));
                     textView3.setText(getString(R.string.ssh_step3, "./start-centos.sh"));
                 }else if(distro.equals("Arch")){
