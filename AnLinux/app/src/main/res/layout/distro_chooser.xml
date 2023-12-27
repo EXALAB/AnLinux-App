@@ -19,9 +19,12 @@
             android:id="@+id/checkBox2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:layout_below="@id/checkBox"
-            android:text="Debian"/>
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Debian" />
 
         <CheckBox
             android:id="@+id/checkBox3"
@@ -69,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_below="@id/checkBox7"
-            android:text="CentOS"/>
+            android:text="CentOS Stream"/>
 
         <CheckBox
             android:id="@+id/checkBox9"
