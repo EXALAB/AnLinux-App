@@ -19,6 +19,7 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -51,6 +52,11 @@ import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.ump.ConsentForm;
+import com.google.android.ump.ConsentInformation;
+import com.google.android.ump.ConsentRequestParameters;
+import com.google.android.ump.FormError;
+import com.google.android.ump.UserMessagingPlatform;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -58,6 +64,9 @@ import java.util.Date;
 public class MainUI extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Context context;
+    private ConsentInformation consentInformation;
+    private ConsentForm consentForm;
+    ConsentRequestParameters params;
     NavigationView navigationView;
     DrawerLayout drawer;
     private long lastPressedTime;
@@ -97,17 +106,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         AdSize adSize = getAdSize();
         mAdView.setAdSize(adSize);
 
-        if(!donationInstalled() && !isVideoAdsWatched()){
-            mAdView.loadAd(new AdRequest.Builder().build());
-            shouldShowAds = true;
-        }else{
-            mAdView.pause();
-            mAdView.destroy();
-            mAdView.setVisibility(View.GONE);
-            frameLayout.removeView(mAdView);
-            shouldShowAds = false;
-        }
-
         Toolbar toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
@@ -124,7 +122,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
         if(donationInstalled()){
             if(savedInstanceState == null) {
                 MenuItem selected = navigationView.getMenu().findItem(R.id.dashboard);
@@ -140,6 +137,48 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         if(!isOreoNotified){
             showFirstDialog();
         }
+
+        params = new ConsentRequestParameters
+                .Builder()
+                .setTagForUnderAgeOfConsent(false)
+                .build();
+
+        consentInformation = UserMessagingPlatform.getConsentInformation(this);
+
+        consentInformation.requestConsentInfoUpdate(
+                this,
+                params,
+                new ConsentInformation.OnConsentInfoUpdateSuccessListener() {
+                    @Override
+                    public void onConsentInfoUpdateSuccess() {
+                        if(consentInformation.getConsentStatus() == ConsentInformation.ConsentStatus.OBTAINED || consentInformation.getConsentStatus() == ConsentInformation.ConsentStatus.NOT_REQUIRED){
+                            if(!donationInstalled() && !isVideoAdsWatched()){
+                                MobileAds.initialize(MainUI.this, new OnInitializationCompleteListener() {
+                                    @Override
+                                    public void onInitializationComplete(InitializationStatus initializationStatus) {}
+                                });
+                                mAdView.loadAd(new AdRequest.Builder().build());
+                                shouldShowAds = true;
+                            }else{
+                                mAdView.pause();
+                                mAdView.destroy();
+                                mAdView.setVisibility(View.GONE);
+                                frameLayout.removeView(mAdView);
+                                shouldShowAds = false;
+                            }
+                        }else if(consentInformation.getConsentStatus() == ConsentInformation.ConsentStatus.REQUIRED){
+                            loadForm();
+                        }
+                        // The consent information state was updated.
+                        // You are now ready to check if a form is available.
+                    }
+                },
+                new ConsentInformation.OnConsentInfoUpdateFailureListener() {
+                    @Override
+                    public void onConsentInfoUpdateFailure(FormError formError) {
+                        // Handle the error.
+                    }
+                });
     }
     @Override
     public void onResume() {
@@ -910,6 +949,41 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
         // Step 3 - Get adaptive ad size and return for setting on the ad view.
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
+    }
+    public void loadForm() {
+        // Loads a consent form. Must be called on the main thread.
+        UserMessagingPlatform.loadConsentForm(
+                this,
+                new UserMessagingPlatform.OnConsentFormLoadSuccessListener() {
+                    @Override
+                    public void onConsentFormLoadSuccess(ConsentForm consentForm) {
+                        MainUI.this.consentForm = consentForm;
+                        if (consentInformation.getConsentStatus() == ConsentInformation.ConsentStatus.REQUIRED) {
+                            consentForm.show(
+                                    MainUI.this,
+                                    new ConsentForm.OnConsentFormDismissedListener() {
+                                        @Override
+                                        public void onConsentFormDismissed(@Nullable FormError formError) {
+                                            if (consentInformation.getConsentStatus() == ConsentInformation.ConsentStatus.OBTAINED) {
+                                                // App can start requesting ads.
+                                                Intent intent = getIntent();
+                                                finish();
+                                                startActivity(intent);
+                                            }
+                                            // Handle dismissal by reloading form.
+                                            loadForm();
+                                        }
+                                    });
+                        }
+                    }
+                },
+                new UserMessagingPlatform.OnConsentFormLoadFailureListener() {
+                    @Override
+                    public void onConsentFormLoadFailure(FormError formError) {
+                        // Handle Error.
+                    }
+                }
+        );
     }
     //Temporary Code, will be back later if any error in the future
     /*public void notifyUserForTemporary(){
