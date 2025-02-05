@@ -32,18 +32,6 @@ Supported Desktop Environments:
 5. [KDE](https://kde.org)
 
 
-
-### Window Manager
-
-We currently support 2 Desktop Environments, and only [Ubuntu](https://www.ubuntu.com/), [Debian](https://www.debian.org/), [Kali](https://www.kali.org/), [Parrot Security OS](https://www.parrotsec.org/), [Fedora](https://getfedora.org/) distros are supported.
-
-Supported Window Manager:
-
-1. [Awesome](https://awesomewm.org)
-2. [IceWM](https://ice-wm.org/)
-
-
-
 ## Future target and todo:
 
 1. KDE and GNOME DE support. (Might retest other blacklisted DE too)
@@ -73,7 +61,7 @@ If you have any tweak, suggestion, recommendation, please open an issue on Githu
 
 4. For any suggestion or issue, please open an issue on Github.
 
-5. The support of Windows Manager has been removed, because of /dev/tty0 could not be found error.
+5. The **support** of **Windows Manager** has been **removed**, because of /dev/tty0 could not be found error.
 
 
 
