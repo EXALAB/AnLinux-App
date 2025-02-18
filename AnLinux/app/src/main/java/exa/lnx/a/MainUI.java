@@ -288,9 +288,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd != null && shouldShowAds){
-                        mInterstitialAd.show(MainUI.this);
-                    }
                     i = 0;
                 }
                 newFragment(0);
