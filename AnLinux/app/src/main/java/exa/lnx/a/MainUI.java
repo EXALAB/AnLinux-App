@@ -322,9 +322,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd != null && shouldShowAds){
-                        mInterstitialAd.show(MainUI.this);
-                    }
                     i = 0;
                 }
                 newFragment(2);
@@ -342,9 +339,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd != null && shouldShowAds){
-                        mInterstitialAd.show(MainUI.this);
-                    }
                     i = 0;
                 }
                 newFragment(9);
@@ -364,9 +358,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd != null && shouldShowAds){
-                        mInterstitialAd.show(MainUI.this);
-                    }
                     i = 0;
                 }
                 newFragment(3);
@@ -384,9 +375,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd != null && shouldShowAds){
-                        mInterstitialAd.show(MainUI.this);
-                    }
                     i = 0;
                 }
                 newFragment(4);
@@ -404,9 +392,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd != null && shouldShowAds){
-                        mInterstitialAd.show(MainUI.this);
-                    }
                     i = 0;
                 }
                 newFragment(5);
@@ -424,9 +409,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd != null && shouldShowAds){
-                        mInterstitialAd.show(MainUI.this);
-                    }
                     i = 0;
                 }
                 newFragment(6);
@@ -446,9 +428,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd != null && shouldShowAds){
-                        mInterstitialAd.show(MainUI.this);
-                    }
                     i = 0;
                 }
                 newFragment(7);
@@ -466,9 +445,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd != null && shouldShowAds){
-                        mInterstitialAd.show(MainUI.this);
-                    }
                     i = 0;
                 }
                 newFragment(8);
@@ -486,9 +462,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 }else if(i == 1){
                     i = 2;
                 }else if(i == 2){
-                    if(mInterstitialAd != null && shouldShowAds){
-                        mInterstitialAd.show(MainUI.this);
-                    }
                     i = 0;
                 }
                 newFragment(10);
