@@ -44,6 +44,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.OnUserEarnedRewardListener;
+import com.google.android.gms.ads.appopen.AppOpenAd;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
@@ -72,6 +73,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
     private long lastPressedTime;
     private static final int PERIOD = 3000;
     private RewardedAd rewardedAd;
+    AppOpenAdManager appOpenAdManager;
     InterstitialAd mInterstitialAd;
     AdView mAdView;
     FrameLayout frameLayout;
@@ -79,6 +81,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
     SharedPreferences.Editor editor;
     int i = 0;
     boolean shouldShowAds = false;
+    boolean canShowOpenAds = false;
     boolean isOreoNotified;
     boolean isFirstBugNotified;
 
@@ -105,6 +108,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
         AdSize adSize = getAdSize();
         mAdView.setAdSize(adSize);
+        appOpenAdManager = new AppOpenAdManager();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
 
@@ -190,6 +194,21 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         if(rewardedAd == null){
             loadRewardedAd();
         }
+        if(shouldShowAds){
+            if(canShowOpenAds){
+                appOpenAdManager.showAdIfAvailable(MainUI.this, new AppOpenAdManager.OnShowAdCompleteListener() {
+                    @Override
+                    public void onShowAdComplete() {
+                        // Empty because the user will go back to the activity that shows the ad.
+                    }
+                });
+            }
+        }
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        canShowOpenAds = true;
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event){
@@ -285,10 +304,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         mInterstitialAd.show(MainUI.this);
                     }
                     i = 1;
-                }else if(i == 1){
-                    i = 2;
-                }else if(i == 2){
-                    i = 0;
                 }
                 newFragment(0);
             }
@@ -319,10 +334,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         mInterstitialAd.show(MainUI.this);
                     }
                     i = 1;
-                }else if(i == 1){
-                    i = 2;
-                }else if(i == 2){
-                    i = 0;
                 }
                 newFragment(2);
             }
@@ -336,10 +347,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         mInterstitialAd.show(MainUI.this);
                     }
                     i = 1;
-                }else if(i == 1){
-                    i = 2;
-                }else if(i == 2){
-                    i = 0;
                 }
                 newFragment(9);
             }
@@ -355,10 +362,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         mInterstitialAd.show(MainUI.this);
                     }
                     i = 1;
-                }else if(i == 1){
-                    i = 2;
-                }else if(i == 2){
-                    i = 0;
                 }
                 newFragment(3);
             }
@@ -372,10 +375,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         mInterstitialAd.show(MainUI.this);
                     }
                     i = 1;
-                }else if(i == 1){
-                    i = 2;
-                }else if(i == 2){
-                    i = 0;
                 }
                 newFragment(4);
             }
@@ -389,10 +388,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         mInterstitialAd.show(MainUI.this);
                     }
                     i = 1;
-                }else if(i == 1){
-                    i = 2;
-                }else if(i == 2){
-                    i = 0;
                 }
                 newFragment(5);
             }
@@ -406,10 +401,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         mInterstitialAd.show(MainUI.this);
                     }
                     i = 1;
-                }else if(i == 1){
-                    i = 2;
-                }else if(i == 2){
-                    i = 0;
                 }
                 newFragment(6);
             }
@@ -425,10 +416,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         mInterstitialAd.show(MainUI.this);
                     }
                     i = 1;
-                }else if(i == 1){
-                    i = 2;
-                }else if(i == 2){
-                    i = 0;
                 }
                 newFragment(7);
             }
@@ -442,10 +429,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         mInterstitialAd.show(MainUI.this);
                     }
                     i = 1;
-                }else if(i == 1){
-                    i = 2;
-                }else if(i == 2){
-                    i = 0;
                 }
                 newFragment(8);
             }
@@ -459,10 +442,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         mInterstitialAd.show(MainUI.this);
                     }
                     i = 1;
-                }else if(i == 1){
-                    i = 2;
-                }else if(i == 2){
-                    i = 0;
                 }
                 newFragment(10);
             }
@@ -955,6 +934,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 }
         );
     }
+
     //Temporary Code, will be back later if any error in the future
     /*public void notifyUserForTemporary(){
         final ViewGroup nullParent = null;
