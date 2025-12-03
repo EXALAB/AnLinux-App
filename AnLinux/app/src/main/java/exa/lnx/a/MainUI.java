@@ -302,8 +302,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (i == 0) {
                     if(mInterstitialAd != null && shouldShowAds){
                         mInterstitialAd.show(MainUI.this);
+                        i = 1;
                     }
-                    i = 1;
                 }
                 newFragment(0);
             }
@@ -332,8 +332,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (i == 0) {
                     if(mInterstitialAd != null && shouldShowAds){
                         mInterstitialAd.show(MainUI.this);
+                        i = 1;
                     }
-                    i = 1;
                 }
                 newFragment(2);
             }
@@ -345,8 +345,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (i == 0) {
                     if(mInterstitialAd != null && shouldShowAds){
                         mInterstitialAd.show(MainUI.this);
+                        i = 1;
                     }
-                    i = 1;
                 }
                 newFragment(9);
             }
@@ -360,8 +360,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (i == 0) {
                     if(mInterstitialAd != null && shouldShowAds){
                         mInterstitialAd.show(MainUI.this);
+                        i = 1;
                     }
-                    i = 1;
                 }
                 newFragment(3);
             }
@@ -373,8 +373,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (i == 0) {
                     if(mInterstitialAd != null && shouldShowAds){
                         mInterstitialAd.show(MainUI.this);
+                        i = 1;
                     }
-                    i = 1;
                 }
                 newFragment(4);
             }
@@ -386,8 +386,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (i == 0) {
                     if(mInterstitialAd != null && shouldShowAds){
                         mInterstitialAd.show(MainUI.this);
+                        i = 1;
                     }
-                    i = 1;
                 }
                 newFragment(5);
             }
@@ -399,8 +399,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (i == 0) {
                     if(mInterstitialAd != null && shouldShowAds){
                         mInterstitialAd.show(MainUI.this);
+                        i = 1;
                     }
-                    i = 1;
                 }
                 newFragment(6);
             }
@@ -414,8 +414,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (i == 0) {
                     if(mInterstitialAd != null && shouldShowAds){
                         mInterstitialAd.show(MainUI.this);
+                        i = 1;
                     }
-                    i = 1;
                 }
                 newFragment(7);
             }
@@ -427,8 +427,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (i == 0) {
                     if(mInterstitialAd != null && shouldShowAds){
                         mInterstitialAd.show(MainUI.this);
+                        i = 1;
                     }
-                    i = 1;
                 }
                 newFragment(8);
             }
@@ -440,8 +440,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 if (i == 0) {
                     if(mInterstitialAd != null && shouldShowAds){
                         mInterstitialAd.show(MainUI.this);
+                        i = 1;
                     }
-                    i = 1;
                 }
                 newFragment(10);
             }
