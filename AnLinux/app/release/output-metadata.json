@@ -11,8 +11,8 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 668,
-      "versionName": "6.68 Stable",
+      "versionCode": 669,
+      "versionName": "6.69 Stable",
       "outputFile": "app-release.apk"
     }
   ],
@@ -33,5 +33,5 @@
       ]
     }
   ],
-  "minSdkVersionForDexing": 21
+  "minSdkVersionForDexing": 23
 }
