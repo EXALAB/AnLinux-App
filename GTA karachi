@@ -1,0 +1,28 @@
+from kivy.app import App
+from kivy.uix.widget import Widget
+from kivy.uix.image import Image
+from kivy.core.window import Window
+from kivy.clock import Clock
+from kivy.uix.relativelayout import RelativeLayout
+
+# گیم کا مرکزی کلاس
+class HeroGame(RelativeLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.hero = Image(source="hero.png", size_hint=(None, None), size=(100, 100), pos=(200, 200))
+        self.add_widget(self.hero)
+        Clock.schedule_interval(self.update, 1/60)
+
+    def on_touch_move(self, touch):
+        self.hero.pos = (touch.x - self.hero.width / 2, touch.y - self.hero.height / 2)
+
+    def update(self, dt):
+        pass  # یہاں مزید فیچرز ایڈ کیے جا سکتے ہیں
+
+class GTAKarachiApp(App):
+    def build(self):
+        return HeroGame()
+
+# ایپلیکیشن چلائیں
+if __name__ == '__main__':
+    GTAKarachiApp().run()
