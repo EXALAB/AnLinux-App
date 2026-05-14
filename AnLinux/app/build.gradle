@@ -3,12 +3,16 @@ apply plugin: 'com.android.application'
 android {
     defaultConfig {
         applicationId "exa.lnx.a"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 36
         compileSdk 36
-        versionCode 670
-        versionName "6.70 Stable"
+        versionCode 671
+        versionName "6.71 Stable"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    configurations.configureEach {
+        exclude group: "com.google.android.gms", module: "play-services-ads"
+        exclude group: "com.google.android.gms", module: "play-services-ads-lite"
     }
     buildTypes {
         release {
@@ -21,13 +25,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.work:work-runtime:2.11.0'
-    implementation 'androidx.annotation:annotation:1.9.1'
+    implementation 'androidx.work:work-runtime:2.11.2'
+    implementation 'androidx.annotation:annotation:1.10.0'
     implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     implementation("com.google.android.ump:user-messaging-platform:4.0.0")
-    implementation 'com.google.android.material:material:1.13.0'
-    implementation 'com.google.android.gms:play-services-ads:24.9.0'
+    implementation 'com.google.android.material:material:1.14.0'
+    implementation("com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk:1.0.1")
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.7.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
