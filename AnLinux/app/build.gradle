@@ -4,10 +4,10 @@ android {
     defaultConfig {
         applicationId "exa.lnx.a"
         minSdkVersion 24
-        targetSdkVersion 36
-        compileSdk 36
-        versionCode 671
-        versionName "6.71 Stable"
+        targetSdkVersion 37
+        compileSdk 37
+        versionCode 672
+        versionName "6.72 Stable"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     configurations.configureEach {
@@ -26,6 +26,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.work:work-runtime:2.11.2'
+    implementation "androidx.core:core-splashscreen:1.2.0"
     implementation 'androidx.annotation:annotation:1.10.0'
     implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'

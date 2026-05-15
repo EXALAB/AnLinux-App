@@ -2,11 +2,11 @@ package exa.lnx.a;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.ads.AdError;
 import com.google.android.libraries.ads.mobile.sdk.appopen.AppOpenAd;
 import com.google.android.libraries.ads.mobile.sdk.appopen.AppOpenAdEventCallback;
 import com.google.android.libraries.ads.mobile.sdk.common.AdLoadCallback;
@@ -16,8 +16,6 @@ import com.google.android.libraries.ads.mobile.sdk.common.FullScreenContentError
 import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Date;
 
 public class AppOpenAdManager {
     private static final String LOG_TAG = "AppOpenAdManager";
@@ -39,7 +37,7 @@ public class AppOpenAdManager {
     /** Request an ad. */
     public void loadAd(Context context) {
         // Do not load ad if there is an unused ad or one is already loading.
-        if (isLoadingAd || isAdAvailable()) {
+        if (isLoadingAd || isAdAvailable(context)) {
             return;
         }
 
@@ -64,13 +62,17 @@ public class AppOpenAdManager {
                 });
     }
     /** Check if ad exists and can be shown. */
-    private boolean wasLoadTimeLessThanNHoursAgo(long numHours) {
-        long dateDifference = (new Date()).getTime() - this.loadTime;
-        long numMilliSecondsPerHour = 3600000;
-        return (dateDifference < (numMilliSecondsPerHour * numHours));
-    }
-    private boolean isAdAvailable() {
-        return appOpenAd != null && !wasLoadTimeLessThanNHoursAgo(4);
+    private boolean isAdAvailable(Context context) {
+        final long APP_OPEN_AD_INTERVAL = 4 * 60 * 60 *1000;
+        SharedPreferences sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        long lastShown = sharedPreferences.getLong("LastShownTime", 0);
+        long now = System.currentTimeMillis();
+        if(now - lastShown >= APP_OPEN_AD_INTERVAL && appOpenAd != null){
+            editor.putLong("LastShownTime", now).apply();
+            return true;
+        }
+        return false;
     }
     public void showAdIfAvailable(
             @NonNull final Activity activity,
@@ -82,7 +84,7 @@ public class AppOpenAdManager {
         }
 
         // If the app open ad is not available yet, invoke the callback then load the ad.
-        if (!isAdAvailable()) {
+        if (!isAdAvailable(activity)) {
             Log.d(LOG_TAG, "The app open ad is not ready yet.");
             onShowAdCompleteListener.onShowAdComplete();
             loadAd(activity);
