@@ -281,7 +281,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 
         if(event.getKeyCode() == KeyEvent.KEYCODE_BACK){
-            if(fragment instanceof DashBoard){
+            if(fragment instanceof DashBoard || fragment == null){
                 if(drawer.isDrawerOpen(GravityCompat.START)){
                     switch(event.getAction()){
                         case KeyEvent.ACTION_DOWN:
