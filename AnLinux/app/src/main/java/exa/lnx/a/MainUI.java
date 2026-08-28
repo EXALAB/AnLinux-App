@@ -80,13 +80,13 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     int i = 0;
-    boolean shouldShowAds = false;
+    boolean shouldShowAds;
     boolean lockOpenAds = false;
     boolean showOpenAdsNow = false;
-    boolean splashDone = false;
     boolean isOreoNotified;
     boolean isFirstBugNotified;
     boolean isDialogShowing = false;
+    boolean shouldRemoveVideoAds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +114,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
 
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
         editor = sharedPreferences.edit();
+        shouldRemoveVideoAds = false;
 
         shouldShowAds = sharedPreferences.getBoolean("ShouldShowAds", false);
         isOreoNotified = sharedPreferences.getBoolean("IsOreoNotified", false);
@@ -217,6 +218,30 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                                 mAdView.destroy();
                                 mAdView.setVisibility(View.GONE);
                                 frameLayout.removeView(mAdView);
+                                Fragment fragment = getFragmentManager().findFragmentById(R.id.fragmentHolder);
+                                if(fragment instanceof About){
+                                    ((About)fragment).removeAdView();
+                                }else if(fragment instanceof DashBoard){
+                                    ((DashBoard)fragment).removeAdView();
+                                }else if(fragment instanceof DesktopEnvironment){
+                                    ((DesktopEnvironment)fragment).removeAdView();
+                                }else if(fragment instanceof HeavyDE){
+                                    ((HeavyDE)fragment).removeAdView();
+                                }else if(fragment instanceof Patches){
+                                    ((Patches)fragment).removeAdView();
+                                }else if(fragment instanceof RootfsDownload){
+                                    ((RootfsDownload)fragment).removeAdView();
+                                }else if(fragment instanceof SSH){
+                                    ((SSH)fragment).removeAdView();
+                                }else if(fragment instanceof SU){
+                                    ((SU)fragment).removeAdView();
+                                }else if(fragment instanceof Uninstaller){
+                                    ((Uninstaller)fragment).removeAdView();
+                                }else if(fragment instanceof Wiki){
+                                    ((Wiki)fragment).removeAdView();
+                                }else if(fragment instanceof WindowManager){
+                                    ((WindowManager)fragment).removeAdView();
+                                }
                                 editor.putBoolean("ShouldShowAds", false).apply();
                                 shouldShowAds = sharedPreferences.getBoolean("ShouldShowAds", false);
                             }
@@ -233,7 +258,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                         // Handle the error.
                     }
                 });
-        if(isOreoNotified && !donationInstalled() && !isVideoAdsWatched()){
+        if(isOreoNotified && shouldShowAds && !donationInstalled() && !isVideoAdsWatched()){
             new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -291,6 +316,43 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
         }
         if(rewardedAd == null){
             loadRewardedAd();
+        }
+        if(shouldRemoveVideoAds){
+            if(donationInstalled()){
+                Toast.makeText(context, R.string.thanks_for_support, Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(context, R.string.ads_removed_temp, Toast.LENGTH_LONG).show();
+            }
+            shouldRemoveVideoAds = false;
+        }
+        if(donationInstalled() || isVideoAdsWatched()){
+            mAdView.destroy();
+            mAdView.setVisibility(View.GONE);
+            frameLayout.removeView(mAdView);
+            Fragment fragment = getFragmentManager().findFragmentById(R.id.fragmentHolder);
+            if(fragment instanceof About){
+                ((About)fragment).removeAdView();
+            }else if(fragment instanceof DashBoard){
+                ((DashBoard)fragment).removeAdView();
+            }else if(fragment instanceof DesktopEnvironment){
+                ((DesktopEnvironment)fragment).removeAdView();
+            }else if(fragment instanceof HeavyDE){
+                ((HeavyDE)fragment).removeAdView();
+            }else if(fragment instanceof Patches){
+                ((Patches)fragment).removeAdView();
+            }else if(fragment instanceof RootfsDownload){
+                ((RootfsDownload)fragment).removeAdView();
+            }else if(fragment instanceof SSH){
+                ((SSH)fragment).removeAdView();
+            }else if(fragment instanceof SU){
+                ((SU)fragment).removeAdView();
+            }else if(fragment instanceof Uninstaller){
+                ((Uninstaller)fragment).removeAdView();
+            }else if(fragment instanceof Wiki){
+                ((Wiki)fragment).removeAdView();
+            }else if(fragment instanceof WindowManager){
+                ((WindowManager)fragment).removeAdView();
+            }
         }
     }
     @Override
@@ -725,7 +787,6 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                                             editor.putInt("VideoAds", a);
                                             editor.apply();
                                         }
-                                        Toast.makeText(context, R.string.thanks_for_support, Toast.LENGTH_LONG).show();
                                     }else{
                                         Calendar cal = Calendar.getInstance();
                                         Date date = cal.getTime();
@@ -737,12 +798,36 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                                                 mAdView.destroy();
                                                 mAdView.setVisibility(View.GONE);
                                                 frameLayout.removeView(mAdView);
+                                                Fragment fragment = getFragmentManager().findFragmentById(R.id.fragmentHolder);
+                                                if(fragment instanceof About){
+                                                    ((About)fragment).removeAdView();
+                                                }else if(fragment instanceof DashBoard){
+                                                    ((DashBoard)fragment).removeAdView();
+                                                }else if(fragment instanceof DesktopEnvironment){
+                                                    ((DesktopEnvironment)fragment).removeAdView();
+                                                }else if(fragment instanceof HeavyDE){
+                                                    ((HeavyDE)fragment).removeAdView();
+                                                }else if(fragment instanceof Patches){
+                                                    ((Patches)fragment).removeAdView();
+                                                }else if(fragment instanceof RootfsDownload){
+                                                    ((RootfsDownload)fragment).removeAdView();
+                                                }else if(fragment instanceof SSH){
+                                                    ((SSH)fragment).removeAdView();
+                                                }else if(fragment instanceof SU){
+                                                    ((SU)fragment).removeAdView();
+                                                }else if(fragment instanceof Uninstaller){
+                                                    ((Uninstaller)fragment).removeAdView();
+                                                }else if(fragment instanceof Wiki){
+                                                    ((Wiki)fragment).removeAdView();
+                                                }else if(fragment instanceof WindowManager){
+                                                    ((WindowManager)fragment).removeAdView();
+                                                }
                                             }
                                             editor.putInt("VideoAds", a);
                                             editor.apply();
-                                            Toast.makeText(context, R.string.ads_removed_temp, Toast.LENGTH_LONG).show();
                                         }
                                     }
+                                    shouldRemoveVideoAds = true;
                                 }
                             });
                 }else{
@@ -774,34 +859,16 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                     rewardedAd.show(MainUI.this, new OnUserEarnedRewardListener() {
                         @Override
                         public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-                            if(donationInstalled()){
-                                Calendar cal = Calendar.getInstance();
-                                Date date = cal.getTime();
-                                cal.setTime(date);
-                                int a =  cal.get(Calendar.DAY_OF_MONTH);
-                                int b = sharedPreferences.getInt("VideoAds", 0);
-                                if(a != b){
-                                    editor.putInt("VideoAds", a);
-                                    editor.apply();
-                                }
-                                Toast.makeText(context, R.string.thanks_for_support, Toast.LENGTH_LONG).show();
-                            }else{
-                                Calendar cal = Calendar.getInstance();
-                                Date date = cal.getTime();
-                                cal.setTime(date);
-                                int a =  cal.get(Calendar.DAY_OF_MONTH);
-                                int b = sharedPreferences.getInt("VideoAds", 0);
-                                if(a != b){
-                                    if(!isVideoAdsWatched()){
-                                        mAdView.destroy();
-                                        mAdView.setVisibility(View.GONE);
-                                        frameLayout.removeView(mAdView);
-                                    }
-                                    editor.putInt("VideoAds", a);
-                                    editor.apply();
-                                    Toast.makeText(context, R.string.ads_removed_temp, Toast.LENGTH_LONG).show();
-                                }
+                            Calendar cal = Calendar.getInstance();
+                            Date date = cal.getTime();
+                            cal.setTime(date);
+                            int a =  cal.get(Calendar.DAY_OF_MONTH);
+                            int b = sharedPreferences.getInt("VideoAds", 0);
+                            if(a != b){
+                                editor.putInt("VideoAds", a);
+                                editor.apply();
                             }
+                            shouldRemoveVideoAds = true;
                         }
                     });
                 }else{
@@ -834,8 +901,8 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 emailIntent.setType("plain/text");
                 emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"exalabdevelopers@gmail.com"});
                 emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, R.string.bug_report1);
-
                 startActivity(Intent.createChooser(emailIntent, getString(R.string.bug_report2)));
+                dialog.dismiss();
             }
         });
         alertDialog.setNegativeButton("Github", new DialogInterface.OnClickListener() {
@@ -942,7 +1009,7 @@ public class MainUI extends AppCompatActivity implements NavigationView.OnNaviga
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean("IsFirstBugNotified", true);
                 editor.apply();
-                isOreoNotified = sharedPreferences.getBoolean("IsFirstBugNotified", false);
+                isFirstBugNotified = sharedPreferences.getBoolean("IsFirstBugNotified", false);
                 dialog.dismiss();
             }
         });

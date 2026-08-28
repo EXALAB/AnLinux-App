@@ -20,8 +20,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class Patches extends Fragment {
 
@@ -35,6 +40,12 @@ public class Patches extends Fragment {
     String patches;
     String s;
     SharedPreferences sharedPreferences;
+    RelativeLayout.LayoutParams relativeLayoutParam;
+    ScrollView scrollView;
+    int leftMargin;
+    int rightMargin;
+    int topMargin;
+    int bottomMargin;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
@@ -44,6 +55,16 @@ public class Patches extends Fragment {
 
         context = getActivity().getApplicationContext();
         sharedPreferences = context.getSharedPreferences("GlobalPreferences", 0);
+
+        scrollView = view.findViewById(R.id.scrollView);
+        relativeLayoutParam = (RelativeLayout.LayoutParams)scrollView.getLayoutParams();
+        leftMargin = relativeLayoutParam.leftMargin;
+        rightMargin = relativeLayoutParam.rightMargin;
+        topMargin = relativeLayoutParam.topMargin;
+        bottomMargin = 0;
+        if(donationInstalled() || isVideoAdsWatched()){
+            relativeLayoutParam.setMargins(leftMargin, topMargin, rightMargin, bottomMargin);
+        }
 
         patches = "Nothing";
         s = Build.SUPPORTED_ABIS[0];
@@ -234,6 +255,30 @@ public class Patches extends Fragment {
             return true;
         } catch (PackageManager.NameNotFoundException e) {
             return false;
+        }
+    }
+    private boolean donationInstalled() {
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            packageManager.getPackageInfo("exa.lnx.d", 0);
+            return true;
+        }catch(PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+    private boolean isVideoAdsWatched(){
+        Calendar cal = Calendar.getInstance();
+        Date date = cal.getTime();
+        cal.setTime(date);
+        int a =  cal.get(Calendar.DAY_OF_MONTH);
+        int b = sharedPreferences.getInt("VideoAds", 0);
+        return a == b;
+    }
+    public void removeAdView() {
+        if (donationInstalled() || isVideoAdsWatched()) {
+            relativeLayoutParam.setMargins(leftMargin, topMargin, rightMargin, bottomMargin);
+            scrollView.setLayoutParams(relativeLayoutParam);
+            scrollView.requestLayout();
         }
     }
 }
